@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>日语核心语法精讲 · 常用口语篇</title>
+<style>
+  :root {
+    --primary: #9f1239;
+    --primary-light: #fff1f2;
+    --primary-border: #fecdd3;
+    --accent: #e11d48;
+    --text-main: #0f172a;
+    --text-muted: #475569;
+    --border-color: #cbd5e1;
+  }
+
+  @page {
+    size: A4;
+    margin: 10mm 13mm 12mm 13mm;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans", "Meiryo", "Microsoft YaHei", sans-serif;
+    color: var(--text-main);
+    line-height: 1.5;
+    font-size: 12.8px;
+    background-color: #ffffff;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .page-break { page-break-after: always; break-after: page; }
+  .avoid-break { page-break-inside: avoid; break-inside: avoid; }
+
+  .doc-header {
+    background: linear-gradient(135deg, #881337 0%, #e11d48 100%);
+    border-radius: 9px;
+    padding: 14px 18px;
+    margin-bottom: 12px;
+    color: #ffffff;
+  }
+  .doc-header h1 { font-size: 21px; font-weight: 800; margin-bottom: 3px; }
+  .doc-header .subtitle { font-size: 12px; opacity: 0.92; margin-bottom: 6px; }
+  .tags { display: flex; gap: 7px; flex-wrap: wrap; }
+  .tag {
+    background: rgba(255, 255, 255, 0.22);
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    padding: 2px 9px;
+    border-radius: 999px;
+    font-size: 10.5px;
+    font-weight: 600;
+  }
+
+  .section { margin-bottom: 12px; }
+  .section-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    padding-bottom: 3px;
+    border-bottom: 2px solid var(--primary);
+  }
+  .section-title .num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 21px;
+    height: 21px;
+    border-radius: 50%;
+    background: var(--primary);
+    color: #ffffff;
+    font-size: 11.5px;
+    font-weight: 700;
+  }
+
+  .card {
+    border: 1px solid var(--border-color);
+    border-radius: 7px;
+    padding: 9px 12px;
+    margin-bottom: 9px;
+    background-color: #ffffff;
+  }
+
+  .info-box {
+    background-color: #f8fafc;
+    border-left: 4px solid var(--accent);
+    border-radius: 0 6px 6px 0;
+    padding: 8px 12px;
+    margin-bottom: 10px;
+    font-size: 12px;
+  }
+
+  .anime-box {
+    background-color: #fdf4ff;
+    border: 1px solid #f0abfc;
+    border-left: 4px solid #d946ef;
+    border-radius: 0 6px 6px 0;
+    padding: 8px 12px;
+    margin-bottom: 10px;
+    font-size: 12px;
+  }
+  .anime-box .title { font-weight: 700; color: #a21caf; margin-bottom: 3px; }
+
+  .tip-box {
+    background-color: #fff1f2;
+    border: 1px solid #fecdd3;
+    border-left: 4px solid #e11d48;
+    border-radius: 0 6px 6px 0;
+    padding: 8px 12px;
+    margin-bottom: 9px;
+    font-size: 12px;
+  }
+  .tip-box .title { font-weight: 700; color: #be123c; margin-bottom: 3px; }
+
+  .warn-box {
+    background-color: #fff7ed;
+    border: 1px solid #fed7aa;
+    border-left: 4px solid #ea580c;
+    border-radius: 0 6px 6px 0;
+    padding: 8px 12px;
+    margin-bottom: 9px;
+    font-size: 12px;
+  }
+  .warn-box .title { font-weight: 700; color: #c2410c; margin-bottom: 3px; }
+
+  table.custom-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 9px;
+    font-size: 11.8px;
+    border-radius: 6px;
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+  }
+  table.custom-table th {
+    background: #881337;
+    color: #ffffff;
+    padding: 5px 7px;
+    font-weight: 700;
+    text-align: left;
+  }
+  table.custom-table td {
+    padding: 4px 7px;
+    border-bottom: 1px solid #e2e8f0;
+    vertical-align: middle;
+  }
+  table.custom-table tr:nth-child(even) td { background-color: #f8fafc; }
+
+  .badge {
+    display: inline-block;
+    padding: 1px 5px;
+    border-radius: 4px;
+    font-size: 10px;
+    font-weight: 700;
+  }
+  .badge-rose { background: #ffe4e6; color: #9f1239; }
+  .badge-blue { background: #dbeafe; color: #1e40af; }
+  .badge-green { background: #d1fae5; color: #065f46; }
+  .badge-amber { background: #fef3c7; color: #92400e; }
+  .badge-purple { background: #ede9fe; color: #5b21b6; }
+
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 9px; }
+
+  .highlight { color: #dc2626; font-weight: 700; }
+  .jp-bold { font-family: "Meiryo", "Hiragino Sans", sans-serif; font-weight: 700; color: #1e293b; }
+  .footer-bar {
+    text-align: center;
+    font-size: 10.5px;
+    color: #94a3b8;
+    margin-top: 8px;
+    padding-top: 5px;
+    border-top: 1px solid #e2e8f0;
+  }
+</style>
+</head>
+<body>
+
+<!-- PAGE 1: 相槌接话与万能神词 -->
+<div class="doc-header">
+  <h1>日语核心语法精讲 · 常用口语篇</h1>
+  <div class="subtitle">击穿动漫与生活口语壁垒 —— 神级自然接话（相槌）、三大万能词与口语节奏心法</div>
+  <div class="tags">
+    <span class="tag">神级接话术(相槌)</span>
+    <span class="tag">三大万能口语词</span>
+    <span class="tag">委婉拒绝垫话</span>
+    <span class="tag">动漫听力映射</span>
+    <span class="tag">现实防踩雷指南</span>
+  </div>
+</div>
+
+<div class="info-box">
+  <strong>【致动漫爱好者的写在前面】</strong> 看动漫时你一定注意到了：日本人聊天时几乎不会冷场，总在不停地“嗯、对啊、真的假的”。学口语最忌讳的是像背课文一样整句背诵。真正的日语口语是由<strong>高频回话反应（相槌）</strong>、<strong>缩音偷懒</strong>和<strong>语气润滑词</strong>组成的。掌握这套系统，你就能自然接上任何话！
+</div>
+
+<div class="section avoid-break">
+  <div class="section-title"><span class="num">1</span> 聊天不冷场的灵魂：神级接话术【相槌（あいづち）】全览</div>
+  <p style="margin-bottom:6px;">在日语交流中，频繁给予对方回应代表“我在认真听你说话”。以下是按情绪分类的最地道接话词：</p>
+
+  <table class="custom-table">
+    <thead>
+      <tr>
+        <th style="width:18%;">回应意图</th>
+        <th style="width:25%;">常用口语表达</th>
+        <th style="width:33%;">典型使用情境</th>
+        <th style="width:24%;">感情色彩与语调</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>日常倾听<br>(在听呢)</strong></td>
+        <td><span class="jp-bold">うん、うん</span> (平辈)<br><span class="jp-bold">ええ / はい</span> (礼貌)</td>
+        <td>对方在连续叙述时，轻微点头伴随发声</td>
+        <td>节奏均匀、平调轻声，表示“继续说”</td>
+      </tr>
+      <tr>
+        <td><strong>深表赞同<br>(就是说啊)</strong></td>
+        <td><span class="jp-bold">そうそう！</span> (对对对！)<br><span class="jp-bold">確かに</span> (确实如此)<br><span class="jp-bold">その通り</span> (正是如此)</td>
+        <td>听到完全符合自己心意或常理的话时：<br>• <span class="jp-bold">そうそう、それな！</span> (对对，就是那个！)</td>
+        <td>语气带有共鸣感；<span class="highlight">それな</span> 是年轻人超高频共鸣词</td>
+      </tr>
+      <tr>
+        <td><strong>吃惊怀疑<br>(真的假的？)</strong></td>
+        <td><span class="jp-bold">マジで？！</span> (真的假的？！)<br><span class="jp-bold">嘘（うそ）！</span> (骗人的吧！)<br><span class="jp-bold">本当（ほんとう）？</span></td>
+        <td>听到意外八卦、反转剧情、震撼消息：<br>• <span class="jp-bold">えっ、嘘でしょ？！</span> (骗人的吧？！)</td>
+        <td>尾音强烈上扬，眼睛睁大；动漫主角极高频口头禅</td>
+      </tr>
+      <tr>
+        <td><strong>恍然大悟<br>(原来如此)</strong></td>
+        <td><span class="jp-bold">なるほど！</span> (原来是这样)<br><span class="jp-bold">そういうことか</span> (这么回事啊)<br><span class="jp-bold">分かった / 了解</span> (明白了)</td>
+        <td>弄懂了事情缘由、解开了谜题：<br>• <span class="jp-bold">なるほどね、だからか！</span> (原来如此，难怪啊！)</td>
+        <td>重音在前，点头释怀；<br>⚠️ 对长辈一般不用 なるほど，用 勉強になります</td>
+      </tr>
+      <tr>
+        <td><strong>遗憾安慰<br>(那可太惨了)</strong></td>
+        <td><span class="jp-bold">大変（たいへん）だね</span><br><span class="jp-bold">残念（ざんねん）…</span><br><span class="jp-bold">災難（さいなん）だな</span></td>
+        <td>听到对方生病、考试失利、倒霉遭遇：<br>• <span class="jp-bold">それは大変だったね…</span> (那当时真够不容易的呢)</td>
+        <td>语调轻柔低沉，带有体恤关切</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="section avoid-break">
+  <div class="section-title"><span class="num">2</span> 日本人离不开的“三大万能神词”深度解码</div>
+
+  <div class="grid-2">
+    <div class="card">
+      <div style="font-weight:700; color:var(--primary); margin-bottom:4px;">🎩 万能万金油：【どうも】</div>
+      <div style="font-size:11.8px; line-height:1.7;">
+        本质是省略了前后句子的副词，根据场合可包揽一切：<br>
+        1. <strong>轻度打招呼</strong>：走廊迎面碰到熟人，点头说一声 <span class="jp-bold">どうも</span>（你好呀）。<br>
+        2. <strong>轻度致谢</strong>：别人帮你扶门，轻声说 <span class="jp-bold">どうも</span>（谢啦，多谢）。<br>
+        3. <strong>轻度抱歉</strong>：借过挤电车时，微鞠躬说 <span class="jp-bold">どうも、すみません</span>（不好意思借过）。
+      </div>
+    </div>
+
+    <div class="card">
+      <div style="font-weight:700; color:var(--primary); margin-bottom:4px;">🛡️ 状态与推辞：【大丈夫（だいじょうぶ）】</div>
+      <div style="font-size:11.8px; line-height:1.7;">
+        在不同语调下代表完全相反的含义：<br>
+        1. <strong>关心询问（升调）</strong>：<span class="jp-bold">大丈夫？</span>（没事吧？你还好吗？）<br>
+        2. <strong>安慰告知（平降调）</strong>：<span class="jp-bold">大丈夫だよ</span>（放心吧，没事儿的）。<br>
+        3. <strong>委婉拒绝（摆手轻调）</strong>：便利店店员问要不要加热或小票，微笑摆手：<span class="jp-bold">あ、大丈夫です</span>（啊，不用了，谢谢）。
+      </div>
+    </div>
+  </div>
+
+  <div class="tip-box">
+    <div class="title">🎭 日本国宝级委婉垫话：【ちょっと…】（巧妙拒绝一切尴尬）</div>
+    <div style="font-size:11.8px; line-height:1.65;">
+      日本人极少当面说“No / 嫌だ / できません”。当别人邀请你聚餐或借钱，而你不想去时，只需做出面露难色、欲言又止的表情说：<br>
+      • <span class="jp-bold">「あ、明日は…ちょっと…（都合が悪くて）」</span>（啊，明天的话……有点……不太方便）<br>
+      对方听到 <span class="highlight">「ちょっと…」</span> 后便会心领神会，立刻顺台阶说：“啊，那下次再说吧！”这就是日本人刻在骨子里的社交空气美学。
+    </div>
+  </div>
+</div>
+
+<div class="footer-bar">日语核心语法精讲 · 常用口语篇 · 第 1 页 / 共 4 页</div>
+<div class="page-break"></div>
+
+<!-- PAGE 2: 七大缩约音与发音偷懒法则 -->
+<div class="doc-header" style="padding:8px 14px; margin-bottom:8px;">
+  <h1 style="font-size:17.5px;">第二章 · 口语七大缩约音与发音“偷懒”法则</h1>
+  <div class="subtitle" style="margin-bottom:0;">为什么日本人说得飞快你听不全？因为他们的舌头在疯狂“合体缩音”</div>
+</div>
+
+<div class="section" style="margin-bottom:8px;">
+  <div class="section-title" style="margin-bottom:6px;"><span class="num">3</span> 日语口语七大发音缩约公式全览表</div>
+
+  <table class="custom-table" style="margin-bottom:6px; font-size:11.4px;">
+    <thead>
+      <tr>
+        <th style="width:17%; padding:3px 6px;">缩音名称</th>
+        <th style="width:25%; padding:3px 6px;">标准语法形态</th>
+        <th style="width:25%; padding:3px 6px;">口语缩音形态</th>
+        <th style="width:33%; padding:3px 6px;">高频口语例句与还原</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td style="padding:3px 6px;"><strong>1. 吞音「い」</strong></td>
+        <td style="padding:3px 6px;"><span class="jp-bold">〜ている / 〜でいる</span><br>(正在做 / 状态)</td>
+        <td style="padding:3px 6px;"><span class="highlight">〜てる / 〜でる</span></td>
+        <td style="padding:3px 6px;">• <span class="jp-bold">知ってる</span> (我知道 ← 知っている)<br>• <span class="jp-bold">何してんの？</span> (在干啥呢 ← 何しているの)</td>
+      </tr>
+      <tr>
+        <td style="padding:3px 6px;"><strong>2. 事先准备缩音</strong></td>
+        <td style="padding:3px 6px;"><span class="jp-bold">〜ておく / 〜でおく</span><br>(提前做好)</td>
+        <td style="padding:3px 6px;"><span class="highlight">〜とく / 〜どく</span></td>
+        <td style="padding:3px 6px;">• <span class="jp-bold">言っとくけど</span> (我先说在前头 ← 言っておく)<br>• <span class="jp-bold">買っといた</span> (事先买好了 ← 買っておいた)</td>
+      </tr>
+      <tr>
+        <td style="padding:3px 6px;"><strong>3. 遗憾搞砸缩音</strong></td>
+        <td style="padding:3px 6px;"><span class="jp-bold">〜てしまう / 〜でしまう</span><br>(糟糕搞砸了/做完了)</td>
+        <td style="padding:3px 6px;"><span class="highlight">〜ちゃう / 〜じゃう</span></td>
+        <td style="padding:3px 6px;">• <span class="jp-bold">忘れちゃった！</span> (彻底忘光啦 ← 忘れてしまった)<br>• <span class="jp-bold">死んじゃうよ！</span> (要死掉了啦 ← 死んでしまう)</td>
+      </tr>
+      <tr>
+        <td style="padding:3px 6px;"><strong>4. 禁止缩音</strong></td>
+        <td style="padding:3px 6px;"><span class="jp-bold">〜ては（いけない/だめ）</span><br>(不可以做某事)</td>
+        <td style="padding:3px 6px;"><span class="highlight">〜ちゃ（だめ）</span><br><span class="highlight">〜じゃ（だめ）</span></td>
+        <td style="padding:3px 6px;">• <span class="jp-bold">諦めちゃだめだ！</span> (不准放弃 ← 諦めてはだめ)<br>• <span class="jp-bold">入っちゃいけない</span> (不能进去 ← 入っては)</td>
+      </tr>
+      <tr>
+        <td style="padding:3px 6px;"><strong>5. 必须非做不可</strong></td>
+        <td style="padding:3px 6px;"><span class="jp-bold">〜なければ（ならない）</span><br>(必须……非走不可)</td>
+        <td style="padding:3px 6px;"><span class="highlight">〜なきゃ</span><br><span class="highlight">〜なくちゃ</span></td>
+        <td style="padding:3px 6px;">• <span class="jp-bold">もう行かなきゃ！</span> (我得走啦！ ← 行かなければ)<br>• <span class="jp-bold">早くしなくちゃ</span> (得快点弄了 ← しなければ)</td>
+      </tr>
+      <tr>
+        <td style="padding:3px 6px;"><strong>6. 引用/传闻缩音</strong></td>
+        <td style="padding:3px 6px;"><span class="jp-bold">〜という / 〜と言っている</span><br>(叫做……/听说……)</td>
+        <td style="padding:3px 6px;"><span class="highlight">〜っていう / 〜って</span></td>
+        <td style="padding:3px 6px;">• <span class="jp-bold">田中さんっていう人</span> (叫田中的人 ← という)<br>• <span class="jp-bold">明日雨だって</span> (听说听天下雨 ← 雨だと言っている)</td>
+      </tr>
+      <tr>
+        <td style="padding:3px 6px;"><strong>7. 说明强调缩音</strong></td>
+        <td style="padding:3px 6px;"><span class="jp-bold">〜のだ / 〜のです</span><br>(解释原因/探求究竟)</td>
+        <td style="padding:3px 6px;"><span class="highlight">〜んだ / 〜んです</span></td>
+        <td style="padding:3px 6px;">• <span class="jp-bold">どうしたんだ？</span> (到底怎么了？ ← どうしたのだ)<br>• <span class="jp-bold">本当なんだよ！</span> (是真的啊！ ← 本当なのだ)</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="section" style="margin-bottom:6px;">
+  <div class="section-title" style="margin-bottom:6px;"><span class="num">4</span> 日常高频确认与反问口语句式</div>
+
+  <div class="grid-3" style="margin-bottom:0;">
+    <div class="card" style="margin-bottom:0;">
+      <div style="font-weight:700; color:var(--primary); margin-bottom:3px; font-size:12px;">🧠 唤醒记忆：【〜っけ？】</div>
+      <div style="font-size:11.5px; line-height:1.6;">
+        用于努力回想已经忘记的事：<br>
+        • <span class="jp-bold">何曜日だっけ？</span>(周几来着?)<br>
+        • <span class="jp-bold">名前、何だっけ？</span>(叫啥来着?)<br>
+        • <span class="jp-bold">出したっけ？</span>(交了来着?)
+      </div>
+    </div>
+
+    <div class="card" style="margin-bottom:0;">
+      <div style="font-weight:700; color:var(--primary); margin-bottom:3px; font-size:12px;">🤝 强烈求同：【〜じゃん】</div>
+      <div style="font-size:11.5px; line-height:1.6;">
+        源于「じゃないか」(这不是…嘛)：<br>
+        • <span class="jp-bold">すげえじゃん！</span>(超棒的嘛!)<br>
+        • <span class="jp-bold">言ったじゃん！</span>(不是说过嘛!)<br>
+        • <span class="jp-bold">美味しくね？</span>(超好吃吧-男系)
+      </div>
+    </div>
+
+    <div class="card" style="margin-bottom:0;">
+      <div style="font-weight:700; color:var(--primary); margin-bottom:3px; font-size:12px;">✨ 揣摩推测：【〜かも】</div>
+      <div style="font-size:11.5px; line-height:1.6;">
+        省略「しれない」(说不定/可能)：<br>
+        • <span class="jp-bold">雨降るかも</span>(说不定要下雨)<br>
+        • <span class="jp-bold">怒ってるかも</span>(可能生气了)<br>
+        • <span class="jp-bold">無理かも</span>(可能搞不定)
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="footer-bar">日语核心语法精讲 · 常用口语篇 · 第 2 页 / 共 4 页</div>
+<div class="page-break"></div>
+
+<!-- PAGE 3: 场景化高频短句速查字典 -->
+<div class="doc-header" style="padding:10px 16px; margin-bottom:10px;">
+  <h1 style="font-size:18px;">第三章 · 6大日常与生活高频情境短句速查</h1>
+  <div class="subtitle" style="margin-bottom:0;">告别课本死板长句，把最地道、最常用的地道表达直接化为肌肉记忆</div>
+</div>
+
+<div class="section avoid-break">
+  <div class="section-title"><span class="num">5</span> 生活实战情境短句大全</div>
+
+  <table class="custom-table" style="margin-bottom:8px;">
+    <thead>
+      <tr>
+        <th style="width:16%;">生活场景</th>
+        <th style="width:32%;">地道口语表达（假名及汉字）</th>
+        <th style="width:30%;">真实中文语境</th>
+        <th style="width:22%;">使用注意事项</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td rowspan="3"><strong>1. 偶遇与分别</strong></td>
+        <td><span class="jp-bold">久しぶり！（ひさしぶり）</span></td>
+        <td>好久不见！（超高频偶遇开场白）</td>
+        <td>敬语说 お久しぶりです</td>
+      </tr>
+      <tr>
+        <td><span class="jp-bold">お疲れ様！（おつかれさま）</span></td>
+        <td>辛苦啦！/ 辛苦了！（职场/下班）</td>
+        <td>万能问候语，见面下班皆可用</td>
+      </tr>
+      <tr>
+        <td><span class="jp-bold">じゃあね！ / またね！ / 気をつけて</span></td>
+        <td>再见啦！/ 下次见！/ 路上当心点</td>
+        <td>日常告别绝不说 さようなら（永别感）</td>
+      </tr>
+      <tr>
+        <td rowspan="3"><strong>2. 致谢与致歉</strong></td>
+        <td><span class="jp-bold">サンキュー！ / 悪いね（わるいね）</span></td>
+        <td>谢啦！ / 不好意思让你费心了</td>
+        <td>平辈/男性好友间非常自然的感谢</td>
+      </tr>
+      <tr>
+        <td><span class="jp-bold">ごめん！ / ごめんね</span></td>
+        <td>抱歉！/ 对不起啦（轻度道歉）</td>
+        <td>动漫日常道歉之王，熟人专用</td>
+      </tr>
+      <tr>
+        <td><span class="jp-bold">気にしないで！（きにしないで）</span></td>
+        <td>别往心里去！/ 没事的别介意</td>
+        <td>安慰向你道歉的朋友时的最佳金句</td>
+      </tr>
+      <tr>
+        <td rowspan="3"><strong>3. 提议与商量</strong></td>
+        <td><span class="jp-bold">どうする？ / どこ行く？</span></td>
+        <td>怎么办？怎么搞？ / 去哪儿呀？</td>
+        <td>朋友聚在一起商量下一步的核心问句</td>
+      </tr>
+      <tr>
+        <td><span class="jp-bold">任せるよ（まかせるよ）</span></td>
+        <td>交给你定啦！/ 听你的！</td>
+        <td>把选择权交给朋友，省心又亲密</td>
+      </tr>
+      <tr>
+        <td><span class="jp-bold">どっちでもいいよ</span></td>
+        <td>哪个都行！我都可以！</td>
+        <td>被问选择A还是B时最自然的回答</td>
+      </tr>
+      <tr>
+        <td rowspan="3"><strong>4. 吐槽与情绪</strong></td>
+        <td><span class="jp-bold">めんどくさい！ / 面倒（めんどう）</span></td>
+        <td>好麻烦啊！烦死啦！</td>
+        <td>动漫死宅/懒散主角最爱台词</td>
+      </tr>
+      <tr>
+        <td><span class="jp-bold">勘弁してくれ！（かんべんしてくれ）</span></td>
+        <td>饶了我吧！放过我吧！</td>
+        <td>被恶作剧或遭遇连环倒霉事时大喊</td>
+      </tr>
+      <tr>
+        <td><span class="jp-bold">冗談でしょ？（じょうだんでしょ）</span></td>
+        <td>开玩笑的吧？！不会吧？！</td>
+        <td>听到离谱事件时的经典反问</td>
+      </tr>
+      <tr>
+        <td rowspan="3"><strong>5. 餐饮与便利店<br>(生存必备)</strong></td>
+        <td><span class="jp-bold">これ、お願いします / これください</span></td>
+        <td>请给我这个 / 我要这个（指菜单）</td>
+        <td>指着菜单点单的最优雅万能句</td>
+      </tr>
+      <tr>
+        <td><span class="jp-bold">持ち帰りで（もちかえりで）</span></td>
+        <td>打包带走（外带）</td>
+        <td>堂食则说 店内で（てんないで）</td>
+      </tr>
+      <tr>
+        <td><span class="jp-bold">別々でお願いします（べつべつで）</span></td>
+        <td>请分开付（AA制结账）</td>
+        <td>结账说 お会計お願いします（おかいけい）</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="tip-box" style="margin-bottom:0;">
+    <div class="title">💡 为什么日本人告别几乎不说「さようなら」？</div>
+    在课本里我们学的第一句再见往往是「さようなら」。但在现代日本日常生活中，这个词带有<strong>“长期分别”、“甚至可能不再相见”</strong>的沉重感。日常朋友、同学、同事道别，请务必用：<br>
+    <span class="jp-bold">「じゃあ、また！（回头见！）」</span> 或 <span class="jp-bold">「お疲れ様でした！（辛苦啦！）」</span>，这才是真正的生活日语！
+  </div>
+</div>
+
+<div class="footer-bar">日语核心语法精讲 · 常用口语篇 · 第 3 页 / 共 4 页</div>
+<div class="page-break"></div>
+
+<!-- PAGE 4: 动漫人设口吻与现实社交防踩雷 -->
+<div class="doc-header" style="padding:10px 16px; margin-bottom:10px;">
+  <h1 style="font-size:18px;">第四章 & 第五章 · 动漫人设台词密码与现实社交防踩雷</h1>
+  <div class="subtitle" style="margin-bottom:0;">听得懂动漫中形形色色的人设标签，更要懂得现实中如何优雅得体地说话</div>
+</div>
+
+<div class="section avoid-break">
+  <div class="section-title"><span class="num">6</span> 🎭 动漫角色语气密码（听音识人设）</div>
+
+  <table class="custom-table" style="margin-bottom:8px;">
+    <thead>
+      <tr>
+        <th style="width:18%;">人设门派</th>
+        <th style="width:22%;">第一人称 / 称谓</th>
+        <th style="width:30%;">标志性语气词与句尾</th>
+        <th style="width:30%;">经典动漫台词</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>热血少年 /<br>粗犷不良</strong></td>
+        <td>自称：<span class="jp-bold">俺（おれ）</span><br>称你：<span class="jp-bold">お前 / てめえ</span></td>
+        <td>• 句尾加 <span class="highlight">〜ぜ / 〜ぞ / 〜だろ</span><br>• 命令形：<span class="highlight">行け！死ね！</span><br>• 补助动词：<span class="highlight">〜やがる</span> (逃げやがった)</td>
+        <td><span class="jp-bold">俺が絶対に守ってやるぜ！</span><br>（老子一定会保护你的！）<br><span class="jp-bold">ふざけんじゃねえぞ！</span> (别开玩笑了！)</td>
+      </tr>
+      <tr>
+        <td><strong>傲娇 / 大小姐 /<br>可爱女性</strong></td>
+        <td>自称：<span class="jp-bold">私（わたし）</span><br>自称：<span class="jp-bold">あたし</span></td>
+        <td>• 句尾轻柔：<span class="highlight">〜わ / 〜のよ / 〜かしら</span><br>• 撒娇反驳：<span class="highlight">〜てば！ / 〜もん！</span><br>• 傲娇经典：<span class="highlight">べ、別に…！</span></td>
+        <td><span class="jp-bold">べ、別にアンタのためじゃないんだからね！</span><br>（哼，才、才不是为了你呢！）<br><span class="jp-bold">もう知らないわ！</span> (我不管你了啦！)</td>
+      </tr>
+      <tr>
+        <td><strong>关西豪爽腔 /<br>搞笑角色</strong></td>
+        <td>自称：<span class="jp-bold">わし / ワイ</span><br>称你：<span class="jp-bold">自分（じぶん）</span></td>
+        <td>• 吐槽：<span class="highlight">なんでやねん！</span> (搞什么鬼！)<br>• 不行：<span class="highlight">あかん！</span> (糟糕不行！)<br>• 对啊：<span class="highlight">せやな</span> / 免责尾巴：<span class="highlight">知らんけど</span></td>
+        <td><span class="jp-bold">そんなんアカンに決まってるやろ！</span><br>（那肯定不行啊搞什么！）<br><span class="jp-bold">めっちゃ美味いで、知らんけど。</span></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="section avoid-break">
+  <div class="section-title"><span class="num">7</span> ⚠️ 动漫爱好者现实交际“防踩雷”三大铁律</div>
+
+  <div class="warn-box" style="margin-bottom:8px;">
+    <div class="title">🚫 避坑警告：切勿把动漫热血口语直接搬到现实生活！</div>
+    <ol style="padding-left:18px; font-size:11.8px; line-height:1.7;">
+      <li><strong>千万别对真人叫「お前（おまえ）」或「あんた」！</strong><br>
+        在动漫里男主对同伴叫“お前”显得很帅，但在日本现实生活中，“お前”是极其傲慢、粗鲁甚至具有挑衅攻击性的词！现实中称呼任何人，<strong>请一律称呼对方姓氏 + さん</strong>（如「田中さん」、「佐藤さん」），或者直接省略主语！
+      </li>
+      <li><strong>初次见面或面对长辈，必须收起“〜ぜ、〜だ、すげえ”！</strong><br>
+        动漫里的主角对谁都说普通体（タメ口）。但现实中面对店员、路人、长辈、老师或刚认识的朋友，不加「です/ます」会被判定为极度没有家教。请使用标准的敬体：<span class="jp-bold">「すごいです」、「ありがとうございます」</span>。
+      </li>
+      <li><strong>警惕中二病古风词汇！</strong><br>
+        动漫里的「貴様（きさま）」、「我が名は…」、「我（われ）」属于特定历史剧或奇幻世界观产物，在现代日本社会讲出来会引发极其尴尬的空气凝固。
+      </li>
+    </ol>
+  </div>
+
+  <div class="card" style="background:#f8fafc; margin-bottom:0;">
+    <div style="font-weight:700; color:var(--primary); margin-bottom:4px;">🚀 听力爱好者飞跃为口语达人的“三步进阶法”</div>
+    <div style="font-size:11.8px; line-height:1.65;">
+      <strong>① 影子跟读（Shadowing）</strong>：看番时挑日常向动漫（如《轻音少女》、《月刊少女野崎君》），角色说完一秒内立刻原样模仿其语气跟读。<br>
+      <strong>② 自言自语输出</strong>：日常生活中有情绪时，立刻替换成日语口头禅（如撞到脚喊「いてっ！」、好吃喊「うま！」、惊讶喊「まじか！」）。<br>
+      <strong>③ 敬语口语双轨制</strong>：心中分清“朋友打闹层”与“社会交际层”，掌握自如切换的能力，这才是真正的高段位日语学习者！
+    </div>
+  </div>
+</div>
+
+<div class="footer-bar">日语核心语法精讲 · 常用口语篇 · 第 4 页 / 共 4 页 · 全篇完</div>
+
+</body>
+</html>

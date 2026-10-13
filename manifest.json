@@ -1,0 +1,15 @@
+{
+  "name": "日语核心语法与全景口语随身宝",
+  "short_name": "日语随身宝",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#0f172a",
+  "theme_color": "#1e40af",
+  "icons": [
+    {
+      "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'><rect width='512' height='512' rx='128' fill='%231e3a8a'/><path d='M110 160h292M140 140v242M372 140v242M140 210h232' stroke='white' stroke-width='32' stroke-linecap='round'/><circle cx='380' cy='370' r='42' fill='%23e11d48'/></svg>",
+      "sizes": "512x512",
+      "type": "image/svg+xml"
+    }
+  ]
+}

@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>日语核心语法精讲 · 句子造句篇</title>
+<style>
+  :root {
+    --primary: #581c87;
+    --primary-light: #faf5ff;
+    --primary-border: #d8b4fe;
+    --accent: #7c3aed;
+    --text-main: #0f172a;
+    --text-muted: #475569;
+    --border-color: #cbd5e1;
+  }
+
+  @page {
+    size: A4;
+    margin: 10mm 13mm 12mm 13mm;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans", "Meiryo", "Microsoft YaHei", sans-serif;
+    color: var(--text-main);
+    line-height: 1.5;
+    font-size: 12.8px;
+    background-color: #ffffff;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .page-break { page-break-after: always; break-after: page; }
+  .avoid-break { page-break-inside: avoid; break-inside: avoid; }
+
+  .doc-header {
+    background: linear-gradient(135deg, #4c1d95 0%, #7c3aed 100%);
+    border-radius: 9px;
+    padding: 14px 18px;
+    margin-bottom: 12px;
+    color: #ffffff;
+  }
+  .doc-header h1 { font-size: 21px; font-weight: 800; margin-bottom: 3px; }
+  .doc-header .subtitle { font-size: 12px; opacity: 0.92; margin-bottom: 6px; }
+  .tags { display: flex; gap: 7px; flex-wrap: wrap; }
+  .tag {
+    background: rgba(255, 255, 255, 0.22);
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    padding: 2px 9px;
+    border-radius: 999px;
+    font-size: 10.5px;
+    font-weight: 600;
+  }
+
+  .section { margin-bottom: 12px; }
+  .section-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    padding-bottom: 3px;
+    border-bottom: 2px solid var(--primary);
+  }
+  .section-title .num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 21px;
+    height: 21px;
+    border-radius: 50%;
+    background: var(--primary);
+    color: #ffffff;
+    font-size: 11.5px;
+    font-weight: 700;
+  }
+
+  .card {
+    border: 1px solid var(--border-color);
+    border-radius: 7px;
+    padding: 9px 12px;
+    margin-bottom: 9px;
+    background-color: #ffffff;
+  }
+
+  .info-box {
+    background-color: #f8fafc;
+    border-left: 4px solid var(--accent);
+    border-radius: 0 6px 6px 0;
+    padding: 8px 12px;
+    margin-bottom: 10px;
+    font-size: 12px;
+  }
+
+  .anime-box {
+    background-color: #fdf4ff;
+    border: 1px solid #f0abfc;
+    border-left: 4px solid #d946ef;
+    border-radius: 0 6px 6px 0;
+    padding: 8px 12px;
+    margin-bottom: 10px;
+    font-size: 12px;
+  }
+  .anime-box .title { font-weight: 700; color: #a21caf; margin-bottom: 3px; }
+
+  .tip-box {
+    background-color: #faf5ff;
+    border: 1px solid #e9d5ff;
+    border-left: 4px solid #7c3aed;
+    border-radius: 0 6px 6px 0;
+    padding: 8px 12px;
+    margin-bottom: 9px;
+    font-size: 12px;
+  }
+  .tip-box .title { font-weight: 700; color: #6b21a8; margin-bottom: 3px; }
+
+  table.custom-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 9px;
+    font-size: 11.8px;
+    border-radius: 6px;
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+  }
+  table.custom-table th {
+    background: #4c1d95;
+    color: #ffffff;
+    padding: 5px 7px;
+    font-weight: 700;
+    text-align: left;
+  }
+  table.custom-table td {
+    padding: 4px 7px;
+    border-bottom: 1px solid #e2e8f0;
+    vertical-align: middle;
+  }
+  table.custom-table tr:nth-child(even) td { background-color: #f8fafc; }
+
+  .badge {
+    display: inline-block;
+    padding: 1px 5px;
+    border-radius: 4px;
+    font-size: 10px;
+    font-weight: 700;
+  }
+  .badge-purple { background: #ede9fe; color: #5b21b6; }
+  .badge-blue { background: #dbeafe; color: #1e40af; }
+  .badge-green { background: #d1fae5; color: #065f46; }
+  .badge-amber { background: #fef3c7; color: #92400e; }
+  .badge-rose { background: #ffe4e6; color: #9f1239; }
+
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 9px; }
+
+  .highlight { color: #dc2626; font-weight: 700; }
+  .jp-bold { font-family: "Meiryo", "Hiragino Sans", sans-serif; font-weight: 700; color: #1e293b; }
+  .footer-bar {
+    text-align: center;
+    font-size: 10.5px;
+    color: #94a3b8;
+    margin-top: 8px;
+    padding-top: 5px;
+    border-top: 1px solid #e2e8f0;
+  }
+</style>
+</head>
+<body>
+
+<!-- PAGE 1: 造句底层逻辑与五大基石句型 -->
+<div class="doc-header">
+  <h1>日语核心语法精讲 · 句子造句篇</h1>
+  <div class="subtitle">从零散单词到自由表达 —— SOV 谓语压轴律、万能积木公式与五大基石句型</div>
+  <div class="tags">
+    <span class="tag">SOV 谓语绝对压轴</span>
+    <span class="tag">万能积木公式</span>
+    <span class="tag">五大基石句型</span>
+    <span class="tag">复句逻辑齿轮</span>
+    <span class="tag">授受动词大破译</span>
+  </div>
+</div>
+
+<div class="info-box">
+  <strong>【致动漫爱好者的写在前面】</strong> 很多人会背单词、也懂单个变形，但一开口或写句子就卡壳，因为总试图按照中文“主-谓-宾”去直译。记住：<strong>日语句子的灵魂是“谓语永远压轴”</strong>！前面的所有成分只要贴好对应的助词，就像乐高积木一样可以自由拼插。
+</div>
+
+<div class="section avoid-break">
+  <div class="section-title"><span class="num">1</span> 日语造句底层哲学：万能积木拼装公式</div>
+
+  <div class="tip-box">
+    <div class="title">🧩 万能积木造句公式（牢记这个黄金顺序！）</div>
+    <div style="font-size:12.5px; line-height:1.7; font-family:'Meiryo',sans-serif;">
+      <strong>【时间】</strong> + <strong>【主语 は/が】</strong> + <strong>【伴随者 と】</strong> + <strong>【场所 で】</strong> + <strong>【工具/方式 で】</strong> + <strong>【目标/对象 に】</strong> + <strong>【宾语 を】</strong> + <span class="highlight">【谓语动词 (绝对压轴)】</span>
+    </div>
+  </div>
+
+  <div class="card" style="background:#f8fafc;">
+    <div style="font-weight:700; color:var(--primary); margin-bottom:4px;">🪜 扩句实战演练（从一个动作扩写为完整长句）：</div>
+    <ol style="padding-left:18px; font-size:11.8px; line-height:1.7;">
+      <li><strong>核心动作</strong>：<span class="jp-bold">食べる</span>（吃）</li>
+      <li><strong>加宾语</strong>：ご飯<span class="highlight">を</span> 食べる（吃饭）</li>
+      <li><strong>加伴随者</strong>：友達<span class="highlight">と</span> ご飯を食べる（和朋友吃饭）</li>
+      <li><strong>加场所与方式</strong>：食堂<span class="highlight">で</span> 箸<span class="highlight">で</span> ご飯を食べる（在食堂用筷子吃饭）</li>
+      <li><strong>加时间与主语</strong>：昨日、私<span class="highlight">は</span> 友達と 食堂で 箸で ご飯を食べた（昨天，我在食堂和朋友用筷子吃了饭）</li>
+    </ol>
+  </div>
+</div>
+
+<div class="section avoid-break">
+  <div class="section-title"><span class="num">2</span> 日语五大基石句型模型（所有长句的母体）</div>
+
+  <table class="custom-table">
+    <thead>
+      <tr>
+        <th style="width:16%;">句型名称</th>
+        <th style="width:30%;">句型公式</th>
+        <th style="width:34%;">典型例句</th>
+        <th style="width:20%;">语法要点</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>1. 判断句</strong></td>
+        <td><span class="jp-bold">A は B です / だ</span><br>(否定: ではありません / じゃない)</td>
+        <td>• 私は学生です (我是学生)<br>• 彼は犯人じゃない (他不是犯人)</td>
+        <td>陈述身份、国籍、属性</td>
+      </tr>
+      <tr>
+        <td><strong>2. 描写句</strong></td>
+        <td><span class="jp-bold">A は [形容词] です / だ</span></td>
+        <td>• 日本の料理は美味しい (日本菜好吃)<br>• この部屋は静かだ (这房间很安静)</td>
+        <td>陈述性质、状态、外观</td>
+      </tr>
+      <tr>
+        <td><strong>3. 存在句</strong><br><span class="highlight">分清生命！</span></td>
+        <td>
+          • 无生命: <span class="jp-bold">【场所】に【物】がある</span><br>
+          • 有生命: <span class="jp-bold">【场所】に【人/动物】がいる</span>
+        </td>
+        <td>
+          • 机の上に本が<span class="highlight">ある</span> (桌上有书)<br>
+          • 庭に猫が<span class="highlight">いる</span> (院子里有猫)<br>
+          • 先生は教室に<span class="highlight">いる</span> (老师在教室)
+        </td>
+        <td>死物/植物用 ある；<br>能走动的人/动物用 いる</td>
+      </tr>
+      <tr>
+        <td><strong>4. 叙述句</strong></td>
+        <td><span class="jp-bold">【人】は【宾语】を [动词]</span></td>
+        <td>• 私は毎日水を飲む (我每天喝水)<br>• 彼は本を読んでいる (他正在看书)</td>
+        <td>动态行为的日常叙述</td>
+      </tr>
+      <tr>
+        <td><strong>5. 情感/愿望</strong></td>
+        <td>
+          • 想要物: <span class="jp-bold">〜が 欲しい</span><br>
+          • 想做某事: <span class="jp-bold">动词ます形去ます + たい</span><br>
+          • 喜好/能力: <span class="jp-bold">〜が 好き / 上手</span>
+        </td>
+        <td>
+          • 新しいパソコンが<span class="highlight">欲しい</span> (想要新电脑)<br>
+          • 日本へ<span class="highlight">行きたい</span> (想去日本)<br>
+          • アニメが<span class="highlight">好きだ</span> (喜欢动漫)
+        </td>
+        <td>表达内心欲望、情感和自身具备的能力</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="footer-bar">日语核心语法精讲 · 句子造句篇 · 第 1 页 / 共 4 页</div>
+<div class="page-break"></div>
+
+<!-- PAGE 2: 复句齿轮（因果、转折、假定） -->
+<div class="doc-header" style="padding:10px 16px; margin-bottom:10px;">
+  <h1 style="font-size:18px;">第二章 · 复句逻辑齿轮：因果、转折与假定条件</h1>
+  <div class="subtitle" style="margin-bottom:0;">将单句串联成逻辑紧密的复句，理清“因为”、“虽然”与“如果”</div>
+</div>
+
+<div class="section avoid-break">
+  <div class="section-title"><span class="num">3</span> 因果与转折逻辑连接</div>
+
+  <table class="custom-table" style="margin-bottom:8px;">
+    <thead>
+      <tr>
+        <th style="width:16%;">逻辑关系</th>
+        <th style="width:24%;">连接标志</th>
+        <th style="width:36%;">典型例句</th>
+        <th style="width:24%;">语感与使用场合</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td rowspan="3"><strong>原因理由<br>(因为……)</strong></td>
+        <td><span class="badge badge-purple">〜から</span></td>
+        <td>• 忙しい<span class="highlight">から</span>、行かない (因为忙，所以不去)<br>• お前を守りたい<span class="highlight">から</span>だ！ (因为想保护你！)</td>
+        <td>主观理由、情绪强烈，动漫主角宣言极高频</td>
+      </tr>
+      <tr>
+        <td><span class="badge badge-blue">〜ので</span></td>
+        <td>• 雨が降っている<span class="highlight">ので</span>、傘を持っていく<br>(因为在下雨，所以带把伞)</td>
+        <td>客观事实、温和礼貌，日常生活与职场首选</td>
+      </tr>
+      <tr>
+        <td><span class="badge badge-green">动词て形</span></td>
+        <td>• 遅れ<span class="highlight">て</span>すみません (因为迟到真对不起)<br>• ニュースを聞い<span class="highlight">て</span>驚いた (听了新闻吃了一惊)</td>
+        <td>轻微自然的伴随因果，常用于致歉和生理/心理反应</td>
+      </tr>
+      <tr>
+        <td rowspan="3"><strong>转折逆接<br>(虽然……但是)</strong></td>
+        <td><span class="badge badge-blue">〜が</span></td>
+        <td>• 高い<span class="highlight">が</span>、質は良い (虽然贵，但质量好)<br>• すみません<span class="highlight">が</span>… (不好意思打扰一下，铺垫)</td>
+        <td>书面、郑重、礼貌，常用作后文铺垫</td>
+      </tr>
+      <tr>
+        <td><span class="badge badge-purple">〜けど / けれど</span></td>
+        <td>• 行きたい<span class="highlight">けど</span>、金がない (想去，但没钱)<br>• 頑張った<span class="highlight">けど</span>、ダメだった (努力了但不行)</td>
+        <td>最自然高频的口语转折，“虽然……但是”</td>
+      </tr>
+      <tr style="background:#fff1f2;">
+        <td><span class="badge badge-rose">〜のに</span><br><span class="highlight">埋怨/不甘！</span></td>
+        <td>• 一生懸命勉強した<span class="highlight">のに</span>、落ちた<br>(明明拼命学了，却落榜了！)</td>
+        <td>带有强烈主观<strong>埋怨、责备、事与愿违的不甘</strong>！</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="section avoid-break">
+  <div class="section-title"><span class="num">4</span> 四大假定条件句（如果……）一分钟极简分流</div>
+
+  <table class="custom-table" style="margin-bottom:7px;">
+    <thead>
+      <tr>
+        <th style="width:16%;">假定句型</th>
+        <th style="width:26%;">核心特征与口诀</th>
+        <th style="width:36%;">典型例句</th>
+        <th style="width:22%;">使用场景与限制</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="badge badge-purple" style="font-size:11px;">〜たら</span></td>
+        <td><strong>最万能口语之王！</strong><br>“如果……/一旦发生后就……”</td>
+        <td>• 日本に着い<span class="highlight">たら</span>、連絡して (到了日本后联系我)<br>• 安かっ<span class="highlight">たら</span>、買う (如果便宜就买)</td>
+        <td>口语中最常用，后句可以接命令、请求、个人意志</td>
+      </tr>
+      <tr>
+        <td><span class="badge badge-blue" style="font-size:11px;">〜ば</span></td>
+        <td><strong>纯逻辑推导条件</strong><br>“只要……就一定会……”</td>
+        <td>• やれ<span class="highlight">ば</span>できる！ (只要去干就能成！)<br>• 安けれ<span class="highlight">ば</span>、買う (只要便宜就买)</td>
+        <td>书面感较强，后句通常是自然结果或客观推论</td>
+      </tr>
+      <tr>
+        <td><span class="badge badge-green" style="font-size:11px;">〜と</span></td>
+        <td><strong>客观自然必然恒常</strong><br>“一……就立刻必然发生”</td>
+        <td>• 春になる<span class="highlight">と</span>、桜が咲く (一到春天，樱花就开)<br>• ボタンを押す<span class="highlight">と</span>、水が出る (一按按钮水就出)</td>
+        <td>⚠️ <strong>限制</strong>：后句绝对不能接请求、命令、个人意志！</td>
+      </tr>
+      <tr>
+        <td><span class="badge badge-amber" style="font-size:11px;">〜なら</span></td>
+        <td><strong>话题承接假定</strong><br>“如果是针对……的话”</td>
+        <td>• 日本へ行く<span class="highlight">なら</span>、秋がいいよ (要是去日本的话，秋天最好)<br>• 彼<span class="highlight">なら</span>大丈夫だ (要是他的话肯定没问题)</td>
+        <td>根据对方提供的信息给出建议、评价或限定</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="tip-box" style="margin-bottom:0;">
+    <div class="title">💡 假定选择困难症？记住“たら”是绝对万能解！</div>
+    在初中级日常口语交流中，如果拿不准用哪一个，<strong>首选用「〜たら」</strong>（动词た形 + ら）！它几乎能覆盖 80% 以上的日常假定场景，且后句毫无限制！
+  </div>
+</div>
+
+<div class="footer-bar">日语核心语法精讲 · 句子造句篇 · 第 2 页 / 共 4 页</div>
+<div class="page-break"></div>
+
+<!-- PAGE 3: 授受动词大破译 -->
+<div class="doc-header" style="padding:10px 16px; margin-bottom:10px;">
+  <h1 style="font-size:18px;">第三章 · 日语独特社交心理学：授受动词（给与拿）</h1>
+  <div class="subtitle" style="margin-bottom:0;">日本文化核心“恩惠流向”：谁给谁东西、谁帮谁做了事、感恩与承蒙</div>
+</div>
+
+<div class="section avoid-break">
+  <div class="section-title"><span class="num">5</span> 物品授受三大动词流向图解</div>
+
+  <table class="custom-table">
+    <thead>
+      <tr>
+        <th style="width:16%;">授受动词</th>
+        <th style="width:26%;">流向公式</th>
+        <th style="width:34%;">典型例句</th>
+        <th style="width:24%;">视角与感情色彩</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="badge badge-purple" style="font-size:11px;">あげる</span></td>
+        <td><strong>【我】 给 【别人】</strong><br>或者 A 给 B</td>
+        <td>• 私は友達にプレゼントを<span class="highlight">あげた</span><br>(我给朋友送了礼物)</td>
+        <td>站在“给予者（我）”的视角，自内向外流出</td>
+      </tr>
+      <tr>
+        <td><span class="badge badge-rose" style="font-size:11px;">くれる</span></td>
+        <td><strong>【别人】 给 【我】</strong><br>(或给我方圈内的人)</td>
+        <td>• 友達が私にプレゼントを<span class="highlight">くれた</span><br>(朋友送了我礼物)</td>
+        <td>站在“接受者（我）”的视角，心存感激，由外向内流入</td>
+      </tr>
+      <tr>
+        <td><span class="badge badge-blue" style="font-size:11px;">もらう</span></td>
+        <td><strong>【我】 从 【别人】 处得到</strong><br>(【我】 は 【人】 に/から もらう)</td>
+        <td>• 私は友達に/から プレゼントを<span class="highlight">もらった</span><br>(我从朋友那儿得到了礼物)</td>
+        <td>以“我”作为主动主语，承蒙领受</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="section avoid-break">
+  <div class="section-title"><span class="num">6</span> 行为恩惠授受（动词て形 + 授受动词）—— 听懂动漫羁绊</div>
+  <p style="margin-bottom:8px;">把动词变成「て形」，再加上授受动词，就构成了“为某人提供帮助 / 受到某人恩惠”的核心句式：</p>
+
+  <div class="grid-2">
+    <div class="card">
+      <div style="font-weight:700; color:var(--primary); margin-bottom:4px;">🎁 〜てあげる（为别人做某事）</div>
+      <div style="font-size:11.8px; line-height:1.7;">
+        • 语法：动词て形 + あげる<br>
+        • 含义：我为对方做某事（施恩）<br>
+        • 例句：<span class="jp-bold">荷物を持ってあげる</span>（我帮你拿行李）<br>
+        • ⚠️ <strong>注意</strong>：对长辈直接说会显得傲慢居高临下，对平辈或动漫热血场景常用。
+      </div>
+    </div>
+
+    <div class="card">
+      <div style="font-weight:700; color:#e11d48; margin-bottom:4px;">💖 〜てくれる（别人为我做某事·感恩）</div>
+      <div style="font-size:11.8px; line-height:1.7;">
+        • 语法：动词て形 + くれる<br>
+        • 含义：对方好心帮我做了某事，内心充满感激！<br>
+        • 例句：<span class="jp-bold highlight">助けてくれてありがとう！</span><br>
+        （谢谢你救了我！动漫金句）<br>
+        • 例句：<span class="jp-bold">彼が教えてくれた</span>（是他好心教会了我）
+      </div>
+    </div>
+  </div>
+
+  <div class="card" style="background:#f8fafc; margin-bottom:0;">
+    <div style="font-weight:700; color:var(--primary); margin-bottom:4px;">🙏 〜てもらう（请/承蒙别人为自己做某事）</div>
+    <div style="font-size:12px; line-height:1.7;">
+      • 语法：【我】は【对方】に 动词て形 + もらう<br>
+      • 含义：通过请求，让对方为自己做某事（强调我主动请托并受惠）。<br>
+      • 例句：<span class="jp-bold">先生に日本語を教えてもらった。</span>（承蒙老师教了我日语。）<br>
+      • 例句：<span class="jp-bold">友達に手伝ってもらう。</span>（请朋友帮我一下忙。）
+    </div>
+  </div>
+</div>
+
+<div class="footer-bar">日语核心语法精讲 · 句子造句篇 · 第 3 页 / 共 4 页</div>
+<div class="page-break"></div>
+
+<!-- PAGE 4: 动漫口语还原与造句实战挑战 -->
+<div class="doc-header" style="padding:10px 16px; margin-bottom:10px;">
+  <h1 style="font-size:18px;">第四章 & 第五章 · 动漫口语还原与造句实战大通关</h1>
+  <div class="subtitle" style="margin-bottom:0;">把听觉输入转化为笔头输出，完成从“听个热闹”到“精准造句”的华丽蜕变</div>
+</div>
+
+<div class="section avoid-break">
+  <div class="section-title"><span class="num">7</span> 动漫听力口语倒装与问句还原</div>
+
+  <div class="anime-box">
+    <div class="title">🎬 常见动漫口语倒装句还原</div>
+    <table class="custom-table" style="margin-bottom:0; font-size:11.5px;">
+      <thead>
+        <tr>
+          <th>动漫吼出的倒装台词</th>
+          <th>标准语法正序</th>
+          <th>为什么动漫要倒装？</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="jp-bold">行くぞ、みんな！</span></td>
+          <td>みんな、行こう！</td>
+          <td>紧急关头必须先把核心动作“冲！”喊出来，再叫人</td>
+        </tr>
+        <tr>
+          <td><span class="jp-bold">守るんだ、この世界を！</span></td>
+          <td>この世界を守るんだ！</td>
+          <td>强调誓死守护的决意，把动词前置获得重音冲击力</td>
+        </tr>
+        <tr>
+          <td><span class="jp-bold">何なんだよ、これは？</span></td>
+          <td>これは何ですか？</td>
+          <td>惊恐或愤怒时，先把质问词“到底是啥啊”甩在最前</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="section avoid-break">
+  <div class="section-title"><span class="num">8</span> 🏋️ 动漫听力者造句实战 5 题挑战（含积木拼装思路）</div>
+
+  <div class="card" style="font-size:12px; line-height:1.7;">
+    <div style="margin-bottom:7px;">
+      <strong>【第 1 题】我想和朋友在家里看动漫。</strong><br>
+      • 拼装积木：时间无 + 主语(省略) + 场所(<span class="highlight">家で</span>) + 伴随(<span class="highlight">友達と</span>) + 宾语(<span class="highlight">アニメを</span>) + 愿望(<span class="highlight">見たい</span>)<br>
+      • 标准答案：<span class="jp-bold">家で 友達と アニメを見たいです。</span>
+    </div>
+    
+    <div style="margin-bottom:7px;">
+      <strong>【第 2 题】虽然昨天很累，但因为电影很有趣，所以看完了。</strong><br>
+      • 拼装积木：昨天(昨日) + 转折(疲れた<span class="highlight">けど</span>) + 原因(映画が面白かった<span class="highlight">から</span>) + 完成(全部<span class="highlight">見た / 見ちゃった</span>)<br>
+      • 标准答案：<span class="jp-bold">昨日は疲れたけど、映画が面白かったから、最後まで見ました。</span>
+    </div>
+
+    <div style="margin-bottom:7px;">
+      <strong>【第 3 题】如果明天天气好的话，想去东京。</strong><br>
+      • 拼装积木：时间(明日) + 假定(天気がよかっ<span class="highlight">たら</span>) + 目的地(東京<span class="highlight">に/へ</span>) + 愿望(<span class="highlight">行きたい</span>)<br>
+      • 标准答案：<span class="jp-bold">明日 天気がよかったら、東京へ行きたいです。</span>
+    </div>
+
+    <div style="margin-bottom:7px;">
+      <strong>【第 4 题】谢谢你特意帮我解释语法！（运用行为授受）</strong><br>
+      • 拼装积木：语法(文法を) + 解释(説明する → 説明して<span class="highlight">くれた</span>) + 感谢(ありがとう)<br>
+      • 标准答案：<span class="jp-bold">文法を説明してくれて、本当にありがとうございます！</span>
+    </div>
+
+    <div>
+      <strong>【第 5 题】即使失败了，我也绝对不认输！</strong><br>
+      • 拼装积木：失败(失敗する → 失敗し<span class="highlight">ても</span>) + 决意(私/俺は) + 绝对(絶対に) + 否定(<span class="highlight">負けない！</span>)<br>
+      • 标准答案：<span class="jp-bold">たとえ失敗しても、絶対に負けない！</span>
+    </div>
+  </div>
+</div>
+
+<div class="footer-bar">日语核心语法精讲 · 句子造句篇 · 第 4 页 / 共 4 页 · 全篇完</div>
+
+</body>
+</html>

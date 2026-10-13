@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>日语核心语法精讲 · 形容词篇</title>
+<style>
+  :root {
+    --primary: #065f46;
+    --primary-light: #ecfdf5;
+    --primary-border: #a7f3d0;
+    --accent: #059669;
+    --text-main: #0f172a;
+    --text-muted: #475569;
+    --border-color: #cbd5e1;
+  }
+
+  @page {
+    size: A4;
+    margin: 12mm 14mm 14mm 14mm;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans", "Meiryo", "Microsoft YaHei", sans-serif;
+    color: var(--text-main);
+    line-height: 1.55;
+    font-size: 13px;
+    background-color: #ffffff;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .page-break { page-break-after: always; break-after: page; }
+  .avoid-break { page-break-inside: avoid; break-inside: avoid; }
+
+  .doc-header {
+    background: linear-gradient(135deg, #064e3b 0%, #059669 100%);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin-bottom: 15px;
+    color: #ffffff;
+  }
+  .doc-header h1 { font-size: 22px; font-weight: 800; margin-bottom: 4px; }
+  .doc-header .subtitle { font-size: 12.5px; opacity: 0.92; margin-bottom: 8px; }
+  .tags { display: flex; gap: 8px; flex-wrap: wrap; }
+  .tag {
+    background: rgba(255, 255, 255, 0.22);
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    padding: 2px 10px;
+    border-radius: 999px;
+    font-size: 11px;
+    font-weight: 600;
+  }
+
+  .section { margin-bottom: 15px; }
+  .section-title {
+    font-size: 15.5px;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding-bottom: 4px;
+    border-bottom: 2px solid var(--primary);
+  }
+  .section-title .num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: var(--primary);
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: 700;
+  }
+
+  .card {
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 10px 13px;
+    margin-bottom: 11px;
+    background-color: #ffffff;
+  }
+
+  .info-box {
+    background-color: #f8fafc;
+    border-left: 4px solid var(--accent);
+    border-radius: 0 6px 6px 0;
+    padding: 9px 13px;
+    margin-bottom: 11px;
+    font-size: 12.5px;
+  }
+
+  .anime-box {
+    background-color: #fdf4ff;
+    border: 1px solid #f0abfc;
+    border-left: 4px solid #d946ef;
+    border-radius: 0 6px 6px 0;
+    padding: 9px 13px;
+    margin-bottom: 11px;
+    font-size: 12.5px;
+  }
+  .anime-box .title { font-weight: 700; color: #a21caf; margin-bottom: 3px; }
+
+  .trap-box {
+    background-color: #fff1f2;
+    border: 1px solid #fecdd3;
+    border-left: 4px solid #e11d48;
+    border-radius: 0 6px 6px 0;
+    padding: 9px 13px;
+    margin-bottom: 11px;
+    font-size: 12.5px;
+  }
+  .trap-box .title { font-weight: 700; color: #be123c; margin-bottom: 3px; }
+
+  .tip-box {
+    background-color: #ecfdf5;
+    border: 1px solid #a7f3d0;
+    border-left: 4px solid #059669;
+    border-radius: 0 6px 6px 0;
+    padding: 9px 13px;
+    margin-bottom: 11px;
+    font-size: 12.5px;
+  }
+  .tip-box .title { font-weight: 700; color: #047857; margin-bottom: 3px; }
+
+  table.custom-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 11px;
+    font-size: 12px;
+    border-radius: 6px;
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+  }
+  table.custom-table th {
+    background: #064e3b;
+    color: #ffffff;
+    padding: 6px 8px;
+    font-weight: 700;
+    text-align: left;
+  }
+  table.custom-table td {
+    padding: 5px 8px;
+    border-bottom: 1px solid #e2e8f0;
+    vertical-align: middle;
+  }
+  table.custom-table tr:nth-child(even) td { background-color: #f8fafc; }
+
+  .badge {
+    display: inline-block;
+    padding: 1px 6px;
+    border-radius: 4px;
+    font-size: 10.5px;
+    font-weight: 700;
+  }
+  .badge-green { background: #d1fae5; color: #065f46; }
+  .badge-blue { background: #dbeafe; color: #1e40af; }
+  .badge-purple { background: #ede9fe; color: #5b21b6; }
+  .badge-rose { background: #ffe4e6; color: #9f1239; }
+  .badge-amber { background: #fef3c7; color: #92400e; }
+
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 11px; margin-bottom: 11px; }
+
+  .highlight { color: #dc2626; font-weight: 700; }
+  .jp-bold { font-family: "Meiryo", "Hiragino Sans", sans-serif; font-weight: 700; color: #1e293b; }
+  .footer-bar {
+    text-align: center;
+    font-size: 11px;
+    color: #94a3b8;
+    margin-top: 10px;
+    padding-top: 6px;
+    border-top: 1px solid #e2e8f0;
+  }
+</style>
+</head>
+<body>
+
+<!-- PAGE 1: 两大阵营与鉴别法则 -->
+<div class="doc-header">
+  <h1>日语核心语法精讲 · 形容词篇</h1>
+  <div class="subtitle">击穿“い形容词”与“な形容词”迷宫 —— 变形心法、特例规避与动漫母音融合变音</div>
+  <div class="tags">
+    <span class="tag">两大阵营本质对比</span>
+    <span class="tag">5大披着い外衣的假词</span>
+    <span class="tag">去い大作战</span>
+    <span class="tag">いい/よい唯一神级特例</span>
+    <span class="tag">动漫母音长音变音</span>
+  </div>
+</div>
+
+<div class="info-box">
+  <strong>【致动漫爱好者的写在前面】</strong> 形容词比动词简单得多！它只有<strong>两大类别</strong>。掌握它的关键是抓住本质：<strong>「い形容词」是拥有自我变形能力的真正形容词</strong>，而<strong>「な形容词」本质是个名词</strong>（不能自己变，全靠身后的 だ/です 帮它变）。分清这两点，变形立刻清晰明了！
+</div>
+
+<div class="section avoid-break">
+  <div class="section-title"><span class="num">1</span> 形容词两大阵营本质区别与快速判断</div>
+
+  <table class="custom-table">
+    <thead>
+      <tr>
+        <th style="width:20%;">阵营名称</th>
+        <th style="width:22%;">形态特征与标志</th>
+        <th style="width:30%;">修饰名词的方式</th>
+        <th style="width:28%;">典型例词</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>い形容词</strong><br><span style="color:#64748b;">(真正形容词)</span></td>
+        <td>词尾独立假名<strong>必定是「い」</strong><br>（具备独立的词尾活用能力）</td>
+        <td>直接接名词：<br><span class="jp-bold">高い</span>ビル、<span class="jp-bold">優しい</span>人</td>
+        <td><span class="jp-bold">高い</span> (高/贵)、<span class="jp-bold">可愛い</span> (可爱)、<span class="jp-bold">痛い</span> (痛)、<span class="jp-bold">面白い</span> (有趣)</td>
+      </tr>
+      <tr>
+        <td><strong>な形容词</strong><br><span style="color:#64748b;">(形容动词/状态词)</span></td>
+        <td>词典形态不带「い」<br>（本质是名词，无法自己变形）</td>
+        <td>必须加<strong>「な」</strong>再接名词：<br><span class="jp-bold">静かな</span>町、<span class="jp-bold">好きな</span>歌</td>
+        <td><span class="jp-bold">静か</span> (安静)、<span class="jp-bold">好き</span> (喜欢)、<span class="jp-bold">便利</span> (方便)、<span class="jp-bold">元気</span> (健康/有精神)</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="trap-box">
+    <div class="title">⚠️ 必背陷阱！5 大“假 い形容词”（发音带 i，但本质全都是 な形容词！）</div>
+    <div style="font-size:12px; line-height:1.7;">
+      下列单词发音词尾虽然是 <strong>i</strong>，但在日语汉字体系中，它们汉字后面没有独立的假名「い」，<strong>全部属于「な形容词」</strong>，修饰名词必须加「な」，变形全靠「だ/です」：<br>
+      • <span class="jp-bold">綺麗（きれい）</span> → 漂亮的、干净的（例：綺麗な花，绝不可写成 綺麗い！）<br>
+      • <span class="jp-bold">有名（ゆうめい）</span> → 有名的（例：有名な人，因为「めい」是汉字音读）<br>
+      • <span class="jp-bold">嫌い（きらい）</span> → 讨厌的（例：嫌いな食べ物，喜欢和讨厌都是 な形容词！）<br>
+      • <span class="jp-bold">得意（とくい）</span> → 擅长的 / <span class="jp-bold">苦手（にがて）</span> → 不擅长的<br>
+      • <span class="jp-bold">幸い（さいわい）</span> → 幸运的、庆幸的
+    </div>
+  </div>
+</div>
+
+<div class="footer-bar">日语核心语法精讲 · 形容词篇 · 第 1 页 / 共 4 页</div>
+<div class="page-break"></div>
+
+<!-- PAGE 2: い形容词完整变形网络 -->
+<div class="doc-header" style="padding:12px 18px; margin-bottom:14px;">
+  <h1 style="font-size:19px;">第二章 · い形容词全变形网络（去「い」大作战）</h1>
+  <div class="subtitle" style="margin-bottom:0;">记住唯一铁律：把词尾的「い」彻底拿掉，再贴上对应的功能尾巴</div>
+</div>
+
+<div class="section avoid-break">
+  <div class="section-title"><span class="num">2</span> い形容词活用全方位速查表</div>
+
+  <table class="custom-table">
+    <thead>
+      <tr>
+        <th style="width:18%;">语法功能</th>
+        <th style="width:22%;">变形公式</th>
+        <th style="width:30%;">例词：<span style="color:#a7f3d0;">高い (takai · 贵)</span></th>
+        <th style="width:30%;">例词：<span style="color:#a7f3d0;">可愛い (kawaii · 可爱)</span></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>现在肯定</strong> (原形)</td>
+        <td>直接用（敬语+です）</td>
+        <td>高い / 高いです</td>
+        <td>可愛い / 可愛いです</td>
+      </tr>
+      <tr>
+        <td><strong>现在否定</strong> (不……)</td>
+        <td>去「い」+ <span class="highlight">くない</span></td>
+        <td>高<span class="highlight">くない</span> (不贵)<br><span style="color:#64748b;">(敬: 高くないです / 高くありません)</span></td>
+        <td>可愛<span class="highlight">くない</span> (不可爱)</td>
+      </tr>
+      <tr>
+        <td><strong>过去肯定</strong> (曾经……)</td>
+        <td>去「い」+ <span class="highlight">かった</span></td>
+        <td>高<span class="highlight">かった</span> (以前很贵)<br><span style="color:#64748b;">(敬: 高かったです)</span></td>
+        <td>可愛<span class="highlight">かった</span> (刚才真可爱)</td>
+      </tr>
+      <tr>
+        <td><strong>过去否定</strong> (过去不……)</td>
+        <td>去「い」+ <span class="highlight">くなかった</span></td>
+        <td>高<span class="highlight">くなかった</span> (以前不贵)<br><span style="color:#64748b;">(敬: 高くありませんでした)</span></td>
+        <td>可愛<span class="highlight">くなかった</span> (当时并不可爱)</td>
+      </tr>
+      <tr>
+        <td><strong>中顿连接</strong> (既……又……)</td>
+        <td>去「い」+ <span class="highlight">くて</span></td>
+        <td>高<span class="highlight">くて</span>買えない (又贵又买不起)</td>
+        <td>可愛<span class="highlight">くて</span>優しい (既可爱又温柔)</td>
+      </tr>
+      <tr>
+        <td><strong>副词化</strong> (修饰动词)</td>
+        <td>去「い」+ <span class="highlight">く</span></td>
+        <td>高<span class="highlight">く</span>跳ぶ (跳得高)<br>早<span class="highlight">く</span>起きる (早起)</td>
+        <td>可愛<span class="highlight">く</span>笑う (可爱地笑)</td>
+      </tr>
+      <tr>
+        <td><strong>样态推测</strong> (看起来……)</td>
+        <td>去「い」+ <span class="highlight">そう</span></td>
+        <td>高<span class="highlight">そう</span> (看起来好贵)<br>美味<span class="highlight">しそう</span> (看起来好吃)</td>
+        <td>可愛<span class="highlight">いそう</span> ❌ (可爱极少接そう，用可愛らしい)</td>
+      </tr>
+      <tr>
+        <td><strong>假定条件</strong> (如果……)</td>
+        <td>去「い」+ <span class="highlight">ければ</span></td>
+        <td>安<span class="highlight">ければ</span>買う (如果便宜就买)</td>
+        <td>可愛<span class="highlight">ければ</span>いい (只要可爱就行)</td>
+      </tr>
+      <tr>
+        <td><strong>名词化</strong> (转化为名词)</td>
+        <td>去「い」+ <span class="highlight">さ</span> (程度) / <span class="highlight">み</span> (感受)</td>
+        <td>高<span class="highlight">さ</span> (高度)、重<span class="highlight">さ</span> (重量)</td>
+        <td>温か<span class="highlight">み</span> (温情)、悲し<span class="highlight">み</span> (悲伤)</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="tip-box">
+    <div class="title">🌟 ★ 唯一神级特例词：「いい / よい」（好）的变身规律</div>
+    <div style="font-size:12.5px; line-height:1.75;">
+      「好」这个词原形通常说 <span class="jp-bold">いい</span>。但是：<strong>它只要发生任何形态变化，一律必须回到古代原型「よい」来变！</strong><br>
+      • 否定（不好）：<span class="highlight">よくない</span>（绝不可说 いくない ❌）<br>
+      • 过去（曾经好/太好了）：<span class="highlight">よかった</span>（动漫超高频：“よかった！” 幸好/太好啦！）<br>
+      • 过去否定（过去不好）：<span class="highlight">よくなかった</span><br>
+      • 中顿连接（又好又……）：<span class="highlight">よくて</span>（安くてよくて 便宜又好）<br>
+      • 副词化（好好地做）：<span class="highlight">よく</span>（よくやった！干得好！/ よく見る 好好看着）<br>
+      • 推测（看起来不错）：<span class="highlight">よさそう</span>（★ 特殊插入さ：良さそうだね 看起来挺好呢）
+    </div>
+  </div>
+</div>
+
+<div class="footer-bar">日语核心语法精讲 · 形容词篇 · 第 2 页 / 共 4 页</div>
+<div class="page-break"></div>
+
+<!-- PAGE 3: な形容词完整变形网络与横向大PK -->
+<div class="doc-header" style="padding:12px 18px; margin-bottom:14px;">
+  <h1 style="font-size:19px;">第三章 · な形容词全变形网络与两派终极大 PK</h1>
+  <div class="subtitle" style="margin-bottom:0;">な形容词本质是个名词：把词干抓出来，像玩积木一样贴上「だ / です」的各种形态</div>
+</div>
+
+<div class="section avoid-break">
+  <div class="section-title"><span class="num">3</span> な形容词活用全方位速查表</div>
+
+  <table class="custom-table">
+    <thead>
+      <tr>
+        <th style="width:20%;">语法功能</th>
+        <th style="width:24%;">变形零件（普通体 / 敬体）</th>
+        <th style="width:28%;">例词：<span style="color:#a7f3d0;">静か (shizuka · 安静)</span></th>
+        <th style="width:28%;">例词：<span style="color:#a7f3d0;">好き (suki · 喜欢)</span></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>修饰名词</strong> (定语)</td>
+        <td>词干 + <span class="highlight">な</span></td>
+        <td>静か<span class="highlight">な</span>部屋 (安静的房间)</td>
+        <td>好<span class="highlight">きな</span>人 (喜欢的人)</td>
+      </tr>
+      <tr>
+        <td><strong>肯定结句</strong> (是……)</td>
+        <td>词干 + <span class="highlight">だ</span> / <span class="highlight">です</span></td>
+        <td>静か<span class="highlight">だ</span> / 静か<span class="highlight">です</span></td>
+        <td>好<span class="highlight">きだ</span>！(喜欢你！) / 好きです</td>
+      </tr>
+      <tr>
+        <td><strong>否定结句</strong> (不……)</td>
+        <td>词干 + <span class="highlight">じゃない</span> / <span class="highlight">ではありません</span></td>
+        <td>静か<span class="highlight">じゃない</span> (不安静)</td>
+        <td>好<span class="highlight">きじゃない</span> (并不喜欢)</td>
+      </tr>
+      <tr>
+        <td><strong>过去肯定</strong> (过去是……)</td>
+        <td>词干 + <span class="highlight">だった</span> / <span class="highlight">でした</span></td>
+        <td>静か<span class="highlight">だった</span> (曾经很安静)</td>
+        <td>好<span class="highlight">きだった</span> (曾经深爱过)</td>
+      </tr>
+      <tr>
+        <td><strong>过去否定</strong> (过去不是……)</td>
+        <td>词干 + <span class="highlight">じゃなかった</span> / でした</td>
+        <td>静か<span class="highlight">じゃなかった</span></td>
+        <td>好<span class="highlight">きじゃなかった</span> (当时并不喜欢)</td>
+      </tr>
+      <tr>
+        <td><strong>中顿连接</strong> (既……又……)</td>
+        <td>词干 + <span class="highlight">で</span></td>
+        <td>静か<span class="highlight">で</span>便利だ (又安静又方便)</td>
+        <td>好<span class="highlight">きで</span>たまらない (喜欢得不得了)</td>
+      </tr>
+      <tr>
+        <td><strong>副词化</strong> (修饰动词)</td>
+        <td>词干 + <span class="highlight">に</span></td>
+        <td>静か<span class="highlight">に</span>歩く (安静地走)</td>
+        <td>真面目<span class="highlight">に</span>やる (认真地干)</td>
+      </tr>
+      <tr>
+        <td><strong>样态推测</strong> (看起来……)</td>
+        <td>词干 + <span class="highlight">そう</span></td>
+        <td>便利<span class="highlight">そう</span> (看起来很方便)</td>
+        <td>元気<span class="highlight">そう</span> (看起来很有精神)</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="section avoid-break">
+  <div class="section-title"><span class="num">4</span> 两大形容词阵营横向终极大 PK（一秒对照）</div>
+
+  <table class="custom-table">
+    <thead>
+      <tr>
+        <th style="width:20%;">语法维度</th>
+        <th style="width:40%;">い形容词（例：高い / 面白い）</th>
+        <th style="width:40%;">な形容词（例：静か / 綺麗）</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>修饰名词</strong></td>
+        <td>直接贴：高い山、面白い本</td>
+        <td>必须加「な」：静か<span class="highlight">な</span>町、綺麗<span class="highlight">な</span>人</td>
+      </tr>
+      <tr>
+        <td><strong>否定形式</strong></td>
+        <td>去い加 <span class="highlight">くない</span>（高くない）</td>
+        <td>直接加 <span class="highlight">じゃない</span>（静かじゃない）</td>
+      </tr>
+      <tr>
+        <td><strong>过去形式</strong></td>
+        <td>去い加 <span class="highlight">かった</span>（高かった）</td>
+        <td>直接加 <span class="highlight">だった</span>（静かだった）</td>
+      </tr>
+      <tr>
+        <td><strong>中顿连接</strong></td>
+        <td>去い加 <span class="highlight">くて</span>（高くて美味しい）</td>
+        <td>直接加 <span class="highlight">で</span>（静かで綺麗だ）</td>
+      </tr>
+      <tr>
+        <td><strong>修饰动词(副词)</strong></td>
+        <td>去い加 <span class="highlight">く</span>（早く起きる）</td>
+        <td>直接加 <span class="highlight">に</span>（静かに座る）</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="footer-bar">日语核心语法精讲 · 形容词篇 · 第 3 页 / 共 4 页</div>
+<div class="page-break"></div>
+
+<!-- PAGE 4: 程度副词搭配与动漫口语母音变音 -->
+<div class="doc-header" style="padding:12px 18px; margin-bottom:14px;">
+  <h1 style="font-size:19px;">第四章 & 第五章 · 程度副词搭配与动漫母音融合变音</h1>
+  <div class="subtitle" style="margin-bottom:0;">给形容词加上情感量级，破译动漫中男角色“すげえ、やべえ”的语音学本质</div>
+</div>
+
+<div class="section avoid-break">
+  <div class="section-title"><span class="num">5</span> 形容词与程度副词搭配梯度谱</div>
+
+  <table class="custom-table">
+    <thead>
+      <tr>
+        <th style="width:20%;">程度梯度</th>
+        <th style="width:25%;">常用副词</th>
+        <th style="width:30%;">用法与例句</th>
+        <th style="width:25%;">感情色彩与语境</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>极限强调 (120%)</strong></td>
+        <td><span class="jp-bold">めちゃくちゃ / めっちゃ</span></td>
+        <td><span class="jp-bold">めっちゃ美味しい</span> (超好吃！)<br><span class="jp-bold">めちゃくちゃ痛い</span> (痛得要死)</td>
+        <td>年轻人最爱，极度口语化，生动夸张</td>
+      </tr>
+      <tr>
+        <td><strong>高度强烈 (100%)</strong></td>
+        <td><span class="jp-bold">とても / すごく</span></td>
+        <td><span class="jp-bold">とても優しい</span> (非常温柔)<br><span class="jp-bold">すごく嬉しい</span> (极度开心)</td>
+        <td>万能标准表达，老少皆宜，正式随和均可</td>
+      </tr>
+      <tr>
+        <td><strong>适度/超出预期 (70%)</strong></td>
+        <td><span class="jp-bold">結構 / 割と / なかなか</span></td>
+        <td><span class="jp-bold">結構高いね</span> (还挺贵的嘛)<br><span class="jp-bold">割と面白い</span> (出乎意料挺有意思)</td>
+        <td>带有“本以为一般，没想到还挺……”的主观评价</td>
+      </tr>
+      <tr>
+        <td><strong>轻微程度 (30%)</strong></td>
+        <td><span class="jp-bold">ちょっと / 少し</span></td>
+        <td><span class="jp-bold">ちょっと寒い</span> (有点冷)<br><span class="jp-bold">少し眠い</span> (有点困)</td>
+        <td>含蓄委婉表达，日常交际必备礼貌缓冲</td>
+      </tr>
+      <tr style="background:#fff1f2;">
+        <td><strong>否定呼应 (0% ~ 20%)</strong><br><span class="highlight">必须搭配否定形！</span></td>
+        <td><span class="jp-bold">あまり / 全然</span></td>
+        <td><span class="jp-bold">あまり高く<span class="highlight">ない</span></span> (不太贵)<br><span class="jp-bold">全然痛く<span class="highlight">ない</span></span> (完全不痛！)</td>
+        <td>⚠️ 牢记：あまり 和 全然 后面<strong>必须接否定形式（〜ない）</strong></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="section avoid-break">
+  <div class="section-title"><span class="num">6</span> 动漫口语男系母音融合变音大揭秘（动漫迷专属彩蛋）</div>
+
+  <div class="anime-box">
+    <div class="title">🎬 为什么热血男主总喊「すげえ」「やべえ」？—— 语音学母音融合法则</div>
+    <p style="margin-bottom:8px; font-size:12.5px;">
+      在热血动漫、不良少年或日常粗犷男性口语中，当说话节奏极快、感情强烈爆发时，舌头会偷懒：
+      <br><strong>双元音 ai、oi、ui 会自然合并为长音 ee（えー）！</strong>
+    </p>
+
+    <table class="custom-table" style="margin-bottom:0; font-size:12px;">
+      <thead>
+        <tr>
+          <th>标准形容词原形</th>
+          <th>元音组合</th>
+          <th>动漫热血口语变音</th>
+          <th>经典动漫台词与语感</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="jp-bold">すごい</span> (厉害)</td>
+          <td>u + i</td>
+          <td><span class="jp-bold highlight">すげえ！</span></td>
+          <td><span class="badge badge-purple">すげえ力だ！</span>（好惊人的力量啊！）</td>
+        </tr>
+        <tr>
+          <td><span class="jp-bold">やばい</span> (不妙/绝赞)</td>
+          <td>a + i</td>
+          <td><span class="jp-bold highlight">やべえ！</span></td>
+          <td><span class="badge badge-rose">やべえ、逃げろ！</span>（糟糕不妙了，快逃！）</td>
+        </tr>
+        <tr>
+          <td><span class="jp-bold">美味い（うまい）</span></td>
+          <td>a + i</td>
+          <td><span class="jp-bold highlight">うめえ！</span></td>
+          <td><span class="badge badge-green">これ、マジでうめえ！</span>（这玩意儿真的太好吃啦！）</td>
+        </tr>
+        <tr>
+          <td><span class="jp-bold">痛い（いたい）</span></td>
+          <td>a + i</td>
+          <td><span class="jp-bold highlight">いてえ！</span></td>
+          <td><span class="badge badge-amber">いてえな、何すんだ！</span>（痛死了，你干嘛啊！）</td>
+        </tr>
+        <tr>
+          <td><span class="jp-bold">面白い（おもしろい）</span></td>
+          <td>o + i</td>
+          <td><span class="jp-bold highlight">おもしれえ！</span></td>
+          <td><span class="badge badge-blue">おもしれえ奴だな</span>（你这家伙真有意思啊）</td>
+        </tr>
+        <tr>
+          <td><span class="jp-bold">うるさい</span> (吵闹)</td>
+          <td>a + i</td>
+          <td><span class="jp-bold highlight">うるせえ！</span></td>
+          <td><span class="badge badge-rose">うるせえ、黙れ！</span>（吵死了，给老子闭嘴！）</td>
+        </tr>
+        <tr>
+          <td><span class="jp-bold">汚い（きたない）</span></td>
+          <td>a + i</td>
+          <td><span class="jp-bold highlight">きたねえ！</span></td>
+          <td><span class="badge badge-purple">やり方がきたねえぞ！</span>（手段真特么卑鄙！）</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div style="font-size:11.5px; color:#a21caf; margin-top:8px;">
+      💡 <strong>现实交流提醒：</strong> 这种变音极其酷炫且极具动漫感，但属于非正式、粗鲁或亲密朋友间的男性口吻。在日常面对长辈、老师或商务客户时，请务必使用标准型「すごいです / おいしいです」！
+    </div>
+  </div>
+</div>
+
+<div class="footer-bar">日语核心语法精讲 · 形容词篇 · 第 4 页 / 共 4 页 · 全篇完</div>
+
+</body>
+</html>

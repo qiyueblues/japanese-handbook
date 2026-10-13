@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>日语核心语法精讲 · 介词助词篇</title>
+<style>
+  :root {
+    --primary: #9a3412;
+    --primary-light: #fff7ed;
+    --primary-border: #fed7aa;
+    --accent: #ea580c;
+    --text-main: #0f172a;
+    --text-muted: #475569;
+    --border-color: #cbd5e1;
+  }
+
+  @page {
+    size: A4;
+    margin: 12mm 14mm 14mm 14mm;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans", "Meiryo", "Microsoft YaHei", sans-serif;
+    color: var(--text-main);
+    line-height: 1.55;
+    font-size: 13px;
+    background-color: #ffffff;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .page-break { page-break-after: always; break-after: page; }
+  .avoid-break { page-break-inside: avoid; break-inside: avoid; }
+
+  .doc-header {
+    background: linear-gradient(135deg, #7c2d12 0%, #ea580c 100%);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin-bottom: 15px;
+    color: #ffffff;
+  }
+  .doc-header h1 { font-size: 22px; font-weight: 800; margin-bottom: 4px; }
+  .doc-header .subtitle { font-size: 12.5px; opacity: 0.92; margin-bottom: 8px; }
+  .tags { display: flex; gap: 8px; flex-wrap: wrap; }
+  .tag {
+    background: rgba(255, 255, 255, 0.22);
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    padding: 2px 10px;
+    border-radius: 999px;
+    font-size: 11px;
+    font-weight: 600;
+  }
+
+  .section { margin-bottom: 15px; }
+  .section-title {
+    font-size: 15.5px;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding-bottom: 4px;
+    border-bottom: 2px solid var(--primary);
+  }
+  .section-title .num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: var(--primary);
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: 700;
+  }
+
+  .card {
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 10px 13px;
+    margin-bottom: 11px;
+    background-color: #ffffff;
+  }
+
+  .info-box {
+    background-color: #f8fafc;
+    border-left: 4px solid var(--accent);
+    border-radius: 0 6px 6px 0;
+    padding: 9px 13px;
+    margin-bottom: 11px;
+    font-size: 12.5px;
+  }
+
+  .anime-box {
+    background-color: #fdf4ff;
+    border: 1px solid #f0abfc;
+    border-left: 4px solid #d946ef;
+    border-radius: 0 6px 6px 0;
+    padding: 9px 13px;
+    margin-bottom: 11px;
+    font-size: 12.5px;
+  }
+  .anime-box .title { font-weight: 700; color: #a21caf; margin-bottom: 3px; }
+
+  .tip-box {
+    background-color: #fff7ed;
+    border: 1px solid #fed7aa;
+    border-left: 4px solid #ea580c;
+    border-radius: 0 6px 6px 0;
+    padding: 9px 13px;
+    margin-bottom: 11px;
+    font-size: 12.5px;
+  }
+  .tip-box .title { font-weight: 700; color: #c2410c; margin-bottom: 3px; }
+
+  table.custom-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 11px;
+    font-size: 12px;
+    border-radius: 6px;
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+  }
+  table.custom-table th {
+    background: #7c2d12;
+    color: #ffffff;
+    padding: 6px 8px;
+    font-weight: 700;
+    text-align: left;
+  }
+  table.custom-table td {
+    padding: 5px 8px;
+    border-bottom: 1px solid #e2e8f0;
+    vertical-align: middle;
+  }
+  table.custom-table tr:nth-child(even) td { background-color: #f8fafc; }
+
+  .badge {
+    display: inline-block;
+    padding: 1px 6px;
+    border-radius: 4px;
+    font-size: 10.5px;
+    font-weight: 700;
+  }
+  .badge-amber { background: #ffedd5; color: #9a3412; }
+  .badge-blue { background: #dbeafe; color: #1e40af; }
+  .badge-purple { background: #ede9fe; color: #5b21b6; }
+  .badge-rose { background: #ffe4e6; color: #9f1239; }
+  .badge-green { background: #d1fae5; color: #065f46; }
+
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 11px; margin-bottom: 11px; }
+
+  .highlight { color: #dc2626; font-weight: 700; }
+  .jp-bold { font-family: "Meiryo", "Hiragino Sans", sans-serif; font-weight: 700; color: #1e293b; }
+  .footer-bar {
+    text-align: center;
+    font-size: 11px;
+    color: #94a3b8;
+    margin-top: 10px;
+    padding-top: 6px;
+    border-top: 1px solid #e2e8f0;
+  }
+</style>
+</head>
+<body>
+
+<!-- PAGE 1: 认知与 は vs が -->
+<div class="doc-header">
+  <h1>日语核心语法精讲 · 介词助词篇</h1>
+  <div class="subtitle">掌握日语句子的关节与骨架胶水 —— 八大格助词、副助词与动漫终助词语气密码</div>
+  <div class="tags">
+    <span class="tag">日语黏着语空间感</span>
+    <span class="tag">は vs が 终极对决</span>
+    <span class="tag">に vs で 静动大PK</span>
+    <span class="tag">移动空间助词</span>
+    <span class="tag">动漫语气终助词</span>
+  </div>
+</div>
+
+<div class="info-box">
+  <strong>【致动漫爱好者的写在前面】</strong> 英语和汉语主要靠“词序”来决定谁是主语、谁是宾语。但日语是<strong>黏着语</strong>，词语本身没有地位，<strong>全靠跟在它后面的助词（助詞）来决定它是主语、宾语、时间还是地点</strong>！动漫里因为口语情绪急促经常省略助词，但要自己造句，助词就是必不可少的骨架胶水。
+</div>
+
+<div class="section avoid-break">
+  <div class="section-title"><span class="num">1</span> 终生宿敌对决①：【は】 vs 【が】（主题 vs 主格）</div>
+  <p style="margin-bottom:8px;">这是所有日语学习者最容易混淆的痛点，用下面这套“信息焦点论”彻底理清：</p>
+
+  <table class="custom-table">
+    <thead>
+      <tr>
+        <th style="width:18%;">对比维度</th>
+        <th style="width:41%;">【は】（提示助词 · 提主题）</th>
+        <th style="width:41%;">【が】（格助词 · 指定主格）</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>核心本质</strong></td>
+        <td><strong>提出大讨论主题</strong>（“关于这个嘛……”）<br>引出对方已经知道的旧信息</td>
+        <td><strong>排他性指定 / 聚光灯打在主语上</strong><br>宣布全新的未知信息或眼前事实</td>
+      </tr>
+      <tr>
+        <td><strong>信息重心</strong></td>
+        <td>重心在<strong>【谓语/后半句】</strong>（主题是已知的，重点是你对它发表了什么看法）</td>
+        <td>重心在<strong>【主语/前半句】</strong>（重点在于“到底是谁/是什么”，具有排他性）</td>
+      </tr>
+      <tr>
+        <td><strong>经典场景对比</strong></td>
+        <td>
+          <span class="jp-bold">私は田中です。</span><br>
+          （关于我嘛，是田中。重点是告诉别人我是田中）
+        </td>
+        <td>
+          <span class="jp-bold highlight">彼が犯人だ！</span><br>
+          （<strong>他</strong>才是犯人！排他性聚焦，排除其他人）
+        </td>
+      </tr>
+      <tr>
+        <td><strong>自然现象句</strong></td>
+        <td>
+          <span class="jp-bold">今日は晴れだ。</span><br>
+          （今天天气晴朗。今天作为大背景）
+        </td>
+        <td>
+          <span class="jp-bold highlight">あ、雨が降ってきた！</span><br>
+          （啊，下雨了！眼前突然发生的客观自然现象用 が）
+        </td>
+      </tr>
+      <tr>
+        <td><strong>从句/小主语</strong></td>
+        <td>主句大主题用 は：<br><span class="jp-bold">【私 は】映画を見た。</span></td>
+        <td>定语从句内部的小主语<strong>必须用 が</strong>：<br><span class="jp-bold">【彼 が】撮った写真</span>（他拍的照片）</td>
+      </tr>
+      <tr style="background:#fff7ed;">
+        <td><strong>★ 感情/能力对象</strong><br>(固定搭配)</td>
+        <td colspan="2">
+          <strong>在表达“喜欢/讨厌/擅长/想要/拥有能力”时，对象固定用【が】：</strong><br>
+          • <span class="jp-bold">アニメが好きだ</span>（喜欢动漫） | • <span class="jp-bold">日本語ができる</span>（会日语）<br>
+          • <span class="jp-bold">水が欲しい</span>（想要水） | • <span class="jp-bold">ゲームが上手だ</span>（打游戏擅长）
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="tip-box">
+    <div class="title">💡 一句话秒记口诀</div>
+    <strong>“は 往后看，が 往前看”</strong>：想强调后面说了什么内容，用 は；想强调“是谁、是什么”在干这件事，用 が！
+  </div>
+</div>
+
+<div class="footer-bar">日语核心语法精讲 · 介词助词篇 · 第 1 页 / 共 4 页</div>
+<div class="page-break"></div>
+
+<!-- PAGE 2: 核心格助词 に vs で 与 移动空间 -->
+<div class="doc-header" style="padding:12px 18px; margin-bottom:14px;">
+  <h1 style="font-size:19px;">第二章 · 核心格助词深度剖析：时空、动作与归宿</h1>
+  <div class="subtitle" style="margin-bottom:0;">分清静止与动态，理清动作的出发点、移动轨迹与着落点</div>
+</div>
+
+<div class="section avoid-break">
+  <div class="section-title"><span class="num">2</span> 终生宿敌对决②：【に】 vs 【で】（静止与动态的时空之战）</div>
+
+  <table class="custom-table">
+    <thead>
+      <tr>
+        <th style="width:16%;">助词</th>
+        <th style="width:26%;">核心语义功能</th>
+        <th style="width:34%;">典型例句</th>
+        <th style="width:24%;">辨析口诀与心法</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="badge badge-amber" style="font-size:13px;">に</span><br><strong>(静态点)</strong></td>
+        <td>
+          1. <strong>存在的位置</strong>（静态无动作）<br>
+          2. <strong>目的地/着落点</strong>（动作附着）<br>
+          3. <strong>具体时间点</strong>（带数字时刻）<br>
+          4. <strong>动作面对的对象</strong>
+        </td>
+        <td>
+          • 机の上面<span class="highlight">に</span>本がある (桌上有书)<br>
+          • 東京<span class="highlight">に</span>着いた (到达东京)<br>
+          • ７時<span class="highlight">に</span>起きる (7点起床)<br>
+          • 友達<span class="highlight">に</span>会う (见朋友)
+        </td>
+        <td>
+          <strong>“图钉原则”</strong>：<br>
+          像图钉钉在一点上。<br>
+          静态存在、单点落脚、接触面
+        </td>
+      </tr>
+      <tr>
+        <td><span class="badge badge-blue" style="font-size:13px;">で</span><br><strong>(动态场)</strong></td>
+        <td>
+          1. <strong>动态行为发生场所</strong><br>
+          2. <strong>工具 / 手段 / 交通方式</strong><br>
+          3. <strong>原因 / 理由</strong><br>
+          4. <strong>限定范围 / 原料</strong>
+        </td>
+        <td>
+          • 図書館<span class="highlight">で</span>勉強する (在图书馆学)<br>
+          • 電車<span class="highlight">で</span>行く (坐电车去)<br>
+          • 箸<span class="highlight">で</span>食べる (用筷子吃)<br>
+          • 風邪<span class="highlight">で</span>休む (因感冒请假)
+        </td>
+        <td>
+          <strong>“舞台与工具原则”</strong>：<br>
+          发生动态打闹的舞台；<br>
+          或者手里挥舞的工具
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="grid-2">
+    <div class="card">
+      <div style="font-weight:700; color:var(--primary); margin-bottom:4px;">🔥 经典对决场景一秒分清</div>
+      <ul style="padding-left:16px; font-size:12px; line-height:1.7;">
+        <li><span class="jp-bold">電車に 乗る</span>（上车动作，落脚点在电车内 → 用 に）</li>
+        <li><span class="jp-bold">電車で 寝る</span>（在电车上做睡觉这个动作 → 用 で）</li>
+        <li><span class="jp-bold">部屋に いる</span>（人在房间里静态待着 → 用 に）</li>
+        <li><span class="jp-bold">部屋で 暴れる</span>（在房间里动态胡闹打闹 → 用 で）</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div style="font-weight:700; color:var(--primary); margin-bottom:4px;">⏰ 时间点接「に」的铁律</div>
+      <ul style="padding-left:16px; font-size:12px; line-height:1.7;">
+        <li><strong>加 に 的时间</strong>（具体数字）：<br>３時<span class="highlight">に</span>、月曜日<span class="highlight">に</span>、５月<span class="highlight">に</span>、2026年<span class="highlight">に</span></li>
+        <li><strong>绝不加 に 的时间</strong>（相对词汇）：<br>今日、明日、昨日、今朝、今、毎日、来週</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="section avoid-break">
+  <div class="section-title"><span class="num">3</span> 空间移动三剑客：【を】、【へ】、【から / まで】</div>
+
+  <table class="custom-table">
+    <thead>
+      <tr>
+        <th style="width:16%;">助词</th>
+        <th style="width:26%;">空间与语法角色</th>
+        <th style="width:34%;">典型例句</th>
+        <th style="width:24%;">特别提醒</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>【を】</strong><br><span style="color:#64748b;">(读音 o)</span></td>
+        <td>
+          1. 动作的<strong>直接承受宾语</strong><br>
+          2. 穿越移动的<strong>经过空间 / 离开点</strong>
+        </td>
+        <td>
+          • ご飯<span class="highlight">を</span>食べる (吃米饭)<br>
+          • 空<span class="highlight">を</span>飛ぶ (在天空翱翔-穿过)<br>
+          • 家<span class="highlight">を</span>出る (走出家门-离开)
+        </td>
+        <td>离开某个起点、或者跨越一段空间时，必须用 を！</td>
+      </tr>
+      <tr>
+        <td><strong>【へ】</strong><br><span style="color:#64748b;">(读音 e)</span></td>
+        <td>
+          表示移动的<strong>前进大方向与憧憬</strong><br>
+          （比「に」更富有诗意和方向感）
+        </td>
+        <td>
+          • 未来<span class="highlight">へ</span>進む (向着未来进发)<br>
+          • 日本<span class="highlight">へ</span>行く (朝日本方向去)
+        </td>
+        <td>作为助词时<strong>读作「e」</strong>而不是「he」！</td>
+      </tr>
+      <tr>
+        <td><strong>【から】<br>【まで】</strong></td>
+        <td>
+          <strong>起点与终点</strong>（时间与空间）<br>
+          • から：从……开始<br>
+          • まで：到……为止
+        </td>
+        <td>
+          • 9時<span class="highlight">から</span> 5時<span class="highlight">まで</span> (从9点到5点)<br>
+          • 北京<span class="highlight">から</span> 東京<span class="highlight">まで</span> (从北京到东京)<br>
+          • これ<span class="highlight">から</span>だ！ (从现在才刚开始！)
+        </td>
+        <td>から 还可以接在句子后面表示主观原因（因为……）</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="footer-bar">日语核心语法精讲 · 介词助词篇 · 第 2 页 / 共 4 页</div>
+<div class="page-break"></div>
+
+<!-- PAGE 3: 并列助词与常用副助词 -->
+<div class="doc-header" style="padding:12px 18px; margin-bottom:14px;">
+  <h1 style="font-size:19px;">第三章 · 并列助词与高频副助词精析</h1>
+  <div class="subtitle" style="margin-bottom:0;">理清“和谁一起”、罗列清单以及表达“只有/甚至”的微弱语感差距</div>
+</div>
+
+<div class="section avoid-break">
+  <div class="section-title"><span class="num">4</span> “和”的家族大盘点：【と】 vs 【や】 vs 【とか】</div>
+
+  <table class="custom-table">
+    <thead>
+      <tr>
+        <th style="width:16%;">助词</th>
+        <th style="width:26%;">功能与语法范围</th>
+        <th style="width:34%;">典型例句</th>
+        <th style="width:24%;">语感色彩</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>【と】</strong></td>
+        <td>
+          1. <strong>完全列举</strong>（只有A和B，别无其他）<br>
+          2. <strong>伴随共同者</strong>（和某人一起）<br>
+          3. <strong>引用内容</strong>（说/想/认为的内容）
+        </td>
+        <td>
+          • 猫<span class="highlight">と</span>犬 (猫和狗，就这俩)<br>
+          • 友達<span class="highlight">と</span>遊ぶ (和朋友玩)<br>
+          • 勝つ<span class="highlight">と</span>思う (我认为会赢)<br>
+          • ありがとう<span class="highlight">と</span>言った (说了声谢谢)
+        </td>
+        <td>穷尽列举、严谨准确；引用他人话语或自身想法必备</td>
+      </tr>
+      <tr>
+        <td><strong>【や】</strong></td>
+        <td>
+          <strong>不完全列举</strong><br>
+          （列举代表性事物，常后接「など」）
+        </td>
+        <td>
+          • 本<span class="highlight">や</span>ノート（など）を買った<br>
+          （买了书和笔记本等等）
+        </td>
+        <td>暗示清单很长，我只是随便举了两个典型例子</td>
+      </tr>
+      <tr>
+        <td><strong>【とか】</strong></td>
+        <td>
+          <strong>口语随性列举</strong><br>
+          （口语中的“……啊、……什么的”）
+        </td>
+        <td>
+          • アニメ<span class="highlight">とか</span>ゲーム<span class="highlight">とか</span>が好き<br>
+          （喜欢动漫啊游戏啊什么的）
+        </td>
+        <td>年轻人高频口语，随性亲切</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="section avoid-break">
+  <div class="section-title"><span class="num">5</span> 极高频副助词速查表（限定、程度、对比）</div>
+
+  <table class="custom-table">
+    <thead>
+      <tr>
+        <th style="width:18%;">副助词</th>
+        <th style="width:26%;">核心语义</th>
+        <th style="width:34%;">典型例句</th>
+        <th style="width:22%;">考点与注意事项</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>【も】</strong></td>
+        <td>表示<strong>“也……”</strong>、甚至、连……都</td>
+        <td>• 私<span class="highlight">も</span>行く！ (我也去！)<br>• 1円<span class="highlight">も</span>ない (一分钱都没有)</td>
+        <td>替代 は、が、を，直接附着在词后</td>
+      </tr>
+      <tr>
+        <td><strong>【だけ】</strong></td>
+        <td>表示<strong>“仅仅、只有”</strong>（客观限定）</td>
+        <td>• 君<span class="highlight">だけ</span>を愛してる (只爱你一个人)<br>• これ<span class="highlight">だけ</span>？ (只有这么点？)</td>
+        <td>后接肯定，陈述客观限定数量</td>
+      </tr>
+      <tr style="background:#fff1f2;">
+        <td><strong>【しか】</strong><br><span class="highlight">必须接否定！</span></td>
+        <td>表示<strong>“只有……”</strong><br>（带有主观嫌少、遗憾、别无选择感）</td>
+        <td>• 100円<span class="highlight">しか</span>ない (竟然只有100块)<br>• 戦う<span class="highlight">しか</span>ない！ (只能战斗了！)</td>
+        <td>⚠️ <strong>语法死刑线</strong>：后面<strong>必须接否定动词（〜ない）</strong>！</td>
+      </tr>
+      <tr>
+        <td><strong>【より】</strong></td>
+        <td>比较的基准：<strong>“比……”</strong></td>
+        <td>• 今日は昨日<span class="highlight">より</span>寒い (今天比昨天冷)<br>• 誰<span class="highlight">より</span>も強い (比任何人都强)</td>
+        <td>放在作为对比参照物的名词后</td>
+      </tr>
+      <tr>
+        <td><strong>【くらい / ぐらい】</strong></td>
+        <td>表示<strong>大约数量、起码程度</strong></td>
+        <td>• 3時間<span class="highlight">くらい</span>待った (等了大概3小时)<br>• 挨拶<span class="highlight">くらい</span>しろ (好歹打个招呼啊)</td>
+        <td>表大约、或轻蔑/最低限度程度</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="footer-bar">日语核心语法精讲 · 介词助词篇 · 第 3 页 / 共 4 页</div>
+<div class="page-break"></div>
+
+<!-- PAGE 4: 终助词语气密码与动漫还原实战 -->
+<div class="doc-header" style="padding:12px 18px; margin-bottom:14px;">
+  <h1 style="font-size:19px;">第四章 & 第五章 · 终助词语气密码与动漫省略还原实战</h1>
+  <div class="subtitle" style="margin-bottom:0;">破译句尾的“灵魂尾巴”，把动漫听到的断裂台词还原成标准优雅的完整句子</div>
+</div>
+
+<div class="section avoid-break">
+  <div class="section-title"><span class="num">6</span> 终助词与动漫人设语气密码表</div>
+
+  <table class="custom-table">
+    <thead>
+      <tr>
+        <th style="width:15%;">终助词</th>
+        <th style="width:25%;">语气内涵与功能</th>
+        <th style="width:35%;">经典台词例句</th>
+        <th style="width:25%;">常见人设与性别标签</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>【ね】</strong></td>
+        <td><strong>寻求共鸣 / 征求确认</strong>（“对吧？”“是呢”）</td>
+        <td>• いい天気だ<span class="highlight">ね</span> (天气真好呢)<br>• そうだ<span class="highlight">ね</span> (确实是这样呢)</td>
+        <td>男女皆用，温和友善，拉近社交距离</td>
+      </tr>
+      <tr>
+        <td><strong>【よ】</strong></td>
+        <td><strong>传递新信息 / 提醒与主张</strong>（“哦！”“呢！”）</td>
+        <td>• 明日休みだ<span class="highlight">よ</span> (明天放假哦！提醒对方)<br>• 知らない<span class="highlight">よ</span> (我可不管你哦)</td>
+        <td>充满自信，主动告知对方不知道的事</td>
+      </tr>
+      <tr>
+        <td><strong>【よね】</strong></td>
+        <td><strong>双重确认</strong>（“明明就是这样，对吧对吧？”）</td>
+        <td>• 約束した<span class="highlight">よね</span>？ (我们约定过对吧？)</td>
+        <td>先提醒再求认同，稍微带点撒娇或确认</td>
+      </tr>
+      <tr>
+        <td><strong>【わ】</strong></td>
+        <td>轻柔语气（东京女声）/ 粗犷强调（关西男声）</td>
+        <td>• 私、行く<span class="highlight">わ</span> (那我去啦 - 大小姐/女性)<br>• ええ<span class="highlight">わ</span>！ (算了拉倒！- 关西腔)</td>
+        <td>动漫中常用于凸显成熟女性、傲娇千金</td>
+      </tr>
+      <tr>
+        <td><strong>【ぞ / ぜ】</strong></td>
+        <td><strong>热血宣言 / 粗犷男性命令与自我决心</strong></td>
+        <td>• 行く<span class="highlight">ぞ</span>！ (出发！上！)<br>• 任せとけ<span class="highlight">ぜ</span>！ (交给我吧！)</td>
+        <td>热血少年漫主角、不良少年、硬汉专属</td>
+      </tr>
+      <tr>
+        <td><strong>【な】</strong></td>
+        <td>1. 感叹沉思（“啊真不错呢”）<br>2. <span class="highlight">接动词原形表绝对禁止</span></td>
+        <td>• いい奴だ<span class="highlight">な</span> (真是个好家伙啊)<br>• 諦める<span class="highlight">な</span>！ (绝对不许放弃！)</td>
+        <td>男人味感叹；紧急关头军官或战友吼叫</td>
+      </tr>
+      <tr>
+        <td><strong>【かな / かしら】</strong></td>
+        <td>自言自语推测（“不知道……怎么样呢”）</td>
+        <td>• 大丈夫だ<span class="highlight">かな</span>… (不要紧吧…)<br>• どう<span class="highlight">かしら</span> (会是怎样呢 - 女性)</td>
+        <td>内心独白、迟疑、自问自答</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="section avoid-break">
+  <div class="section-title"><span class="num">7</span> 动漫听力台词“助词补全还原实战”</div>
+
+  <div class="anime-box">
+    <div class="title">🎬 动漫省略句 ↔ 标准句子 对照还原字典</div>
+    <table class="custom-table" style="margin-bottom:0; font-size:12px;">
+      <thead>
+        <tr>
+          <th>动漫经常听到的断句</th>
+          <th>被省略的助词</th>
+          <th>标准规范日语（书面/正式）</th>
+          <th>为什么动漫要省略？</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="jp-bold">これ、食べる？</span></td>
+          <td>省略了 <span class="highlight">【を】</span></td>
+          <td>これ<span class="highlight">を</span>食べますか？</td>
+          <td>面对面有食物实物，直接指向对象，无需再用 を</td>
+        </tr>
+        <tr>
+          <td><span class="jp-bold">お前、誰？</span></td>
+          <td>省略了 <span class="highlight">【は】</span></td>
+          <td>お前<span class="highlight">は</span>誰だ？</td>
+          <td>气势汹汹质问，删掉 は 语速更快、更具压迫感</td>
+        </tr>
+        <tr>
+          <td><span class="jp-bold">明日、学校、行く？</span></td>
+          <td>省略了 <span class="highlight">【に】</span></td>
+          <td>明日、学校<span class="highlight">に</span>行きますか？</td>
+          <td>日常生活高频场景，目的地不言自明</td>
+        </tr>
+        <tr>
+          <td><span class="jp-bold">アニメ、好き？</span></td>
+          <td>省略了 <span class="highlight">【が】</span></td>
+          <td>アニメ<span class="highlight">が</span>好きですか？</td>
+          <td>口语习惯把对象直接抛出，语气亲切</td>
+        </tr>
+      </tbody>
+    </table>
+    <div style="font-size:11.8px; color:#a21caf; margin-top:8px;">
+      💡 <strong>总结：</strong> 动漫听力好让你具备了快速捕捉词汇核心的能力；而学会把被吞掉的 <strong>は、が、を、に、で</strong> 补回去，你就拥有了真正写出优雅、地道、合乎规范日语句子的硬实力！
+    </div>
+  </div>
+</div>
+
+<div class="footer-bar">日语核心语法精讲 · 介词助词篇 · 第 4 页 / 共 4 页 · 全篇完</div>
+
+</body>
+</html>

@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>日语核心语法精讲 · 动词篇</title>
+<style>
+  :root {
+    --primary: #1e40af;
+    --primary-light: #eff6ff;
+    --primary-border: #93c5fd;
+    --accent: #3b82f6;
+    --text-main: #0f172a;
+    --text-muted: #475569;
+    --border-color: #cbd5e1;
+  }
+
+  @page {
+    size: A4;
+    margin: 12mm 14mm 14mm 14mm;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans", "Meiryo", "Microsoft YaHei", sans-serif;
+    color: var(--text-main);
+    line-height: 1.55;
+    font-size: 13px;
+    background-color: #ffffff;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .page-break { page-break-after: always; break-after: page; }
+  .avoid-break { page-break-inside: avoid; break-inside: avoid; }
+
+  .doc-header {
+    background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin-bottom: 15px;
+    color: #ffffff;
+  }
+  .doc-header h1 { font-size: 22px; font-weight: 800; margin-bottom: 4px; }
+  .doc-header .subtitle { font-size: 12.5px; opacity: 0.92; margin-bottom: 8px; }
+  .tags { display: flex; gap: 8px; flex-wrap: wrap; }
+  .tag {
+    background: rgba(255, 255, 255, 0.22);
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    padding: 2px 10px;
+    border-radius: 999px;
+    font-size: 11px;
+    font-weight: 600;
+  }
+
+  .section { margin-bottom: 15px; }
+  .section-title {
+    font-size: 15.5px;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding-bottom: 4px;
+    border-bottom: 2px solid var(--primary);
+  }
+  .section-title .num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: var(--primary);
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: 700;
+  }
+
+  .card {
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 10px 13px;
+    margin-bottom: 11px;
+    background-color: #ffffff;
+  }
+
+  .info-box {
+    background-color: #f8fafc;
+    border-left: 4px solid var(--accent);
+    border-radius: 0 6px 6px 0;
+    padding: 9px 13px;
+    margin-bottom: 11px;
+    font-size: 12.5px;
+  }
+
+  .anime-box {
+    background-color: #fdf4ff;
+    border: 1px solid #f0abfc;
+    border-left: 4px solid #d946ef;
+    border-radius: 0 6px 6px 0;
+    padding: 9px 13px;
+    margin-bottom: 11px;
+    font-size: 12.5px;
+  }
+  .anime-box .title { font-weight: 700; color: #a21caf; margin-bottom: 3px; }
+
+  .trap-box {
+    background-color: #fff1f2;
+    border: 1px solid #fecdd3;
+    border-left: 4px solid #e11d48;
+    border-radius: 0 6px 6px 0;
+    padding: 9px 13px;
+    margin-bottom: 11px;
+    font-size: 12.5px;
+  }
+  .trap-box .title { font-weight: 700; color: #be123c; margin-bottom: 3px; }
+
+  .mnemonic-box {
+    background-color: #fefce8;
+    border: 1px solid #fef08a;
+    border-left: 4px solid #ca8a04;
+    border-radius: 0 6px 6px 0;
+    padding: 9px 13px;
+    margin-bottom: 11px;
+    font-size: 12.5px;
+  }
+  .mnemonic-box .title { font-weight: 700; color: #a16207; margin-bottom: 3px; }
+
+  table.custom-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 11px;
+    font-size: 12px;
+    border-radius: 6px;
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+  }
+  table.custom-table th {
+    background: #1e3a8a;
+    color: #ffffff;
+    padding: 6px 8px;
+    font-weight: 700;
+    text-align: left;
+  }
+  table.custom-table td {
+    padding: 5px 8px;
+    border-bottom: 1px solid #e2e8f0;
+    vertical-align: middle;
+  }
+  table.custom-table tr:nth-child(even) td { background-color: #f8fafc; }
+
+  .badge {
+    display: inline-block;
+    padding: 1px 6px;
+    border-radius: 4px;
+    font-size: 10.5px;
+    font-weight: 700;
+  }
+  .badge-blue { background: #dbeafe; color: #1e40af; }
+  .badge-green { background: #d1fae5; color: #065f46; }
+  .badge-amber { background: #fef3c7; color: #92400e; }
+  .badge-purple { background: #ede9fe; color: #5b21b6; }
+  .badge-rose { background: #ffe4e6; color: #9f1239; }
+
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 11px; margin-bottom: 11px; }
+
+  .highlight { color: #dc2626; font-weight: 700; }
+  .jp-bold { font-family: "Meiryo", "Hiragino Sans", sans-serif; font-weight: 700; color: #1e293b; }
+  .footer-bar {
+    text-align: center;
+    font-size: 11px;
+    color: #94a3b8;
+    margin-top: 10px;
+    padding-top: 6px;
+    border-top: 1px solid #e2e8f0;
+  }
+</style>
+</head>
+<body>
+
+<!-- PAGE 1: 判定法则 -->
+<div class="doc-header">
+  <h1>日语核心语法精讲 · 动词篇</h1>
+  <div class="subtitle">针对动漫高听力爱好者的专项突破手册 —— 从声音直觉到系统形态活用</div>
+  <div class="tags">
+    <span class="tag">动词三大家族判定</span>
+    <span class="tag">五十音活用全表</span>
+    <span class="tag">て/た形音便口诀</span>
+    <span class="tag">动漫口语变体字典</span>
+  </div>
+</div>
+
+<div class="info-box">
+  <strong>【致动漫爱好者的写在前面】</strong> 你的优势在于脑中有极丰富的声音直觉（能听懂“行け”、“負けない”、“死んじゃう”）。这本讲义要做的不是让你从头死背单词，而是帮你<strong>反推语法骨架</strong>：明白这些动词是如何从“辞书原形”变过去的，建立严密的判定逻辑！
+</div>
+
+<div class="section avoid-break">
+  <div class="section-title"><span class="num">1</span> 动词三大家族分类与火眼金睛判定法</div>
+  
+  <p style="margin-bottom:8px;">日语句子中的动词根据变形规则严格分为三大类（学术上称为“五段/一段/变格”）：</p>
+
+  <table class="custom-table">
+    <thead>
+      <tr>
+        <th style="width:22%;">类别名称</th>
+        <th style="width:25%;">特征与词尾</th>
+        <th style="width:28%;">典型例词（辞书形）</th>
+        <th style="width:25%;">变形难度与特点</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>一类动词</strong><br><span style="color:#64748b;">(五段动词)</span></td>
+        <td>词尾不是「る」，或者词尾是「る」但倒数第二个假名在 <strong>a/u/o 段</strong></td>
+        <td><span class="jp-bold">行く</span>、<span class="jp-bold">飲む</span>、<span class="jp-bold">話す</span>、<span class="jp-bold">買う</span>、<span class="jp-bold">終わる</span></td>
+        <td>词尾假名在 <span class="highlight">あ/い/う/え/お</span> 五段跳跃，规则最丰富</td>
+      </tr>
+      <tr>
+        <td><strong>二类动词</strong><br><span style="color:#64748b;">(一段动词)</span></td>
+        <td>词尾<strong>必须是「る」</strong>，且倒数第二个假名在 <strong>i段（上一段）</strong> 或 <strong>e段（下一段）</strong></td>
+        <td><span class="jp-bold">食べる</span> (be-ru)、<span class="jp-bold">見る</span> (mi-ru)、<span class="jp-bold">起きる</span> (ki-ru)、<span class="jp-bold">諦める</span> (me-ru)</td>
+        <td>最乖巧！变形直接<strong>扔掉「る」</strong>接零件即可</td>
+      </tr>
+      <tr>
+        <td><strong>三类动词</strong><br><span style="color:#64748b;">(サ变/カ变动词)</span></td>
+        <td><strong>仅有两个词</strong>：<br>1. <span class="jp-bold">する</span> (做)<br>2. <span class="jp-bold">来る</span> (くる，来)</td>
+        <td><span class="jp-bold">勉強する</span>、<span class="jp-bold">愛する</span>、<span class="jp-bold">連れてくる</span></td>
+        <td>不规则，直接当成固定单词记住变形</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="grid-2">
+    <div class="card">
+      <div style="font-weight:700; color:var(--primary); margin-bottom:4px;">🔥 动词判定 3 步极简决策树</div>
+      <ol style="padding-left:16px; font-size:12px; line-height:1.7;">
+        <li>先看是不是 <span class="jp-bold">する</span> 或 <span class="jp-bold">来る</span>？ → <strong>三类动词</strong>。</li>
+        <li>词尾不是「る」吗？（如 買<strong>う</strong>、行<strong>く</strong>、飲<strong>む</strong>、話<strong>す</strong>） → <strong>100% 一类动词</strong>！</li>
+        <li>词尾是「る」：读倒数第二个假名的元音：
+          <br>• 元音为 a/u/o（如 終<strong>わ</strong>る、<strong>乗</strong>る） → <strong>一类动词</strong>
+          <br>• 元音为 i/e（如 食<strong>べ</strong>る、<strong>見</strong>る） → <strong>95% 为二类动词</strong>
+        </li>
+      </ol>
+    </div>
+
+    <div class="trap-box">
+      <div class="title">⚠️ 必背陷阱！外表像二类，实为一类的常见词</div>
+      <div style="font-size:11.8px; line-height:1.6;">
+        下列动词长着 i/e+る 的二类脸，但<strong>全是一类（五段）动词</strong>：<br>
+        • <span class="jp-bold">帰る</span>（かえる·回家） → 帰らない / 帰ります<br>
+        • <span class="jp-bold">入る</span>（はいる·进入） → 入らない / 入ります<br>
+        • <span class="jp-bold">走る</span>（はしる·奔跑） → 走らない / 走ります<br>
+        • <span class="jp-bold">知る</span>（しる·知道） → 知らない / 知ります<br>
+        • <span class="jp-bold">切る</span>（きる·切/剪） → 切らない（注：<span class="jp-bold">着る</span> 穿衣是二类）<br>
+        • <span class="jp-bold">要る</span>（いる·需要）、<span class="jp-bold">喋る</span>（しゃべる·聊天）、<span class="jp-bold">減る</span>（へる·减少）
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="footer-bar">日语核心语法精讲 · 动词篇 · 第 1 页 / 共 4 页</div>
+<div class="page-break"></div>
+
+<!-- PAGE 2: 基础六大活用 -->
+<div class="doc-header" style="padding:12px 18px; margin-bottom:14px;">
+  <h1 style="font-size:19px;">第二章 · 动词基础六大形态活用（五十音图规律）</h1>
+  <div class="subtitle" style="margin-bottom:0;">一类动词在 あ/い/う/え/お 行跳跃，二类动词直接丢「る」接后缀</div>
+</div>
+
+<div class="section avoid-break">
+  <div class="section-title"><span class="num">2</span> 动词活用总览大对照表</div>
+  <p style="margin-bottom:8px;">把动词原形与你在动漫中听到的各种语气对号入座：</p>
+
+  <table class="custom-table">
+    <thead>
+      <tr>
+        <th>形态名称</th>
+        <th>变换规则（对应段）</th>
+        <th>接续后缀与语法功能</th>
+        <th>一类例词：<span style="color:#93c5fd;">書く(kak-u)</span></th>
+        <th>二类例词：<span style="color:#93c5fd;">食べる</span></th>
+        <th>动漫高频台词场景</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>未然形</strong></td>
+        <td>一类变 <span class="highlight">あ段</span><br>二类去「る」</td>
+        <td>+ <span class="jp-bold">ない</span>（否定：不……）<br>+ <span class="jp-bold">れる/られる</span>（被动）</td>
+        <td>書か-ない (不写)<br>書か-れる (被写)</td>
+        <td>食べ-ない (不吃)<br>食べ-られる (能吃/被吃)</td>
+        <td><span class="badge badge-purple">負けない！</span> 绝不认输！<br><span class="badge badge-purple">諦めないで</span> 请别放弃</td>
+      </tr>
+      <tr>
+        <td><strong>连用形</strong></td>
+        <td>一类变 <span class="highlight">い段</span><br>二类去「る」</td>
+        <td>+ <span class="jp-bold">ます</span>（礼貌敬体）<br>+ <span class="jp-bold">たい</span>（想做……）<br>+ <span class="jp-bold">名词化 / 中顿</span></td>
+        <td>書き-ます (写-礼貌)<br>書き-たい (想写)<br>書き物 (书写物)</td>
+        <td>食べ-ます (吃-礼貌)<br>食べ-たい (想吃)<br>食べ物 (食物)</td>
+        <td><span class="badge badge-blue">行きます！</span> 我出发了！<br><span class="badge badge-blue">会いたい</span> 好想见你</td>
+      </tr>
+      <tr>
+        <td><strong>终止形/连体形</strong></td>
+        <td>保持 <span class="highlight">う段</span>（原形）</td>
+        <td>句尾结句（普通体）<br>修饰后接名词（做定语）</td>
+        <td>書く (写)<br>書く人 (写的人)</td>
+        <td>食べる (吃)<br>食べる人 (吃的人)</td>
+        <td><span class="badge badge-green">俺が守る！</span> 由我来守护！<br><span class="badge badge-green">行くぞ！</span> 上吧！</td>
+      </tr>
+      <tr>
+        <td><strong>假定形</strong></td>
+        <td>一类变 <span class="highlight">え段</span><br>二类变 <span class="highlight">れ</span></td>
+        <td>+ <span class="jp-bold">ば</span>（如果……假定）</td>
+        <td>書け-ば (如果写的话)</td>
+        <td>食べれ-ば (如果吃的话)</td>
+        <td><span class="badge badge-amber">逃げれば助かる</span> 如果逃就能活<br><span class="badge badge-amber">やればできる</span> 做了就能成</td>
+      </tr>
+      <tr>
+        <td><strong>命令形</strong></td>
+        <td>一类变 <span class="highlight">え段</span><br>二类变 <span class="highlight">ろ / よ</span></td>
+        <td>直接结句（强硬命令、男性口语）</td>
+        <td>書け！ (写！快写！)</td>
+        <td>食べろ！ / 見ろ！</td>
+        <td><span class="badge badge-rose">逃げろ！</span> 快逃！<br><span class="badge badge-rose">死ね！</span> 去死吧！<br><span class="badge badge-rose">行け！</span> 上！冲！</td>
+      </tr>
+      <tr>
+        <td><strong>意志形</strong></td>
+        <td>一类变 <span class="highlight">お段+う</span><br>二类去る + <span class="highlight">よう</span></td>
+        <td>表示自身意志（“我要……”）<br>或提议邀请（“咱们……吧”）</td>
+        <td>書こう (写吧！/我要写)</td>
+        <td>食べよう (吃吧！)<br>見よう (看吧！)</td>
+        <td><span class="badge badge-blue">帰ろう</span> 咱们回去吧<br><span class="badge badge-blue">行こうぜ！</span> 咱们出发吧！</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="card" style="font-size:12px; background:#f8fafc; border-left:4px solid #1e3a8a;">
+    <strong>★ 三类动词（する / 来る）特殊变形速查（直接背下）：</strong><br>
+    • <span class="jp-bold">する</span>：未然形 <span class="highlight">し(ない)</span> | 连用形 <span class="highlight">し(ます)</span> | 假定形 <span class="highlight">すれ(ば)</span> | 命令形 <span class="highlight">しろ / せよ</span> | 意志形 <span class="highlight">しよう</span><br>
+    • <span class="jp-bold">来る(くる)</span>：未然形 <span class="highlight">こ(ない)</span> | 连用形 <span class="highlight">き(ます)</span> | 假定形 <span class="highlight">くれ(ば)</span> | 命令形 <span class="highlight">こい！</span> | 意志形 <span class="highlight">こよう</span>
+  </div>
+
+  <div class="info-box" style="margin-top:10px;">
+    <strong>💡 规律总结：</strong> 一类动词的变化本质上就是借用五十音图的一整行：<strong>あ（否定）、い（敬体）、う（原形）、え（命令/假定）、お（意志）</strong>。只要默念五十音的一整行，变形绝对不会错！
+  </div>
+</div>
+
+<div class="footer-bar">日语核心语法精讲 · 动词篇 · 第 2 页 / 共 4 页</div>
+<div class="page-break"></div>
+
+<!-- PAGE 3: 音便法则 -->
+<div class="doc-header" style="padding:12px 18px; margin-bottom:14px;">
+  <h1 style="font-size:19px;">第三章 · 攻克最大难关：一类动词「て形 / た形」音便法则</h1>
+  <div class="subtitle" style="margin-bottom:0;">把动词变成连接形（请求）与过去式（发生）的终极发音顺畅法则</div>
+</div>
+
+<div class="section avoid-break">
+  <div class="section-title"><span class="num">3</span> 音便口诀与变换全览表</div>
+  <p style="margin-bottom:8px;">
+    为什么需要“音便”？因为一类动词如果直接接「て/た」会极其拗口（如 kak-ite 读起来很费劲）。为了发音圆润省力，日本人在历史上自然演变出了<strong>音便</strong>。
+  </p>
+
+  <div class="mnemonic-box">
+    <div class="title">🎵 终身难忘的「て形音便押韵口诀」（牢记这四句！）</div>
+    <div style="font-size:13px; line-height:1.75;">
+      <strong>① う・つ・る 变成 促音 って</strong>（買う → 買って、待つ → 待って、帰る → 帰って）<br>
+      <strong>② ぬ・ぶ・む 变成 拨音 んで</strong>（死ぬ → 死んで、遊ぶ → 遊んで、飲む → 飲んで）<br>
+      <strong>③ く 变 いて，ぐ 变 いだ</strong>（書く → 書いて、泳ぐ → 泳いで）<span class="highlight">【★特例：行く 变成 行って！】</span><br>
+      <strong>④ す 结尾 最省心，直接变成 して</strong>（話す → 話して、探す → 探して）
+    </div>
+  </div>
+
+  <table class="custom-table">
+    <thead>
+      <tr>
+        <th style="width:20%;">音便种类</th>
+        <th style="width:20%;">动词词尾</th>
+        <th style="width:30%;">て形（连接/请求）</th>
+        <th style="width:30%;">た形（过去式/完成）</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>促音便</strong><br>(促音停顿っ)</td>
+        <td><span class="jp-bold">う、つ、る</span></td>
+        <td>買<span class="highlight">って</span>、待<span class="highlight">って</span>、勝<span class="highlight">って</span>、終<span class="highlight">わって</span></td>
+        <td>買<span class="highlight">った</span>、待<span class="highlight">った</span>、勝<span class="highlight">った</span> (赢了！)、終<span class="highlight">わった</span></td>
+      </tr>
+      <tr>
+        <td><strong>拨音便</strong><br>(鼻音ん+浊音で)</td>
+        <td><span class="jp-bold">ぬ、ぶ、む</span></td>
+        <td>死<span class="highlight">んで</span>、遊<span class="highlight">んで</span>、飲<span class="highlight">んで</span></td>
+        <td>死<span class="highlight">んだ</span> (死了)、遊<span class="highlight">んだ</span>、飲<span class="highlight">んだ</span></td>
+      </tr>
+      <tr>
+        <td><strong>い音便</strong><br>(变元音い)</td>
+        <td><span class="jp-bold">く、ぐ</span></td>
+        <td>書<span class="highlight">いて</span>、聞<span class="highlight">いて</span>、泳<span class="highlight">いで</span></td>
+        <td>書<span class="highlight">いた</span>、聞<span class="highlight">いた</span> (听到了)、泳<span class="highlight">いだ</span></td>
+      </tr>
+      <tr>
+        <td><strong>★ 唯一特例</strong></td>
+        <td><span class="jp-bold">行く（いく）</span></td>
+        <td>行<span class="highlight">って</span>（绝不是 いいて！）</td>
+        <td>行<span class="highlight">った</span>（去了！）</td>
+      </tr>
+      <tr>
+        <td><strong>常规变して</strong></td>
+        <td><span class="jp-bold">す</span></td>
+        <td>話<span class="highlight">して</span>、出<span class="highlight">して</span>、隠<span class="highlight">して</span></td>
+        <td>話<span class="highlight">した</span> (说了)、出<span class="highlight">した</span>、隠<span class="highlight">した</span></td>
+      </tr>
+      <tr style="background:#eff6ff;">
+        <td><strong>二类动词</strong></td>
+        <td>直接去「る」</td>
+        <td>食べ<span class="highlight">て</span>、見<span class="highlight">て</span>、信じ<span class="highlight">て</span></td>
+        <td>食べ<span class="highlight">た</span>、見<span class="highlight">た</span>、信じ<span class="highlight">た</span> (我相信了)</td>
+      </tr>
+      <tr style="background:#eff6ff;">
+        <td><strong>三类动词</strong></td>
+        <td>する / くる</td>
+        <td><span class="highlight">して</span> (愛して) / <span class="highlight">きて</span> (連れてきて)</td>
+        <td><span class="highlight">した</span> (成功した) / <span class="highlight">きた</span> (奴が来た！)</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="card" style="font-size:12px; background:#fff7ed; border-color:#fed7aa;">
+    <strong>💡 「た形」与「て形」是孪生兄弟：</strong><br>
+    只要掌握了「て形」，把「て」换成「た」，把「で」换成「だ」，就立刻拿下了动词过去式「た形」！
+    例：飲んで → 飲んだ（喝了）；行って → 行った（去了）；食べて → 食べた（吃了）。
+  </div>
+</div>
+
+<div class="footer-bar">日语核心语法精讲 · 动词篇 · 第 3 页 / 共 4 页</div>
+<div class="page-break"></div>
+
+<!-- PAGE 4: 派生句型与动漫变体 -->
+<div class="doc-header" style="padding:12px 18px; margin-bottom:14px;">
+  <h1 style="font-size:19px;">第四章 & 第五章 · 派生句型与动漫口语变体大字典</h1>
+  <div class="subtitle" style="margin-bottom:0;">把动词形态组装成句子，并逆向破译动漫常见口语缩音与语气词</div>
+</div>
+
+<div class="section avoid-break">
+  <div class="section-title"><span class="num">4</span> 动词进阶句型：以「て形」与「ない形」为核心的派生宇宙</div>
+  <div class="grid-2">
+    <div class="card">
+      <div style="font-weight:700; color:var(--primary); margin-bottom:4px;">🔷 て形衍生高频核心句型</div>
+      <ul style="padding-left:16px; font-size:12px; line-height:1.7;">
+        <li><span class="jp-bold">〜ている</span>：正在进行 / 状态持续（例：戦っている 战斗中；知っている 知道）</li>
+        <li><span class="jp-bold">〜てください</span>：请做某事（例：助けてください 请救救我）</li>
+        <li><span class="jp-bold">〜てみる</span>：尝试做做看（例：やってみる 试着干干看）</li>
+        <li><span class="jp-bold">〜ておく</span>：事先准备好（例：買っておく 提前买好）</li>
+        <li><span class="jp-bold">〜てしまう</span>：彻底做完 / 遗憾糟糕（例：死んでしまう 要死掉了）</li>
+        <li><span class="jp-bold">〜てもいい</span>：可以……许可（例：入ってもいい？ 可以进去吗？）</li>
+        <li><span class="jp-bold">〜てはいけない</span>：不可以/禁止（例：諦めてはいけない 不能放弃）</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div style="font-weight:700; color:var(--primary); margin-bottom:4px;">🔶 ない形衍生高频核心句型</div>
+      <ul style="padding-left:16px; font-size:12px; line-height:1.7;">
+        <li><span class="jp-bold">〜ないで（ください）</span>：请不要做……（例：行かないで 别走）</li>
+        <li><span class="jp-bold">〜なければならない</span>：必须做……（例：守らなければならない 必须守护）</li>
+        <li><span class="jp-bold">〜なくてもいい</span>：不……也可以（例：言わなくてもいい 不说也行）</li>
+        <li><span class="jp-bold">〜ないほうがいい</span>：最好别做……（例：触らないほうがいい 最好别碰）</li>
+        <li><span class="jp-bold">辞书形 + な！</span>：【绝对禁止】绝对别做！（例：<span class="highlight">逃げるな！</span> 不许逃！）</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="section avoid-break">
+  <div class="section-title"><span class="num">5</span> 动漫高频口语变体与还原公式（把听到的口语反推回语法）</div>
+  
+  <div class="anime-box">
+    <div class="title">🎬 动漫听力逆向还原大字典</div>
+    <table class="custom-table" style="margin-bottom:0; font-size:12px;">
+      <thead>
+        <tr>
+          <th>动漫常听到口语</th>
+          <th>标准语法原形</th>
+          <th>语感与感情色彩</th>
+          <th>经典动漫台词</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="jp-bold highlight">〜ちゃう / 〜じゃう</span></td>
+          <td>〜てしまう / 〜でしまう</td>
+          <td>“糟糕搞砸了”或“一口气做完了”</td>
+          <td><span class="jp-bold">忘れちゃった！</span>（全忘光啦！）<br><span class="jp-bold">死んじゃうよ！</span>（要死掉了啦！）</td>
+        </tr>
+        <tr>
+          <td><span class="jp-bold highlight">〜とく</span></td>
+          <td>〜ておく</td>
+          <td>事先准备好、放着不管（口语缩音）</td>
+          <td><span class="jp-bold">言っとくけど</span>（我先跟你说明白……）<br><span class="jp-bold">置いとけ</span>（先放那儿别管！）</td>
+        </tr>
+        <tr>
+          <td><span class="jp-bold highlight">〜てる / 〜でる</span></td>
+          <td>〜ている / 〜でいる</td>
+          <td>吞掉了中音「い」（极其普遍的日常缩音）</td>
+          <td><span class="jp-bold">知ってる</span>（我知道）<br><span class="jp-bold">何してんの？</span>（你在干啥呢？）</td>
+        </tr>
+        <tr>
+          <td><span class="jp-bold highlight">〜なきゃ / 〜なくちゃ</span></td>
+          <td>〜なければ（ならない）</td>
+          <td>“必须得走了/非做不可”</td>
+          <td><span class="jp-bold">もう行かなきゃ！</span>（我得走了！）<br><span class="jp-bold">早くしなくちゃ</span>（得快点了）</td>
+        </tr>
+        <tr>
+          <td><span class="jp-bold highlight">动词连用形 + やがる</span></td>
+          <td>（补助动词）表示厌恶蔑视</td>
+          <td>骂人、轻蔑或反派语气（“这混蛋居然…”）</td>
+          <td><span class="jp-bold">逃げやがった！</span>（这混蛋居然逃了！）<br><span class="jp-bold">食いやがれ！</span>（尝尝这个吧！）</td>
+        </tr>
+        <tr>
+          <td><span class="jp-bold highlight">辞书形 + な！</span></td>
+          <td>绝对禁止形</td>
+          <td>语气严厉，上司对部下、战友生死关头吼叫</td>
+          <td><span class="jp-bold">見るな！</span>（别看！）<br><span class="jp-bold">諦めるな！</span>（不准放弃！）</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="footer-bar">日语核心语法精讲 · 动词篇 · 第 4 页 / 共 4 页 · 全篇完</div>
+
+</body>
+</html>
