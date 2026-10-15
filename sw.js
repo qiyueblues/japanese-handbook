@@ -1,8 +1,9 @@
-const CACHE_NAME = 'japanese-handbook-v2';
+const CACHE_NAME = 'japanese-handbook-v3';
 const ASSETS = [
   './',
   './index.html',
   './日语随身宝.html',
+  './动词变形特训.html',
   './manifest.json'
 ];
 

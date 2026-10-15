@@ -21,6 +21,14 @@ verb_page_5_html = r'''
   </div>
 </div>
 
+<div class="card" style="background: linear-gradient(135deg, rgba(37,99,235,0.12), rgba(139,92,246,0.12)); border: 2px dashed #3b82f6; border-radius: 14px; padding: 18px 20px; margin-bottom: 20px; text-align: center;">
+  <div style="font-size: 1.15rem; font-weight: 800; color: var(--text-main); margin-bottom: 6px;">🎮 动词变形光看不练容易忘？来做网页闯关实战！</div>
+  <div style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 14px;">涵盖 58+ 精选变形考题：音便专场、外观一段实五段致命陷阱词、键盘快捷键作答、连击评分与错题本！</div>
+  <a href="动词变形特训.html" style="display: inline-flex; align-items: center; gap: 8px; background: linear-gradient(135deg, #2563eb, #7c3aed); color: #fff; padding: 11px 24px; border-radius: 12px; font-weight: 700; text-decoration: none; box-shadow: 0 4px 14px rgba(37,99,235,0.4); font-size: 0.95rem;">
+    <span>🚀 立即打开【动词变形实战特训器】做题</span>
+  </a>
+</div>
+
 <!-- Category 1: 三类动词 (不规则神词) -->
 <div class="section avoid-break">
   <div class="section-title"><span class="num">1</span> 三类动词（不规则变形 · 数量仅两个 · 必须死记）</div>
@@ -1917,10 +1925,15 @@ html_template = """<!DOCTYPE html>
       <span>🎌 日语随身宝</span>
       <span class="module-badge" id="moduleBadge">🏃 动词篇</span>
     </div>
-    <button class="theme-toggle-btn" id="themeToggleBtn" onclick="toggleTheme()">
-      <span id="themeIcon">☀️</span>
-      <span id="themeText">浅色</span>
-    </button>
+    <div style="display:flex; align-items:center; gap:8px;">
+      <a href="动词变形特训.html" style="text-decoration:none; display:inline-flex; align-items:center; gap:4px; background:linear-gradient(135deg, #3b82f6, #8b5cf6); color:#fff; font-size:0.75rem; font-weight:700; padding:6px 12px; border-radius:20px; box-shadow:0 2px 8px rgba(59,130,246,0.35);" title="打开动词变形实战闯关题库">
+        <span>🎮 变形闯关</span>
+      </a>
+      <button class="theme-toggle-btn" id="themeToggleBtn" onclick="toggleTheme()">
+        <span id="themeIcon">☀️</span>
+        <span id="themeText">浅色</span>
+      </button>
+    </div>
   </div>
 
   <div class="search-wrapper">
