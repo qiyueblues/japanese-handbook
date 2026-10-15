@@ -1,0 +1,1679 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>日语动词变形实战特训器 · 闯关题库</title>
+  <style>
+    :root {
+      --bg: #0f172a;
+      --card-bg: #1e293b;
+      --card-border: #334155;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --primary: #3b82f6;
+      --primary-hover: #2563eb;
+      --primary-light: rgba(59, 130, 246, 0.15);
+      --success: #10b981;
+      --success-light: rgba(16, 185, 129, 0.18);
+      --danger: #ef4444;
+      --danger-light: rgba(239, 68, 68, 0.18);
+      --warning: #f59e0b;
+      --accent: #8b5cf6;
+      --kbd-bg: #334155;
+      --kbd-text: #e2e8f0;
+      --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.4), 0 8px 10px -6px rgba(0, 0, 0, 0.3);
+    }
+
+    [data-theme="light"] {
+      --bg: #f8fafc;
+      --card-bg: #ffffff;
+      --card-border: #e2e8f0;
+      --text-main: #0f172a;
+      --text-muted: #64748b;
+      --primary: #2563eb;
+      --primary-hover: #1d4ed8;
+      --primary-light: #eff6ff;
+      --success: #059669;
+      --success-light: #ecfdf5;
+      --danger: #dc2626;
+      --danger-light: #fef2f2;
+      --warning: #d97706;
+      --accent: #7c3aed;
+      --kbd-bg: #e2e8f0;
+      --kbd-text: #334155;
+      --shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.08), 0 8px 10px -6px rgba(15, 23, 42, 0.04);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text-main);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Meiryo", sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 24px 16px 48px;
+      transition: background-color 0.25s ease, color 0.25s ease;
+    }
+
+    /* Header & Top Bar */
+    .app-container {
+      width: 100%;
+      max-width: 860px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .top-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      padding: 14px 20px;
+      box-shadow: var(--shadow);
+    }
+
+    .brand-title {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 1.15rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+
+    .brand-badge {
+      background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+      color: #fff;
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 6px;
+      text-transform: uppercase;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .icon-btn {
+      background: var(--primary-light);
+      border: 1px solid var(--card-border);
+      color: var(--text-main);
+      padding: 8px 14px;
+      border-radius: 10px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s;
+    }
+
+    .icon-btn:hover {
+      background: var(--primary);
+      color: #fff;
+      transform: translateY(-1px);
+    }
+
+    /* Mode Selector Pills */
+    .mode-bar {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      padding: 4px 2px;
+      scrollbar-width: none;
+    }
+    .mode-bar::-webkit-scrollbar { display: none; }
+
+    .mode-pill {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      color: var(--text-muted);
+      padding: 9px 16px;
+      border-radius: 12px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .mode-pill:hover {
+      color: var(--text-main);
+      border-color: var(--primary);
+    }
+
+    .mode-pill.active {
+      background: var(--primary);
+      color: #fff;
+      border-color: var(--primary);
+      box-shadow: 0 4px 14px rgba(59, 130, 246, 0.4);
+    }
+
+    /* Dashboard Stats Card */
+    .stats-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      padding: 16px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: var(--shadow);
+    }
+
+    .stat-item {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .stat-label {
+      font-size: 0.76rem;
+      color: var(--text-muted);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .stat-value {
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: var(--text-main);
+      display: flex;
+      align-items: baseline;
+      gap: 4px;
+    }
+
+    .stat-value.combo {
+      color: #f59e0b;
+      animation: pulse 1.5s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.08); }
+    }
+
+    /* Progress Bar */
+    .progress-container {
+      width: 100%;
+      height: 8px;
+      background: var(--card-border);
+      border-radius: 4px;
+      overflow: hidden;
+      margin-top: 4px;
+    }
+
+    .progress-bar {
+      height: 100%;
+      background: linear-gradient(90deg, #3b82f6, #10b981);
+      width: 0%;
+      transition: width 0.3s ease;
+    }
+
+    /* Question Main Box */
+    .quiz-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 20px;
+      padding: 32px 28px;
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      position: relative;
+    }
+
+    .quiz-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .quiz-tags {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .meta-tag {
+      font-size: 0.78rem;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 8px;
+    }
+    .tag-category { background: rgba(59, 130, 246, 0.15); color: var(--primary); }
+    .tag-verbtype { background: rgba(139, 92, 246, 0.15); color: var(--accent); }
+    .tag-target { background: rgba(245, 158, 11, 0.15); color: var(--warning); font-weight: 800; }
+
+    .shortcut-tip {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    kbd {
+      background: var(--kbd-bg);
+      color: var(--kbd-text);
+      font-family: inherit;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      border: 1px solid var(--card-border);
+      box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+    }
+
+    /* Question Word Area */
+    .word-hero {
+      text-align: center;
+      padding: 16px 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .target-prompt {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      font-weight: 600;
+    }
+
+    .target-highlight {
+      color: #3b82f6;
+      font-weight: 800;
+      background: var(--primary-light);
+      padding: 2px 8px;
+      border-radius: 6px;
+    }
+
+    .word-kanji {
+      font-size: 3.2rem;
+      font-weight: 800;
+      letter-spacing: 0.05em;
+      line-height: 1.3;
+    }
+
+    ruby rt {
+      font-size: 1.15rem;
+      color: var(--text-muted);
+      font-weight: 600;
+    }
+
+    .word-meaning {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+    }
+
+    /* Options Grid */
+    .options-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+
+    @media (max-width: 600px) {
+      .options-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .option-btn {
+      background: var(--card-bg);
+      border: 2px solid var(--card-border);
+      border-radius: 14px;
+      padding: 18px 20px;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--text-main);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: all 0.18s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      text-align: left;
+    }
+
+    .option-btn:hover:not(:disabled) {
+      border-color: var(--primary);
+      background: var(--primary-light);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(59, 130, 246, 0.15);
+    }
+
+    .option-btn:active:not(:disabled) {
+      transform: translateY(0);
+    }
+
+    .opt-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .opt-key {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 28px;
+      height: 28px;
+      border-radius: 8px;
+      background: var(--kbd-bg);
+      color: var(--kbd-text);
+      font-size: 0.85rem;
+      font-weight: 800;
+    }
+
+    .opt-status-icon {
+      font-size: 1.3rem;
+      opacity: 0;
+      transform: scale(0.6);
+      transition: all 0.2s;
+    }
+
+    /* Correct / Wrong States */
+    .option-btn.correct {
+      border-color: var(--success) !important;
+      background: var(--success-light) !important;
+      color: var(--success) !important;
+      animation: popSuccess 0.3s ease;
+    }
+    .option-btn.correct .opt-status-icon {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    .option-btn.wrong {
+      border-color: var(--danger) !important;
+      background: var(--danger-light) !important;
+      color: var(--danger) !important;
+      animation: shake 0.35s ease;
+    }
+    .option-btn.wrong .opt-status-icon {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    @keyframes popSuccess {
+      0% { transform: scale(0.97); }
+      50% { transform: scale(1.02); }
+      100% { transform: scale(1); }
+    }
+
+    @keyframes shake {
+      0%, 100% { transform: translateX(0); }
+      20%, 60% { transform: translateX(-6px); }
+      40%, 80% { transform: translateX(6px); }
+    }
+
+    /* Explanation Box */
+    .explanation-box {
+      display: none;
+      background: var(--primary-light);
+      border-left: 5px solid var(--primary);
+      border-radius: 12px;
+      padding: 18px 20px;
+      animation: fadeIn 0.3s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .exp-title {
+      font-weight: 800;
+      font-size: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 8px;
+      color: var(--text-main);
+    }
+
+    .exp-content {
+      font-size: 0.94rem;
+      line-height: 1.6;
+      color: var(--text-main);
+    }
+
+    .exp-trap {
+      margin-top: 8px;
+      padding-top: 8px;
+      border-top: 1px dashed rgba(148, 163, 184, 0.3);
+      color: var(--warning);
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+
+    /* Action Footer */
+    .quiz-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 8px;
+    }
+
+    .next-btn {
+      background: var(--primary);
+      color: #fff;
+      border: none;
+      padding: 14px 28px;
+      border-radius: 12px;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 4px 14px rgba(59, 130, 246, 0.4);
+      transition: all 0.2s;
+    }
+
+    .next-btn:hover {
+      background: var(--primary-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(59, 130, 246, 0.5);
+    }
+
+    /* Result Overlay / Summary */
+    .result-screen {
+      display: none;
+      text-align: center;
+      padding: 40px 20px;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+      animation: fadeIn 0.4s ease;
+    }
+
+    .result-badge {
+      font-size: 4rem;
+    }
+
+    .result-title {
+      font-size: 2rem;
+      font-weight: 900;
+    }
+
+    .result-score-box {
+      display: flex;
+      gap: 24px;
+      margin: 10px 0;
+    }
+
+    .res-box-item {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      padding: 16px 28px;
+      border-radius: 16px;
+      box-shadow: var(--shadow);
+    }
+
+    .res-box-num {
+      font-size: 2rem;
+      font-weight: 900;
+      color: var(--primary);
+    }
+
+    .res-box-lbl {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      font-weight: 600;
+    }
+
+    .result-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 10px;
+    }
+
+    /* Mistakes Drawer */
+    .mistakes-list {
+      text-align: left;
+      width: 100%;
+      max-width: 650px;
+      margin-top: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .mistake-item {
+      background: var(--card-bg);
+      border-left: 4px solid var(--danger);
+      padding: 14px 18px;
+      border-radius: 10px;
+      border: 1px solid var(--card-border);
+      border-left-width: 4px;
+    }
+  </style>
+</head>
+<body data-theme="dark">
+
+  <div class="app-container">
+    <!-- Top Nav -->
+    <header class="top-nav">
+      <div class="brand-title">
+        <span>🇯🇵 日语动词变形特训器</span>
+        <span class="brand-badge">实战通关</span>
+      </div>
+      <div class="nav-actions">
+        <a href="index.html" class="icon-btn" title="查看全部章节练习">
+          📑 全部章节
+        </a>
+        <a href="../index.html" class="icon-btn" title="返回语法手册">
+          📖 语法手册
+        </a>
+        <button class="icon-btn" onclick="toggleTheme()" id="themeBtn" title="切换暗黑/白天模式">
+          🌙 暗黑
+        </button>
+        <button class="icon-btn" onclick="openMistakesModal()" id="mistakesBtn" title="查看错题本">
+          📝 错题集 (<span id="mistakeCount">0</span>)
+        </button>
+      </div>
+    </header>
+
+    <!-- Mode Selector Pills -->
+    <nav class="mode-bar">
+      <button class="mode-pill active" onclick="selectMode('all20')">🌟 综合实战 (随机20题)</button>
+      <button class="mode-pill" onclick="selectMode('allFull')">🔥 终极试炼 (全量58题)</button>
+      <button class="mode-pill" onclick="selectMode('onbin')">⚡ 音便大作战 (促/拨/イ音便)</button>
+      <button class="mode-pill" onclick="selectMode('traps')">🕳 致命陷阱词 (外观一段实五段)</button>
+      <button class="mode-pill" onclick="selectMode('ichidan_san')">🎯 一段与三类不规则</button>
+      <button class="mode-pill" onclick="selectMode('advanced')">🚀 进阶变形 (假定/可能/命令/意志)</button>
+    </nav>
+
+    <!-- Stats & Progress Card -->
+    <section class="stats-card">
+      <div class="stat-item">
+        <div class="stat-label">当前进度</div>
+        <div class="stat-value"><span id="currIdx">1</span> / <span id="totalIdx">20</span></div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-label">准确率</div>
+        <div class="stat-value" id="accuracyVal">100%</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-label">连击 Streak</div>
+        <div class="stat-value combo" id="comboVal">🔥 0</div>
+      </div>
+    </section>
+
+    <!-- Progress Bar -->
+    <div class="progress-container">
+      <div class="progress-bar" id="progressBar"></div>
+    </div>
+
+    <!-- Main Quiz Card -->
+    <main class="quiz-card" id="quizCard">
+      <!-- Meta & Shortcuts -->
+      <div class="quiz-meta">
+        <div class="quiz-tags">
+          <span class="meta-tag tag-category" id="qCategory">音便专场</span>
+          <span class="meta-tag tag-verbtype" id="qVerbType">一类五段 (く尾)</span>
+          <span class="meta-tag tag-target" id="qTargetForm">【た形（过去式）】</span>
+        </div>
+        <div class="shortcut-tip">
+          <span>键盘快捷键:</span>
+          <kbd>1</kbd> <kbd>2</kbd> <kbd>3</kbd> <kbd>4</kbd> / <kbd>Enter</kbd>
+        </div>
+      </div>
+
+      <!-- Word Display Hero -->
+      <div class="word-hero">
+        <div class="target-prompt">
+          请将动词变换为 <span class="target-highlight" id="promptFormName">た形（过去式）</span>：
+        </div>
+        <div class="word-kanji" id="wordKanji">
+          <ruby>行<rt>い</rt></ruby>く
+        </div>
+        <div class="word-meaning" id="wordMeaning">
+          含义：去、前往
+        </div>
+      </div>
+
+      <!-- Options 2x2 Grid -->
+      <div class="options-grid" id="optionsGrid">
+        <!-- Rendered via JS -->
+      </div>
+
+      <!-- Explanation Box (Appears after answering) -->
+      <div class="explanation-box" id="explanationBox">
+        <div class="exp-title">
+          <span id="expResultBadge">💡</span>
+          <span id="expTitle">变形原理与解析</span>
+        </div>
+        <div class="exp-content" id="expFormula">
+          【变形公式】：五段动词「く」结尾通常发生「イ音便」变「いた」，但「行く」是<strong>全日语唯一促音便特例</strong>，必须变成「行った」！
+        </div>
+        <div class="exp-trap" id="expTrap">
+          ⚠️ 避坑提醒：绝不能写成「行いた」！这是日语考试与口语中最常见的扣分陷阱！
+        </div>
+      </div>
+
+      <!-- Action Footer -->
+      <div class="quiz-footer">
+        <div style="font-size:0.85rem; color:var(--text-muted);" id="statusHint">
+          点击选项或按键盘数字键作答
+        </div>
+        <button class="next-btn" id="nextBtn" onclick="nextQuestion()" style="display:none;">
+          下一题 <kbd style="background:rgba(255,255,255,0.2); border:none; color:#fff;">Enter ↵</kbd>
+        </button>
+      </div>
+    </main>
+
+    <!-- Result / Settlement Screen -->
+    <div class="quiz-card result-screen" id="resultScreen">
+      <div class="result-badge" id="resBadge">🏆</div>
+      <div class="result-title" id="resTitle">通关完成！变形宗师！</div>
+      <div style="color:var(--text-muted); font-size:1.05rem;" id="resSubtitle">
+        你已经击败了所有动词音便与陷阱词！
+      </div>
+
+      <div class="result-score-box">
+        <div class="res-box-item">
+          <div class="res-box-num" id="resFinalScore">100%</div>
+          <div class="res-box-lbl">最终正确率</div>
+        </div>
+        <div class="res-box-item">
+          <div class="res-box-num" id="resMaxCombo">20</div>
+          <div class="res-box-lbl">最高连击数</div>
+        </div>
+        <div class="res-box-item">
+          <div class="res-box-num" id="resWrongCount" style="color:var(--danger);">0</div>
+          <div class="res-box-lbl">本次错题</div>
+        </div>
+      </div>
+
+      <div class="result-actions">
+        <button class="next-btn" onclick="restartCurrentMode()">
+          🔄 再练一次
+        </button>
+        <button class="icon-btn" onclick="reviewWrongFromEnd()" id="resReviewBtn" style="padding:14px 22px; font-size:1rem;">
+          📝 仅重练错题 (<span id="resWrongPill">0</span>)
+        </button>
+      </div>
+
+      <!-- Summary of Mistakes -->
+      <div class="mistakes-list" id="resMistakesList"></div>
+    </div>
+  </div>
+
+  <script>
+    // ================= QUESTION DATABASE (58 COMPREHENSIVE DRILLS) =================
+    const ALL_QUESTIONS = [
+      // ---------- SECTION 1: 音便专场 (促音便 / 拨音便 / イ音便 / 无音便 / 特例) ----------
+      {
+        id: "onbin_1",
+        category: "音便大作战",
+        verbType: "一类五段 (极品特例)",
+        kanjiHtml: "<ruby>行<rt>い</rt></ruby>く",
+        meaning: "去、前往",
+        targetForm: "た形（过去式）",
+        options: ["行った", "行いた", "行いだ", "行た"],
+        answerIdx: 0,
+        formula: "【神级特例】：五段「く」结尾正常是イ音便（如書く➔書いた），但「行く」是<strong>全日语唯一的促音便特例</strong>，必须促音变「行った」！",
+        trap: "⚠️ 避坑提醒：绝不要写成「行いた」！这是初学者最容易踩的雷区。"
+      },
+      {
+        id: "onbin_2",
+        category: "音便大作战",
+        verbType: "一类五段 (く行イ音便)",
+        kanjiHtml: "<ruby>書<rt>か</rt></ruby>く",
+        meaning: "写、书写",
+        targetForm: "た形（过去式）",
+        options: ["書った", "書いた", "書いだ", "書きた"],
+        answerIdx: 1,
+        formula: "【く行イ音便】：く ➔ 变成「い」+ た ➔ 「書いた」。",
+        trap: "⚠️ 避坑提醒：只有「行く」促音便，普通「く」结尾动词全部变「いた」！"
+      },
+      {
+        id: "onbin_3",
+        category: "音便大作战",
+        verbType: "一类五段 (ぐ行イ音便浊化)",
+        kanjiHtml: "<ruby>泳<rt>およ</rt></ruby>ぐ",
+        meaning: "游泳",
+        targetForm: "て形（连接/进行）",
+        options: ["泳いで", "泳いて", "泳って", "泳んで"],
+        answerIdx: 0,
+        formula: "【ぐ行イ音便浊化】：ぐ ➔ 变成「い」，且后面的 て/た 必须<strong>浊化带两点</strong>（で/だ）➔ 「泳いで」！",
+        trap: "⚠️ 避坑提醒：千万不要漏掉浊音两点！写成「泳いて」是错误的。"
+      },
+      {
+        id: "onbin_4",
+        category: "音便大作战",
+        verbType: "一类五段 (う行促音便)",
+        kanjiHtml: "<ruby>買<rt>か</rt></ruby>う",
+        meaning: "买、购买",
+        targetForm: "た形（过去式）",
+        options: ["買った", "買いた", "買いだ", "買た"],
+        answerIdx: 0,
+        formula: "【う/つ/る行促音便】：う・つ・る 词尾变促音小「っ」+ た ➔ 「買った」。",
+        trap: "⚠️ 避坑提醒：不能按连用形写成「買いた」，必须促音化「買った」。"
+      },
+      {
+        id: "onbin_5",
+        category: "音便大作战",
+        verbType: "一类五段 (つ行促音便)",
+        kanjiHtml: "<ruby>待<rt>ま</rt></ruby>つ",
+        meaning: "等待",
+        targetForm: "て形（连接/请求）",
+        options: ["待って", "待いて", "待ちて", "待んで"],
+        answerIdx: 0,
+        formula: "【つ行促音便】：つ ➔ 促音小「っ」+ て ➔ 「待って」（待ってください 请等一下）。",
+        trap: "⚠️ 避坑提醒：不要受ます形「待ちます」影响写成「待ちて」！"
+      },
+      {
+        id: "onbin_6",
+        category: "音便大作战",
+        verbType: "一类五段 (る行促音便)",
+        kanjiHtml: "<ruby>終<rt>お</rt></ruby>わる",
+        meaning: "结束",
+        targetForm: "た形（过去式）",
+        options: ["終わった", "終いた", "終わりた", "終あんだ"],
+        answerIdx: 0,
+        formula: "【五段る尾促音便】：五段词尾「る」变促音「っ」+ た ➔ 「終わった」（结束了）。",
+        trap: "⚠️ 避坑提醒：区分一段动词（去る）与五段动词（る促音便）。終わる是五段！"
+      },
+      {
+        id: "onbin_7",
+        category: "音便大作战",
+        verbType: "一类五段 (ぬ行拨音便)",
+        kanjiHtml: "<ruby>死<rt>し</rt></ruby>ぬ",
+        meaning: "死、去世",
+        targetForm: "た形（过去式）",
+        options: ["死んだ", "死った", "死いた", "死した"],
+        answerIdx: 0,
+        formula: "【ぬ/ぶ/む行拨音便】：ぬ ➔ 变拨音「ん」，后面的 た 必须浊化变「だ」➔ 「死んだ」！",
+        trap: "⚠️ 避坑提醒：日语中唯一ぬ结尾的动词就是「死ぬ」，必变拨音「んだ」。"
+      },
+      {
+        id: "onbin_8",
+        category: "音便大作战",
+        verbType: "一类五段 (ぶ行拨音便)",
+        kanjiHtml: "<ruby>遊<rt>あそ</rt></ruby>ぶ",
+        meaning: "玩耍",
+        targetForm: "て形（连接/进行）",
+        options: ["遊んで", "遊びて", "遊って", "遊いて"],
+        answerIdx: 0,
+        formula: "【ぶ行拨音便】：ぶ ➔ 变拨音「ん」+ 浊音「で」➔ 「遊んで」。",
+        trap: "⚠️ 避坑提醒：必须带两点浊音「で」，不能写成「遊んて」。"
+      },
+      {
+        id: "onbin_9",
+        category: "音便大作战",
+        verbType: "一类五段 (む行拨音便)",
+        kanjiHtml: "<ruby>飲<rt>の</rt></ruby>む",
+        meaning: "喝、饮",
+        targetForm: "た形（过去式）",
+        options: ["飲んだ", "飲みた", "飲った", "飲いた"],
+        answerIdx: 0,
+        formula: "【む行拨音便】：む ➔ 变拨音「ん」+ 浊音「だ」➔ 「飲んだ」（喝了）。",
+        trap: "⚠️ 避坑提醒：常与「呼ぶ」「死ぬ」归为一组口诀：'ぬ・ぶ・む' 变 'んだ/んで'。"
+      },
+      {
+        id: "onbin_10",
+        category: "音便大作战",
+        verbType: "一类五段 (す行不发生音便)",
+        kanjiHtml: "<ruby>話<rt>はな</rt></ruby>す",
+        meaning: "交谈、说话",
+        targetForm: "て形（连接/请求）",
+        options: ["話して", "話って", "話いて", "話んで"],
+        answerIdx: 0,
+        formula: "【す行不发生音便】：词尾「す」始终按常规变「し」+ て ➔ 「話して」，绝对不音便！",
+        trap: "⚠️ 避坑提醒：千万不要画蛇添足加促音或拨音！没有「話って」这种词。"
+      },
+      {
+        id: "onbin_11",
+        category: "音便大作战",
+        verbType: "一类五段 (す行不发生音便)",
+        kanjiHtml: "<ruby>貸<rt>か</rt></ruby>す",
+        meaning: "借出",
+        targetForm: "た形（过去式）",
+        options: ["貸した", "貸った", "貸いた", "貸んだ"],
+        answerIdx: 0,
+        formula: "【す行无音便】：す ➔ し + た ➔ 「貸した」（借出了）。",
+        trap: "⚠️ 避坑提醒：牢记口诀：'す行无音便，老实变して/した'。"
+      },
+      {
+        id: "onbin_12",
+        category: "音便大作战",
+        verbType: "一类五段 (ぐ行イ音便)",
+        kanjiHtml: "<ruby>急<rt>いそ</rt></ruby>ぐ",
+        meaning: "着急、赶快",
+        targetForm: "た形（过去式）",
+        options: ["急いだ", "急いた", "急った", "急んだ"],
+        answerIdx: 0,
+        formula: "【ぐ行イ音便浊化】：ぐ ➔ い + 浊音「だ」➔ 「急いだ」（着急了/赶快了）。",
+        trap: "⚠️ 避坑提醒：词尾带浊音，音便也必带浊音（だ/で）。"
+      },
+      {
+        id: "onbin_13",
+        category: "音便大作战",
+        verbType: "一类五段 (ぶ行拨音便)",
+        kanjiHtml: "<ruby>呼<rt>よ</rt></ruby>ぶ",
+        meaning: "呼叫、呼唤",
+        targetForm: "た形（过去式）",
+        options: ["呼んだ", "呼った", "呼びた", "呼いた"],
+        answerIdx: 0,
+        formula: "【ぶ行拨音便】：ぶ ➔ ん + 浊音「だ」➔ 「呼んだ」（喊了/叫了）。",
+        trap: "⚠️ 避坑提醒：与「飲む➔飲んだ」相同，都是拨音便+浊化。"
+      },
+      {
+        id: "onbin_14",
+        category: "音便大作战",
+        verbType: "一类五段 (つ行促音便)",
+        kanjiHtml: "<ruby>立<rt>た</rt></ruby>つ",
+        meaning: "站立",
+        targetForm: "た形（过去式）",
+        options: ["立った", "立ちた", "立いた", "立んだ"],
+        answerIdx: 0,
+        formula: "【つ行促音便】：つ ➔ 小「っ」+ た ➔ 「立った」（站起来了）。",
+        trap: "⚠️ 避坑提醒：促音变音清脆利落，不是「立ちた」。"
+      },
+
+      // ---------- SECTION 2: 致命陷阱词 (外观像一段，实际是五段) ----------
+      {
+        id: "trap_1",
+        category: "致命陷阱词",
+        verbType: "一类五段 (极高频陷阱)",
+        kanjiHtml: "<ruby>帰<rt>かえ</rt></ruby>る",
+        meaning: "回家、返回",
+        targetForm: "ない形（否定式）",
+        options: ["帰らない", "帰ない", "帰れない", "帰さない"],
+        answerIdx: 0,
+        formula: "【伪一段实五段】：虽然前面是え段假名，但「帰る」是地地道道的<strong>五段动词</strong>！否定必须跳あ段「帰らない」！",
+        trap: "⚠️ 避坑提醒：如果当成一段直接去る写成「帰ない」，直接扣分零容忍！"
+      },
+      {
+        id: "trap_2",
+        category: "致命陷阱词",
+        verbType: "一类五段 (极高频陷阱)",
+        kanjiHtml: "<ruby>帰<rt>かえ</rt></ruby>る",
+        meaning: "回家、返回",
+        targetForm: "て形（连接/中顿）",
+        options: ["帰って", "帰て", "帰りて", "帰いて"],
+        answerIdx: 0,
+        formula: "【五段る行促音便】：「帰る」既然是五段动词，其て形必须遵循る行促音便 ➔ 「帰って」（帰ってください 请回家）。",
+        trap: "⚠️ 避坑提醒：一段动词才是去る（如 食べる➔食べて），归る不能直接去る！"
+      },
+      {
+        id: "trap_3",
+        category: "致命陷阱词",
+        verbType: "一类五段 (极高频陷阱)",
+        kanjiHtml: "<ruby>入<rt>はい</rt></ruby>る",
+        meaning: "进入",
+        targetForm: "ます形（礼貌敬体）",
+        options: ["入ります", "入ます", "入れます", "入します"],
+        answerIdx: 0,
+        formula: "【伪一段实五段】：「入る（はいる）」是五段动词！词尾る跳い段加ます ➔ 「入ります（はいります）」。",
+        trap: "⚠️ 避坑提醒：「入ます」是极其典型的错词；「入れます」则是动词「入れる」的ます形，含义完全不同！"
+      },
+      {
+        id: "trap_4",
+        category: "致命陷阱词",
+        verbType: "一类五段 (极高频陷阱)",
+        kanjiHtml: "<ruby>入<rt>はい</rt></ruby>る",
+        meaning: "进入",
+        targetForm: "た形（过去式）",
+        options: ["入った", "入た", "入いた", "入れた"],
+        answerIdx: 0,
+        formula: "【五段促音便】：「入る」是五段动词，る变促音小「っ」+ た ➔ 「入った（はいった）」。",
+        trap: "⚠️ 避坑提醒：温泉「お風呂に入った」是促音「はいった」，千万不可去る写「入た」。"
+      },
+      {
+        id: "trap_5",
+        category: "致命陷阱词",
+        verbType: "一类五段 (极高频陷阱)",
+        kanjiHtml: "<ruby>知<rt>し</rt></ruby>る",
+        meaning: "知道、了解",
+        targetForm: "ない形（否定式）",
+        options: ["知らない", "知ない", "知れない", "知さない"],
+        answerIdx: 0,
+        formula: "【伪一段实五段】：「知る」是五段动词！词尾る跳あ段「ら」+ ない ➔ 「知らない（しらない 不知道）」。",
+        trap: "⚠️ 避坑提醒：动漫神句「そんなの知らない！」（那种事我才不知道！），印证它是五段！"
+      },
+      {
+        id: "trap_6",
+        category: "致命陷阱词",
+        verbType: "一类五段 (极高频陷阱)",
+        kanjiHtml: "<ruby>走<rt>はし</rt></ruby>る",
+        meaning: "奔跑",
+        targetForm: "ない形（否定式）",
+        options: ["走らない", "走ない", "走れない", "走さない"],
+        answerIdx: 0,
+        formula: "【伪一段实五段】：「走る」是五段动词！词尾变あ段 ➔ 「走らない（不跑）」。",
+        trap: "⚠️ 避坑提醒：不要看「し」是在い段就误认成一段！走る是五段。"
+      },
+      {
+        id: "trap_7",
+        category: "致命陷阱词",
+        verbType: "一类五段 (极高频陷阱)",
+        kanjiHtml: "<ruby>要<rt>い</rt></ruby>る",
+        meaning: "需要",
+        targetForm: "ます形（礼貌敬体）",
+        options: ["要ります", "要ます", "要れます", "要します"],
+        answerIdx: 0,
+        formula: "【同音异字陷阱】：「要る（需要）」是五段动词 ➔ 「要ります / 要らない / 要って」；而「居る（在）」才是一段动词（居ます/居ない/居て）。",
+        trap: "⚠️ 避坑提醒：表达“需要”时，一定要按五段动词变「要ります」！"
+      },
+      {
+        id: "trap_8",
+        category: "致命陷阱词",
+        verbType: "一类五段 (极高频陷阱)",
+        kanjiHtml: "<ruby>切<rt>き</rt></ruby>る",
+        meaning: "切断、挂断",
+        targetForm: "て形（连接/中顿）",
+        options: ["切って", "切て", "切りて", "切いて"],
+        answerIdx: 0,
+        formula: "【伪一段实五段】：「切る」是五段动词！遵循る行促音便 ➔ 「切って（きって）」。",
+        trap: "⚠️ 避坑提醒：穿衣服的「着る（きる）」是一段（着て）；切菜的「切る（きる）」是五段（切って）！"
+      },
+      {
+        id: "trap_9",
+        category: "致命陷阱词",
+        verbType: "一类五段 (极高频陷阱)",
+        kanjiHtml: "<ruby>限<rt>かぎ</rt></ruby>る",
+        meaning: "限定、限于",
+        targetForm: "ない形（否定式）",
+        options: ["限らない", "限ない", "限れない", "限さない"],
+        answerIdx: 0,
+        formula: "【五段否定】：「限る」是五段动词 ➔ 「限らない」（とは限らない 不一定如此）。",
+        trap: "⚠️ 避坑提醒：N3~N2核心句型「〜とは限らない」，牢记它是五段！"
+      },
+      {
+        id: "trap_10",
+        category: "致命陷阱词",
+        verbType: "一类五段 (极高频陷阱)",
+        kanjiHtml: "<ruby>減<rt>へ</rt></ruby>る",
+        meaning: "减少",
+        targetForm: "た形（过去式）",
+        options: ["減った", "減た", "減いた", "減いだ"],
+        answerIdx: 0,
+        formula: "【五段促音便】：「減る」是五段动词，发生促音便 ➔ 「減った（肚子饿了也可以说お腹が減った）」。",
+        trap: "⚠️ 避坑提醒：日常高频口语「腹減った（はらへった）」，正是促音便的五段！"
+      },
+
+      // ---------- SECTION 3: 一段动词与三类不规则动词 ----------
+      {
+        id: "ichidan_1",
+        category: "一段与三类",
+        verbType: "二类一段动词",
+        kanjiHtml: "<ruby>食<rt>た</rt></ruby>べる",
+        meaning: "吃",
+        targetForm: "ない形（否定式）",
+        options: ["食べない", "食べらない", "食べわない", "食べさない"],
+        answerIdx: 0,
+        formula: "【二类一段规律】：直接去掉词尾「る」，无脑加「ない」 ➔ 「食べない（不吃）」。",
+        trap: "⚠️ 避坑提醒：一段动词绝不跳行，千万别加「ら」变成「食べらない」。"
+      },
+      {
+        id: "ichidan_2",
+        category: "一段与三类",
+        verbType: "二类一段动词",
+        kanjiHtml: "<ruby>食<rt>た</rt></ruby>べる",
+        meaning: "吃",
+        targetForm: "た形（过去式）",
+        options: ["食べた", "食べった", "食べいだ", "食べいた"],
+        answerIdx: 0,
+        formula: "【二类一段去る】：一段动词完全不发生任何促音/拨音便！去「る」直接加「た」 ➔ 「食べた」。",
+        trap: "⚠️ 避坑提醒：促音「食べった」是完全不存在的荒谬拼法。"
+      },
+      {
+        id: "ichidan_3",
+        category: "一段与三类",
+        verbType: "二类一段动词",
+        kanjiHtml: "<ruby>見<rt>み</rt></ruby>る",
+        meaning: "看、看见",
+        targetForm: "て形（连接/请求）",
+        options: ["見て", "見って", "見いて", "見んで"],
+        answerIdx: 0,
+        formula: "【二类一段去る】：直接去「る」加「て」 ➔ 「見て（みて 看着/看吧）」。",
+        trap: "⚠️ 避坑提醒：不要写促音「見って」，一段动词永远不促音！"
+      },
+      {
+        id: "ichidan_4",
+        category: "一段与三类",
+        verbType: "二类一段动词",
+        kanjiHtml: "<ruby>起<rt>お</rt></ruby>きる",
+        meaning: "起床、发生",
+        targetForm: "ない形（否定式）",
+        options: ["起きない", "起きらない", "起きわない", "起かない"],
+        answerIdx: 0,
+        formula: "【二类一段（上一段）】：き位于い段，是一段动词！去「る」加「ない」 ➔ 「起きない（不起床）」。",
+        trap: "⚠️ 避坑提醒：不能把词干里的「き」当成五段去跳行变「起かない」。"
+      },
+      {
+        id: "ichidan_5",
+        category: "一段与三类",
+        verbType: "二类一段动词",
+        kanjiHtml: "<ruby>忘<rt>わす</rt></ruby>れる",
+        meaning: "忘记",
+        targetForm: "た形（过去式）",
+        options: ["忘れた", "忘れった", "忘れいた", "忘らんだ"],
+        answerIdx: 0,
+        formula: "【二类一段去る】：直接去「る」加「た」 ➔ 「忘れた（忘了/我忘了）」。",
+        trap: "⚠️ 避坑提醒：一段动词极其爽快，去「る」即得！"
+      },
+      {
+        id: "ichidan_6",
+        category: "一段与三类",
+        verbType: "二类一段动词",
+        kanjiHtml: "<ruby>教<rt>おし</rt></ruby>える",
+        meaning: "教授、告诉",
+        targetForm: "ます形（礼貌敬体）",
+        options: ["教えます", "教いります", "教います", "教えります"],
+        answerIdx: 0,
+        formula: "【二类一段去る】：直接去「る」加「ます」 ➔ 「教えます（告诉您/教您）」。",
+        trap: "⚠️ 避坑提醒：一段动词变形绝不需要加「り」。"
+      },
+      {
+        id: "ichidan_7",
+        category: "一段与三类",
+        verbType: "二类一段动词",
+        kanjiHtml: "<ruby>諦<rt>あきら</rt></ruby>める",
+        meaning: "放弃",
+        targetForm: "ない形（否定式）",
+        options: ["諦めない", "諦めらない", "諦まない", "諦めわない"],
+        answerIdx: 0,
+        formula: "【二类一段】：め位于え段，去「る」加「ない」 ➔ 「諦めない（决不放弃）」。",
+        trap: "⚠️ 避坑提醒：热血名台词「最後まで諦めない！」，牢记其一段属性。"
+      },
+      {
+        id: "ichidan_8",
+        category: "一段与三类",
+        verbType: "三类サ变动词",
+        kanjiHtml: "する",
+        meaning: "做、干",
+        targetForm: "ない形（否定式）",
+        options: ["しない", "すらない", "さない", "すない"],
+        answerIdx: 0,
+        formula: "【三类サ变死记】：する的否定形是固定的「しない」！",
+        trap: "⚠️ 避坑提醒：不要脑补「すらない」或「さない」，不规则动词只能死记。"
+      },
+      {
+        id: "ichidan_9",
+        category: "一段与三类",
+        verbType: "三类サ变动词",
+        kanjiHtml: "する",
+        meaning: "做、干",
+        targetForm: "て形（连接/中顿）",
+        options: ["して", "すって", "さいで", "すて"],
+        answerIdx: 0,
+        formula: "【三类サ变死记】：する的て形是「して」（如 勉強して、愛して）。",
+        trap: "⚠️ 避坑提醒：绝无「すって」写法。"
+      },
+      {
+        id: "ichidan_10",
+        category: "一段与三类",
+        verbType: "三类サ变动词",
+        kanjiHtml: "する",
+        meaning: "做、干",
+        targetForm: "假定形（ば形）",
+        options: ["すれば", "しれば", "さらば", "せば"],
+        answerIdx: 0,
+        formula: "【三类サ变死记】：する的假定形是「すれば」（如果做的话；どうすればいい？ 怎么办才好？）。",
+        trap: "⚠️ 避坑提醒：假定形只有「すれば」，「さらば」是古语再见的意思。"
+      },
+      {
+        id: "ichidan_11",
+        category: "一段与三类",
+        verbType: "三类サ变动词",
+        kanjiHtml: "する",
+        meaning: "做、干",
+        targetForm: "意志形（提议/决心）",
+        options: ["しよう", "すろう", "さろう", "すよう"],
+        answerIdx: 0,
+        formula: "【三类サ变死记】：する的意志形是「しよう」（そうしよう！ 就这么办吧！）。",
+        trap: "⚠️ 避坑提醒：牢记口诀：'する意志变しよう，一起行动把步迈'。"
+      },
+      {
+        id: "ichidan_12",
+        category: "一段与三类",
+        verbType: "三类カ变动词",
+        kanjiHtml: "<ruby>来<rt>く</rt></ruby>る",
+        meaning: "来、来到",
+        targetForm: "ない形（否定式）",
+        options: ["こない (来ない)", "きない", "くない", "こらない"],
+        answerIdx: 0,
+        formula: "【三类カ变音变神坑】：原形读「くる」，遇到否定未然变<strong>「こ」</strong> ➔ 「こない（来ない 不来）」！",
+        trap: "⚠️ 避坑提醒：发音从「く」突变成「こ」，这是全日语最独特的音变，死记！"
+      },
+      {
+        id: "ichidan_13",
+        category: "一段与三类",
+        verbType: "三类カ变动词",
+        kanjiHtml: "<ruby>来<rt>く</rt></ruby>る",
+        meaning: "来、来到",
+        targetForm: "ます形（礼貌敬体）",
+        options: ["きます (来ます)", "くます", "こます", "きります"],
+        answerIdx: 0,
+        formula: "【三类カ变】：连用ます形发音变成<strong>「き」</strong> ➔ 「きます（来ます）」。",
+        trap: "⚠️ 避坑提醒：总结くる三音：原形「く」、否定「こ」、敬体「き」！"
+      },
+      {
+        id: "ichidan_14",
+        category: "一段与三类",
+        verbType: "三类カ变动词",
+        kanjiHtml: "<ruby>来<rt>く</rt></ruby>る",
+        meaning: "来、来到",
+        targetForm: "命令形（强硬命令）",
+        options: ["こい (来い)", "きろ", "くろ", "こよ"],
+        answerIdx: 0,
+        formula: "【三类カ变命令】：发音为「こい」（动漫名台词：「かかって来い！」 放马过来吧！）。",
+        trap: "⚠️ 避坑提醒：不可写成「きろ」或「くろ」，命令形唯一为「こい」。"
+      },
+
+      // ---------- SECTION 4: 进阶高频变形 (假定 / 可能 / 被动 / 意志 / 命令 / あ段特殊わ) ----------
+      {
+        id: "adv_1",
+        category: "进阶变形",
+        verbType: "一类五段 (あ段变「わ」特例)",
+        kanjiHtml: "<ruby>買<rt>か</rt></ruby>う",
+        meaning: "买、购买",
+        targetForm: "ない形（否定式）",
+        options: ["買わない", "買あない", "買ない", "買えない"],
+        answerIdx: 0,
+        formula: "【五段う尾变わ神则】：以「う」结尾的五段动词，跳あ段时不变成「あ」，而是必须变成<strong>「わ」</strong> ➔ 「買わない」！",
+        trap: "⚠️ 避坑提醒：绝对不能写成「買あない」！所有う尾动词否定都是「わない」（言わない、吸わない等）。"
+      },
+      {
+        id: "adv_2",
+        category: "进阶变形",
+        verbType: "一类五段 (假定形)",
+        kanjiHtml: "<ruby>飲<rt>の</rt></ruby>む",
+        meaning: "喝、饮",
+        targetForm: "假定形（ば形）",
+        options: ["飲めば", "飲まば", "飲みば", "飲んだらば"],
+        answerIdx: 0,
+        formula: "【五段假定形】：词尾跳え段加「ば」 ➔ む ➔ め + ば ➔ 「飲めば（如果喝的话）」。",
+        trap: "⚠️ 避坑提醒：五段动词假定形永远在え段（行けば、書けば、話せば）。"
+      },
+      {
+        id: "adv_3",
+        category: "进阶变形",
+        verbType: "一类五段 (可能形)",
+        kanjiHtml: "<ruby>書<rt>か</rt></ruby>く",
+        meaning: "写、书写",
+        targetForm: "可能形（能/会）",
+        options: ["書ける", "書かられる", "書かれる", "書きれる"],
+        answerIdx: 0,
+        formula: "【五段可能形】：词尾跳え段加「る」 ➔ く ➔ け + る ➔ 「書ける（能写/会写）」。",
+        trap: "⚠️ 避坑提醒：只有一段动词才加「られる」；五段动词自己跳え段即可变成可能动词！"
+      },
+      {
+        id: "adv_4",
+        category: "进阶变形",
+        verbType: "二类一段 (可能形)",
+        kanjiHtml: "<ruby>食<rt>た</rt></ruby>べる",
+        meaning: "吃",
+        targetForm: "可能形（标准规范）",
+        options: ["食べられる", "食べれる", "食べせる", "食べらる"],
+        answerIdx: 0,
+        formula: "【一段可能形】：规范语法中去「る」加「られる」 ➔ 「食べられる（能吃/可以吃）」。",
+        trap: "⚠️ 避坑提醒：口语中虽有约音「食べれる」（ら抜き言葉），但标准考试与正规语法严格认准「食べられる」！"
+      },
+      {
+        id: "adv_5",
+        category: "进阶变形",
+        verbType: "一类五段 (意志形)",
+        kanjiHtml: "<ruby>話<rt>はな</rt></ruby>す",
+        meaning: "交谈、说话",
+        targetForm: "意志形（邀请/打算）",
+        options: ["話そう", "話しょう", "話ろう", "話すよう"],
+        answerIdx: 0,
+        formula: "【五段意志形】：词尾跳お段拉长音「う」 ➔ す ➔ そ + う ➔ 「話そう（聊聊吧/谈谈吧）」。",
+        trap: "⚠️ 避坑提醒：不能加「よう」，一段才是加「よう」（食べよう）。五段是跳お段！"
+      },
+      {
+        id: "adv_6",
+        category: "进阶变形",
+        verbType: "一类五段 (意志形)",
+        kanjiHtml: "<ruby>行<rt>い</rt></ruby>く",
+        meaning: "去、前往",
+        targetForm: "意志形（走吧/去吧）",
+        options: ["行こう", "行きよう", "行しょう", "行とう"],
+        answerIdx: 0,
+        formula: "【五段意志形】：く 跳お段变「こ」+ う ➔ 「行こう（走吧！出发吧！）」。",
+        trap: "⚠️ 避坑提醒：热血动漫标配台词「行こうぜ！」，牢记五段意志跳お段。"
+      },
+      {
+        id: "adv_7",
+        category: "进阶变形",
+        verbType: "一类五段 (命令形)",
+        kanjiHtml: "<ruby>待<rt>ま</rt></ruby>つ",
+        meaning: "等待",
+        targetForm: "命令形（强硬命令）",
+        options: ["待て", "待ちろ", "待ろ", "待つれ"],
+        answerIdx: 0,
+        formula: "【五段命令形】：词尾直接跳え段 ➔ つ ➔ て ➔ 「待て（等等！住手！）」！",
+        trap: "⚠️ 避坑提醒：动漫中警官或主角常喊「待て！」，正是つ跳え段的五段命令形！"
+      },
+      {
+        id: "adv_8",
+        category: "进阶变形",
+        verbType: "一类五段 (命令形)",
+        kanjiHtml: "<ruby>行<rt>い</rt></ruby>く",
+        meaning: "去、前往",
+        targetForm: "命令形（快去！）",
+        options: ["行け", "行きろ", "行しろ", "行これ"],
+        answerIdx: 0,
+        formula: "【五段命令形】：く 直接跳え段「け」 ➔ 「行け（快去！上啊！）」。",
+        trap: "⚠️ 避坑提醒：五段命令直接单字落在え段，短促有力。"
+      },
+      {
+        id: "adv_9",
+        category: "进阶变形",
+        verbType: "二类一段 (命令形)",
+        kanjiHtml: "<ruby>見<rt>み</rt></ruby>る",
+        meaning: "看、看见",
+        targetForm: "命令形（看招/看好了）",
+        options: ["見ろ", "見れ", "見よ", "見せ"],
+        answerIdx: 0,
+        formula: "【一段命令形】：去「る」加「ろ」（或文语よ） ➔ 「見ろ（看招！看好了！）」！",
+        trap: "⚠️ 避坑提醒：一段动词命令加「ろ」，五段动词命令跳え段，千万不可混淆！"
+      },
+      {
+        id: "adv_10",
+        category: "进阶变形",
+        verbType: "一类五段 (可能形)",
+        kanjiHtml: "<ruby>飲<rt>の</rt></ruby>む",
+        meaning: "喝、饮",
+        targetForm: "可能形（能喝/喝得下）",
+        options: ["飲める", "飲まれる", "飲みれる", "飲まる"],
+        answerIdx: 0,
+        formula: "【五段可能形】：词尾跳え段加「る」 ➔ む ➔ め + る ➔ 「飲める（能喝）」。",
+        trap: "⚠️ 避坑提醒：「飲まれる」是被动形（被喝了），可能形必须跳え段变「飲める」！"
+      },
+      {
+        id: "adv_11",
+        category: "进阶变形",
+        verbType: "一类五段 (假定形)",
+        kanjiHtml: "<ruby>泳<rt>およ</rt></ruby>ぐ",
+        meaning: "游泳",
+        targetForm: "假定形（ば形）",
+        options: ["泳げば", "泳がば", "泳ぎば", "泳いだらば"],
+        answerIdx: 0,
+        formula: "【五段假定形】：ぐ ➔ げ + ば ➔ 「泳げば（如果游泳的话）」。",
+        trap: "⚠️ 避坑提醒：词尾浊音保持浊音（ぐ➔げ）。"
+      },
+      {
+        id: "adv_12",
+        category: "进阶变形",
+        verbType: "三类サ变动词",
+        kanjiHtml: "する",
+        meaning: "做、干",
+        targetForm: "可能形（能够/做得到）",
+        options: ["できる", "せられる", "すれる", "しられる"],
+        answerIdx: 0,
+        formula: "【三类サ变可能特例】：する的可能形完全换词为「できる」（能够、可以）！",
+        trap: "⚠️ 避坑提醒：日常最常用的「日本語ができる」，正是する对应的可能形态！"
+      }
+    ];
+
+    // ================= STATE MANAGEMENT =================
+    let currentMode = 'all20';
+    let questionPool = [];
+    let currentQIdx = 0;
+    let scoreCount = 0;
+    let comboCount = 0;
+    let maxCombo = 0;
+    let sessionWrongList = [];
+    let hasAnswered = false;
+
+    // Load wrong questions from LocalStorage if any
+    function getStoredMistakes() {
+      try {
+        const d = localStorage.getItem('nihongo_verb_mistakes');
+        return d ? JSON.parse(d) : [];
+      } catch (e) {
+        return [];
+      }
+    }
+
+    function saveMistakes(list) {
+      try {
+        localStorage.setItem('nihongo_verb_mistakes', JSON.stringify(list));
+      } catch (e) {}
+    }
+
+    function updateMistakePill() {
+      const list = getStoredMistakes();
+      document.getElementById('mistakeCount').innerText = list.length;
+    }
+
+    // Shuffle Array
+    function shuffle(arr) {
+      const a = [...arr];
+      for (let i = a.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [a[i], a[j]] = [a[j], a[i]];
+      }
+      return a;
+    }
+
+    // Select Mode & Build Question Pool
+    function selectMode(mode) {
+      currentMode = mode;
+      document.querySelectorAll('.mode-pill').forEach(btn => btn.classList.remove('active'));
+      const activeBtn = Array.from(document.querySelectorAll('.mode-pill')).find(b => b.getAttribute('onclick')?.includes(mode));
+      if (activeBtn) activeBtn.classList.add('active');
+
+      buildQuestionPool();
+      startQuiz();
+    }
+
+    function buildQuestionPool() {
+      if (currentMode === 'all20') {
+        questionPool = shuffle(ALL_QUESTIONS).slice(0, 20);
+      } else if (currentMode === 'allFull') {
+        questionPool = shuffle(ALL_QUESTIONS);
+      } else if (currentMode === 'onbin') {
+        questionPool = shuffle(ALL_QUESTIONS.filter(q => q.category === '音便大作战'));
+      } else if (currentMode === 'traps') {
+        questionPool = shuffle(ALL_QUESTIONS.filter(q => q.category === '致命陷阱词'));
+      } else if (currentMode === 'ichidan_san') {
+        questionPool = shuffle(ALL_QUESTIONS.filter(q => q.category === '一段与三类'));
+      } else if (currentMode === 'advanced') {
+        questionPool = shuffle(ALL_QUESTIONS.filter(q => q.category === '进阶变形'));
+      }
+    }
+
+    // Start / Restart Quiz
+    function startQuiz() {
+      currentQIdx = 0;
+      scoreCount = 0;
+      comboCount = 0;
+      maxCombo = 0;
+      sessionWrongList = [];
+      hasAnswered = false;
+
+      document.getElementById('quizCard').style.display = 'flex';
+      document.getElementById('resultScreen').style.display = 'none';
+
+      renderCurrentQuestion();
+      updateStats();
+      updateMistakePill();
+    }
+
+    function restartCurrentMode() {
+      buildQuestionPool();
+      startQuiz();
+    }
+
+    // Render Current Question
+    function renderCurrentQuestion() {
+      hasAnswered = false;
+      const q = questionPool[currentQIdx];
+      if (!q) {
+        showResults();
+        return;
+      }
+
+      // Meta
+      document.getElementById('qCategory').innerText = q.category;
+      document.getElementById('qVerbType').innerText = q.verbType;
+      document.getElementById('qTargetForm').innerText = '【' + q.targetForm + '】';
+      document.getElementById('promptFormName').innerText = q.targetForm;
+
+      // Word Hero
+      document.getElementById('wordKanji').innerHTML = q.kanjiHtml;
+      document.getElementById('wordMeaning').innerText = '含义：' + q.meaning;
+
+      // Reset & Render Options (Shuffle options so correct answer isn't always A)
+      const optionsWithMeta = q.options.map((optText, origIdx) => ({
+        text: optText,
+        isCorrect: origIdx === q.answerIdx
+      }));
+      const shuffledOptions = shuffle(optionsWithMeta);
+
+      const grid = document.getElementById('optionsGrid');
+      grid.innerHTML = '';
+
+      shuffledOptions.forEach((opt, idx) => {
+        const btn = document.createElement('button');
+        btn.className = 'option-btn';
+        btn.dataset.correct = opt.isCorrect;
+        btn.dataset.idx = idx;
+        btn.onclick = () => selectOption(btn, opt.isCorrect, q);
+
+        const keyLetter = ['1', '2', '3', '4'][idx];
+        btn.innerHTML = `
+          <div class="opt-left">
+            <span class="opt-key">${keyLetter}</span>
+            <span>${opt.text}</span>
+          </div>
+          <span class="opt-status-icon">${opt.isCorrect ? '✅' : '❌'}</span>
+        `;
+        grid.appendChild(btn);
+      });
+
+      // Hide Explanation & Next button
+      document.getElementById('explanationBox').style.display = 'none';
+      document.getElementById('nextBtn').style.display = 'none';
+      document.getElementById('statusHint').innerText = '点击选项或按键盘 1 / 2 / 3 / 4 键作答';
+
+      updateStats();
+    }
+
+    // Select Option Handler
+    function selectOption(chosenBtn, isCorrect, q) {
+      if (hasAnswered) return;
+      hasAnswered = true;
+
+      const allBtns = document.querySelectorAll('.option-btn');
+      allBtns.forEach(b => b.disabled = true);
+
+      if (isCorrect) {
+        chosenBtn.classList.add('correct');
+        scoreCount++;
+        comboCount++;
+        if (comboCount > maxCombo) maxCombo = comboCount;
+        document.getElementById('expResultBadge').innerText = '🎉 回答完全正确！';
+        document.getElementById('statusHint').innerText = '太棒了！按 Enter 键进入下一题';
+      } else {
+        chosenBtn.classList.add('wrong');
+        comboCount = 0;
+        // highlight correct one
+        allBtns.forEach(b => {
+          if (b.dataset.correct === 'true') {
+            b.classList.add('correct');
+          }
+        });
+        document.getElementById('expResultBadge').innerText = '💡 踩坑啦，请看解析！';
+        document.getElementById('statusHint').innerText = '已记录至错题集，按 Enter 键进入下一题';
+
+        // Add to session mistakes
+        sessionWrongList.push({
+          q: q,
+          chosen: chosenBtn.querySelector('span:last-child').innerText
+        });
+
+        // Add to persistent mistakes
+        const stored = getStoredMistakes();
+        if (!stored.some(item => item.id === q.id)) {
+          stored.push(q);
+          saveMistakes(stored);
+          updateMistakePill();
+        }
+      }
+
+      // Show Explanation Box
+      const expBox = document.getElementById('explanationBox');
+      document.getElementById('expTitle').innerText = q.targetForm + ' 变形法则';
+      document.getElementById('expFormula').innerHTML = q.formula;
+      document.getElementById('expTrap').innerHTML = q.trap;
+      expBox.style.display = 'block';
+
+      // Show Next button
+      document.getElementById('nextBtn').style.display = 'inline-flex';
+
+      updateStats();
+    }
+
+    // Next Question
+    function nextQuestion() {
+      if (!hasAnswered) return;
+      currentQIdx++;
+      if (currentQIdx >= questionPool.length) {
+        showResults();
+      } else {
+        renderCurrentQuestion();
+      }
+    }
+
+    // Update Stats Display
+    function updateStats() {
+      document.getElementById('currIdx').innerText = Math.min(currentQIdx + 1, questionPool.length);
+      document.getElementById('totalIdx').innerText = questionPool.length;
+
+      const answeredTotal = hasAnswered ? currentQIdx + 1 : currentQIdx;
+      const acc = answeredTotal === 0 ? 100 : Math.round((scoreCount / answeredTotal) * 100);
+      document.getElementById('accuracyVal').innerText = acc + '%';
+
+      document.getElementById('comboVal').innerText = comboCount > 1 ? `🔥 ${comboCount} 连击` : `🔥 ${comboCount}`;
+
+      const progress = ((currentQIdx) / questionPool.length) * 100;
+      document.getElementById('progressBar').style.width = progress + '%';
+    }
+
+    // Show Results Screen
+    function showResults() {
+      document.getElementById('quizCard').style.display = 'none';
+      const screen = document.getElementById('resultScreen');
+      screen.style.display = 'flex';
+
+      const total = questionPool.length;
+      const acc = Math.round((scoreCount / total) * 100);
+
+      document.getElementById('resFinalScore').innerText = acc + '%';
+      document.getElementById('resMaxCombo').innerText = maxCombo;
+      document.getElementById('resWrongCount').innerText = sessionWrongList.length;
+      document.getElementById('resWrongPill').innerText = sessionWrongList.length;
+
+      if (acc === 100) {
+        document.getElementById('resBadge').innerText = '👑';
+        document.getElementById('resTitle').innerText = '不可思议！100% 满分宗师！';
+        document.getElementById('resSubtitle').innerText = '动词音便、陷阱词、活用形态在你面前已如行云流水！';
+      } else if (acc >= 85) {
+        document.getElementById('resBadge').innerText = '⚔️';
+        document.getElementById('resTitle').innerText = '实力超群！动词变形高阶达人！';
+        document.getElementById('resSubtitle').innerText = '仅有个别隐蔽陷阱稍有遗漏，稍加复习即臻化境！';
+      } else if (acc >= 60) {
+        document.getElementById('resBadge').innerText = '🌱';
+        document.getElementById('resTitle').innerText = '初窥门径！基础稳固仍需细嚼！';
+        document.getElementById('resSubtitle').innerText = '请重点攻坚音便促音便与“外观一段实五段”的陷阱词！';
+      } else {
+        document.getElementById('resBadge').innerText = '🛡️';
+        document.getElementById('resTitle').innerText = '打怪升级中！别气馁，多练成神！';
+        document.getElementById('resSubtitle').innerText = '建议对照《日语随身宝》动词篇第 5 章多读几遍变形大表。';
+      }
+
+      // Render mistakes list
+      const mList = document.getElementById('resMistakesList');
+      mList.innerHTML = '';
+      if (sessionWrongList.length > 0) {
+        mList.innerHTML = '<h3 style="margin-bottom:8px; font-size:1.1rem; color:var(--text-main);">本次错题深度回放：</h3>';
+        sessionWrongList.forEach((item, idx) => {
+          const div = document.createElement('div');
+          div.className = 'mistake-item';
+          div.innerHTML = `
+            <div style="font-weight:800; font-size:1.05rem; margin-bottom:4px;">
+              ${idx + 1}. 题目：${item.q.kanjiHtml} ➔ 【${item.q.targetForm}】
+            </div>
+            <div style="font-size:0.92rem; color:var(--success); font-weight:700;">
+              正确答案：${item.q.options[item.q.answerIdx]}
+            </div>
+            <div style="font-size:0.88rem; color:var(--text-muted); margin-top:4px;">
+              ${item.q.formula}
+            </div>
+          `;
+          mList.appendChild(div);
+        });
+      }
+    }
+
+    // Review Wrong Questions
+    function reviewWrongFromEnd() {
+      if (sessionWrongList.length === 0) {
+        alert('太棒了，本次闯关零错题，无需重练！');
+        return;
+      }
+      questionPool = sessionWrongList.map(item => item.q);
+      startQuiz();
+    }
+
+    function openMistakesModal() {
+      const stored = getStoredMistakes();
+      if (stored.length === 0) {
+        alert('当前错题本为空！你在刷题过程中答错的题目会自动收藏在这里。');
+        return;
+      }
+      if (confirm(`错题本当前共累计 ${stored.length} 道错题，是否立即开启【错题专项特训】？`)) {
+        questionPool = shuffle(stored);
+        startQuiz();
+      }
+    }
+
+    // Theme Toggle
+    function toggleTheme() {
+      const body = document.body;
+      const current = body.getAttribute('data-theme');
+      const next = current === 'dark' ? 'light' : 'dark';
+      body.setAttribute('data-theme', next);
+      const btn = document.getElementById('themeBtn');
+      btn.innerText = next === 'dark' ? '🌙 暗黑' : '☀️ 白天';
+    }
+
+    // Keyboard Shortcuts (1/2/3/4 & Enter)
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        if (hasAnswered) {
+          e.preventDefault();
+          nextQuestion();
+        }
+      } else if (['1', '2', '3', '4'].includes(e.key)) {
+        if (!hasAnswered) {
+          const idx = parseInt(e.key) - 1;
+          const btns = document.querySelectorAll('.option-btn');
+          if (btns[idx]) btns[idx].click();
+        }
+      }
+    });
+
+    // Initialize on page load
+    window.addEventListener('DOMContentLoaded', () => {
+      selectMode('all20');
+      updateMistakePill();
+    });
+  </script>
+</body>
+</html>

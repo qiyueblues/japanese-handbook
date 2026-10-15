@@ -1,13 +1,18 @@
-const CACHE_NAME = 'japanese-handbook-v3';
+const CACHE_NAME = 'japanese-handbook-v4';
 const ASSETS = [
   './',
   './index.html',
   './日语随身宝.html',
   './动词变形特训.html',
-  './manifest.json'
+  './manifest.json',
+  './练习题库/index.html',
+  './练习题库/01_动词变形特训.html',
+  './练习题库/02_形容词变形特训.html',
+  './练习题库/03_助词辨析特训.html',
+  './练习题库/04_句型造句特训.html',
+  './练习题库/05_常用口语特训.html'
 ];
 
-// Install and pre-cache assets
 self.addEventListener('install', event => {
   event.waitUntil(
     caches.open(CACHE_NAME).then(cache => {
@@ -16,7 +21,6 @@ self.addEventListener('install', event => {
   );
 });
 
-// Activate and clean old caches
 self.addEventListener('activate', event => {
   event.waitUntil(
     caches.keys().then(keys => {
@@ -27,7 +31,6 @@ self.addEventListener('activate', event => {
   );
 });
 
-// Fetch with Cache First, Network Fallback strategy
 self.addEventListener('fetch', event => {
   if (event.request.method !== 'GET') return;
   event.respondWith(

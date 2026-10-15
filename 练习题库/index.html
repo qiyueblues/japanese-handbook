@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>日语核心语法闯关特训中心 · 练习题库</title>
+  <style>
+    :root {
+      --bg: #0f172a;
+      --card-bg: #1e293b;
+      --card-border: #334155;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --primary: #3b82f6;
+      --primary-hover: #2563eb;
+      --primary-light: rgba(59, 130, 246, 0.15);
+      --success: #10b981;
+      --accent: #8b5cf6;
+      --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.4), 0 8px 10px -6px rgba(0, 0, 0, 0.3);
+    }
+    [data-theme="light"] {
+      --bg: #f8fafc;
+      --card-bg: #ffffff;
+      --card-border: #e2e8f0;
+      --text-main: #0f172a;
+      --text-muted: #64748b;
+      --primary: #2563eb;
+      --primary-hover: #1d4ed8;
+      --primary-light: #eff6ff;
+      --success: #059669;
+      --accent: #7c3aed;
+      --shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.08), 0 8px 10px -6px rgba(15, 23, 42, 0.04);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background-color: var(--bg);
+      color: var(--text-main);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 32px 16px 64px;
+      transition: background-color 0.25s ease, color 0.25s ease;
+    }
+    .hub-container {
+      width: 100%;
+      max-width: 900px;
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+    }
+    .hub-header {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 20px;
+      padding: 28px 32px;
+      box-shadow: var(--shadow);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .header-info h1 {
+      font-size: 1.8rem;
+      font-weight: 900;
+      letter-spacing: -0.02em;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .header-info p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+    .header-actions {
+      display: flex;
+      gap: 10px;
+    }
+    .btn {
+      background: var(--primary-light);
+      border: 1px solid var(--card-border);
+      color: var(--text-main);
+      padding: 10px 16px;
+      border-radius: 12px;
+      font-size: 0.88rem;
+      font-weight: 700;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .btn:hover {
+      background: var(--primary);
+      color: #fff;
+      transform: translateY(-2px);
+    }
+    .btn.primary {
+      background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+      color: #fff;
+      border: none;
+      box-shadow: 0 4px 14px rgba(59, 130, 246, 0.4);
+    }
+    .chapters-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 18px;
+    }
+    .chapter-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 18px;
+      padding: 24px;
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 16px;
+      transition: all 0.22s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+    }
+    .chapter-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--primary);
+      box-shadow: 0 14px 30px -8px rgba(59, 130, 246, 0.25);
+    }
+    .card-top {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .chapter-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.76rem;
+      font-weight: 800;
+      padding: 4px 10px;
+      border-radius: 8px;
+      width: fit-content;
+    }
+    .card-title {
+      font-size: 1.3rem;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .card-desc {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+    .card-tags {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      margin-top: 4px;
+    }
+    .tag {
+      font-size: 0.72rem;
+      padding: 2px 8px;
+      border-radius: 6px;
+      background: rgba(148, 163, 184, 0.12);
+      color: var(--text-muted);
+      font-weight: 600;
+    }
+    .start-btn {
+      background: var(--primary);
+      color: #fff;
+      padding: 12px 18px;
+      border-radius: 12px;
+      font-weight: 700;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      box-shadow: 0 4px 12px rgba(59, 130, 246, 0.35);
+      transition: all 0.2s;
+    }
+    .start-btn:hover {
+      background: var(--primary-hover);
+      transform: translateY(-1px);
+    }
+  </style>
+</head>
+<body data-theme="dark">
+  <div class="hub-container">
+    <div class="hub-header">
+      <div class="header-info">
+        <h1><span>🎮</span> 日语核心语法闯关特训中心</h1>
+        <p>纯本地单文件题库 · 支持 1/2/3/4 与 Enter 快捷键盲打 · 错题自动收集</p>
+      </div>
+      <div class="header-actions">
+        <a href="../index.html" class="btn primary">📖 返回随身宝手册</a>
+        <button class="btn" onclick="toggleTheme()" id="themeBtn">🌙 暗黑</button>
+      </div>
+    </div>
+
+    <div class="chapters-grid">
+      <!-- 01 动词篇 -->
+      <div class="chapter-card" style="border-top: 4px solid #3b82f6;">
+        <div class="card-top">
+          <span class="chapter-badge" style="background:rgba(59,130,246,0.15); color:#3b82f6;">第一章 · 核心动力</span>
+          <div class="card-title">🏃 动词变形特训器</div>
+          <div class="card-desc">针对三类动词、一段动词、五段各音便（促/拨/イ音便）、外观一段实五段致命陷阱词、假定/可能/意志/命令全套变形！</div>
+          <div class="card-tags">
+            <span class="tag">58+ 题库</span>
+            <span class="tag">音便专场</span>
+            <span class="tag">陷阱词突击</span>
+            <span class="tag">键盘盲打</span>
+          </div>
+        </div>
+        <a href="01_动词变形特训.html" class="start-btn">🚀 进入动词闯关</a>
+      </div>
+
+      <!-- 02 形容词篇 -->
+      <div class="chapter-card" style="border-top: 4px solid #ec4899;">
+        <div class="card-top">
+          <span class="chapter-badge" style="background:rgba(236,72,153,0.15); color:#ec4899;">第二章 · 状态色彩</span>
+          <div class="card-title">🌸 形容词变形特训器</div>
+          <div class="card-desc">い形容词四态（否定/过去/中顿/副词化）、な形容词修饰、神级特例「いい ➔ よ」、以及口语男系变音（うめえ/すげえ/やべえ）！</div>
+          <div class="card-tags">
+            <span class="tag">40+ 题库</span>
+            <span class="tag">いい特例</span>
+            <span class="tag">綺麗/嫌い陷阱</span>
+            <span class="tag">口语约音</span>
+          </div>
+        </div>
+        <a href="02_形容词变形特训.html" class="start-btn" style="background:#ec4899;">🚀 进入形容词闯关</a>
+      </div>
+
+      <!-- 03 助词篇 -->
+      <div class="chapter-card" style="border-top: 4px solid #10b981;">
+        <div class="card-top">
+          <span class="chapter-badge" style="background:rgba(16,185,129,0.15); color:#10b981;">第三章 · 逻辑骨骼</span>
+          <div class="card-title">📍 助词辨析特训器</div>
+          <div class="card-desc">「は」与「が」大主语小主语排他巅峰对决、「に」与「で」存在与发生终极辨析、を/へ/と/から/まで以及句末终助词！</div>
+          <div class="card-tags">
+            <span class="tag">40+ 题库</span>
+            <span class="tag">は vs が</span>
+            <span class="tag">に vs で</span>
+            <span class="tag">终助词语气</span>
+          </div>
+        </div>
+        <a href="03_助词辨析特训.html" class="start-btn" style="background:#10b981;">🚀 进入助词闯关</a>
+      </div>
+
+      <!-- 04 句型篇 -->
+      <div class="chapter-card" style="border-top: 4px solid #f59e0b;">
+        <div class="card-top">
+          <span class="chapter-badge" style="background:rgba(245,158,11,0.15); color:#f59e0b;">第四章 · 表达构建</span>
+          <div class="card-title">🏗️ 句型造句特训器</div>
+          <div class="card-desc">授受关系名场面（あげる/くれる/もらう）、假定四天王（と/ば/たら/なら）、许可禁止义务、以及动作时态（ている/てある/ておく/てしまう）！</div>
+          <div class="card-tags">
+            <span class="tag">40+ 题库</span>
+            <span class="tag">授受视角</span>
+            <span class="tag">假定四天王</span>
+            <span class="tag">存续状态</span>
+          </div>
+        </div>
+        <a href="04_句型造句特训.html" class="start-btn" style="background:#d97706;">🚀 进入句型闯关</a>
+      </div>
+
+      <!-- 05 口语篇 -->
+      <div class="chapter-card" style="border-top: 4px solid #8b5cf6;">
+        <div class="card-top">
+          <span class="chapter-badge" style="background:rgba(139,92,246,0.15); color:#8b5cf6;">第五章 · 地道实战</span>
+          <div class="card-title">💬 常用口语特训器</div>
+          <div class="card-desc">口语神级约音（てる/とく/ちゃう/なきゃ）、日常社交寒暄套话（出入门、用餐、职场辛苦了）、动漫高频名台词与年轻人口语！</div>
+          <div class="card-tags">
+            <span class="tag">40+ 题库</span>
+            <span class="tag">神级约音</span>
+            <span class="tag">社交寒暄</span>
+            <span class="tag">动漫名台词</span>
+          </div>
+        </div>
+        <a href="05_常用口语特训.html" class="start-btn" style="background:#8b5cf6;">🚀 进入口语闯关</a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function toggleTheme() {
+      const body = document.body;
+      const current = body.getAttribute('data-theme');
+      const next = current === 'dark' ? 'light' : 'dark';
+      body.setAttribute('data-theme', next);
+      document.getElementById('themeBtn').innerText = next === 'dark' ? '🌙 暗黑' : '☀️ 白天';
+    }
+  </script>
+</body>
+</html>

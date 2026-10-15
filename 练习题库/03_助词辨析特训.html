@@ -1,0 +1,1445 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>日语助词辨析特训器 · 练习题库</title>
+  <style>
+    :root {
+      --bg: #0f172a;
+      --card-bg: #1e293b;
+      --card-border: #334155;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --primary: #3b82f6;
+      --primary-hover: #2563eb;
+      --primary-light: rgba(59, 130, 246, 0.15);
+      --success: #10b981;
+      --success-light: rgba(16, 185, 129, 0.18);
+      --danger: #ef4444;
+      --danger-light: rgba(239, 68, 68, 0.18);
+      --warning: #f59e0b;
+      --accent: #8b5cf6;
+      --kbd-bg: #334155;
+      --kbd-text: #e2e8f0;
+      --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.4), 0 8px 10px -6px rgba(0, 0, 0, 0.3);
+    }
+
+    [data-theme="light"] {
+      --bg: #f8fafc;
+      --card-bg: #ffffff;
+      --card-border: #e2e8f0;
+      --text-main: #0f172a;
+      --text-muted: #64748b;
+      --primary: #2563eb;
+      --primary-hover: #1d4ed8;
+      --primary-light: #eff6ff;
+      --success: #059669;
+      --success-light: #ecfdf5;
+      --danger: #dc2626;
+      --danger-light: #fef2f2;
+      --warning: #d97706;
+      --accent: #7c3aed;
+      --kbd-bg: #e2e8f0;
+      --kbd-text: #334155;
+      --shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.08), 0 8px 10px -6px rgba(15, 23, 42, 0.04);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text-main);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Meiryo", sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 24px 16px 48px;
+      transition: background-color 0.25s ease, color 0.25s ease;
+    }
+
+    .app-container {
+      width: 100%;
+      max-width: 860px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .top-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      padding: 14px 20px;
+      box-shadow: var(--shadow);
+    }
+
+    .brand-title {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 1.12rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+
+    .brand-badge {
+      background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+      color: #fff;
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 6px;
+      text-transform: uppercase;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .icon-btn {
+      background: var(--primary-light);
+      border: 1px solid var(--card-border);
+      color: var(--text-main);
+      padding: 8px 12px;
+      border-radius: 10px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+
+    .icon-btn:hover {
+      background: var(--primary);
+      color: #fff;
+      transform: translateY(-1px);
+    }
+
+    .mode-bar {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      padding: 4px 2px;
+      scrollbar-width: none;
+    }
+    .mode-bar::-webkit-scrollbar { display: none; }
+
+    .mode-pill {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      color: var(--text-muted);
+      padding: 9px 16px;
+      border-radius: 12px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .mode-pill:hover {
+      color: var(--text-main);
+      border-color: var(--primary);
+    }
+
+    .mode-pill.active {
+      background: var(--primary);
+      color: #fff;
+      border-color: var(--primary);
+      box-shadow: 0 4px 14px rgba(59, 130, 246, 0.4);
+    }
+
+    .stats-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      padding: 16px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: var(--shadow);
+    }
+
+    .stat-item {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .stat-label {
+      font-size: 0.76rem;
+      color: var(--text-muted);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .stat-value {
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: var(--text-main);
+      display: flex;
+      align-items: baseline;
+      gap: 4px;
+    }
+
+    .stat-value.combo {
+      color: #f59e0b;
+      animation: pulse 1.5s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.08); }
+    }
+
+    .progress-container {
+      width: 100%;
+      height: 8px;
+      background: var(--card-border);
+      border-radius: 4px;
+      overflow: hidden;
+      margin-top: 4px;
+    }
+
+    .progress-bar {
+      height: 100%;
+      background: linear-gradient(90deg, #3b82f6, #10b981);
+      width: 0%;
+      transition: width 0.3s ease;
+    }
+
+    .quiz-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 20px;
+      padding: 32px 28px;
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      position: relative;
+    }
+
+    .quiz-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .quiz-tags {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .meta-tag {
+      font-size: 0.78rem;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 8px;
+    }
+    .tag-category { background: rgba(59, 130, 246, 0.15); color: var(--primary); }
+    .tag-verbtype { background: rgba(139, 92, 246, 0.15); color: var(--accent); }
+    .tag-target { background: rgba(245, 158, 11, 0.15); color: var(--warning); font-weight: 800; }
+
+    .shortcut-tip {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    kbd {
+      background: var(--kbd-bg);
+      color: var(--kbd-text);
+      font-family: inherit;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      border: 1px solid var(--card-border);
+      box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+    }
+
+    .word-hero {
+      text-align: center;
+      padding: 14px 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .target-prompt {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      font-weight: 600;
+      line-height: 1.5;
+    }
+
+    .target-highlight {
+      color: #3b82f6;
+      font-weight: 800;
+      background: var(--primary-light);
+      padding: 2px 8px;
+      border-radius: 6px;
+    }
+
+    .word-kanji {
+      font-size: 2.5rem;
+      font-weight: 800;
+      letter-spacing: 0.03em;
+      line-height: 1.35;
+    }
+
+    ruby rt {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      font-weight: 600;
+    }
+
+    .word-meaning {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+    }
+
+    .options-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+
+    @media (max-width: 600px) {
+      .options-grid {
+        grid-template-columns: 1fr;
+      }
+      .word-kanji {
+        font-size: 2rem;
+      }
+    }
+
+    .option-btn {
+      background: var(--card-bg);
+      border: 2px solid var(--card-border);
+      border-radius: 14px;
+      padding: 18px 20px;
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--text-main);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: all 0.18s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      text-align: left;
+    }
+
+    .option-btn:hover:not(:disabled) {
+      border-color: var(--primary);
+      background: var(--primary-light);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(59, 130, 246, 0.15);
+    }
+
+    .option-btn:active:not(:disabled) {
+      transform: translateY(0);
+    }
+
+    .opt-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .opt-key {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 28px;
+      height: 28px;
+      border-radius: 8px;
+      background: var(--kbd-bg);
+      color: var(--kbd-text);
+      font-size: 0.85rem;
+      font-weight: 800;
+      flex-shrink: 0;
+    }
+
+    .opt-status-icon {
+      font-size: 1.3rem;
+      opacity: 0;
+      transform: scale(0.6);
+      transition: all 0.2s;
+    }
+
+    .option-btn.correct {
+      border-color: var(--success) !important;
+      background: var(--success-light) !important;
+      color: var(--success) !important;
+      animation: popSuccess 0.3s ease;
+    }
+    .option-btn.correct .opt-status-icon {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    .option-btn.wrong {
+      border-color: var(--danger) !important;
+      background: var(--danger-light) !important;
+      color: var(--danger) !important;
+      animation: shake 0.35s ease;
+    }
+    .option-btn.wrong .opt-status-icon {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    @keyframes popSuccess {
+      0% { transform: scale(0.97); }
+      50% { transform: scale(1.02); }
+      100% { transform: scale(1); }
+    }
+
+    @keyframes shake {
+      0%, 100% { transform: translateX(0); }
+      20%, 60% { transform: translateX(-6px); }
+      40%, 80% { transform: translateX(6px); }
+    }
+
+    .explanation-box {
+      display: none;
+      background: var(--primary-light);
+      border-left: 5px solid var(--primary);
+      border-radius: 12px;
+      padding: 18px 20px;
+      animation: fadeIn 0.3s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .exp-title {
+      font-weight: 800;
+      font-size: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 8px;
+      color: var(--text-main);
+    }
+
+    .exp-content {
+      font-size: 0.94rem;
+      line-height: 1.6;
+      color: var(--text-main);
+    }
+
+    .exp-trap {
+      margin-top: 8px;
+      padding-top: 8px;
+      border-top: 1px dashed rgba(148, 163, 184, 0.3);
+      color: var(--warning);
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+
+    .quiz-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 8px;
+    }
+
+    .next-btn {
+      background: var(--primary);
+      color: #fff;
+      border: none;
+      padding: 14px 28px;
+      border-radius: 12px;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 4px 14px rgba(59, 130, 246, 0.4);
+      transition: all 0.2s;
+    }
+
+    .next-btn:hover {
+      background: var(--primary-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(59, 130, 246, 0.5);
+    }
+
+    .result-screen {
+      display: none;
+      text-align: center;
+      padding: 40px 20px;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+      animation: fadeIn 0.4s ease;
+    }
+
+    .result-badge {
+      font-size: 4rem;
+    }
+
+    .result-title {
+      font-size: 2rem;
+      font-weight: 900;
+    }
+
+    .result-score-box {
+      display: flex;
+      gap: 20px;
+      margin: 10px 0;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .res-box-item {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      padding: 16px 28px;
+      border-radius: 16px;
+      box-shadow: var(--shadow);
+    }
+
+    .res-box-num {
+      font-size: 2rem;
+      font-weight: 900;
+      color: var(--primary);
+    }
+
+    .res-box-lbl {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      font-weight: 600;
+    }
+
+    .result-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 10px;
+    }
+
+    .mistakes-list {
+      text-align: left;
+      width: 100%;
+      max-width: 650px;
+      margin-top: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .mistake-item {
+      background: var(--card-bg);
+      border-left: 4px solid var(--danger);
+      padding: 14px 18px;
+      border-radius: 10px;
+      border: 1px solid var(--card-border);
+      border-left-width: 4px;
+    }
+  </style>
+</head>
+<body data-theme="dark">
+
+  <div class="app-container">
+    <header class="top-nav">
+      <div class="brand-title">
+        <a href="index.html" style="text-decoration:none; color:inherit; display:flex; align-items:center; gap:8px;" title="返回练习题库总入口">
+          <span>🎮 练习中心</span>
+        </a>
+        <span class="brand-badge">第三章 · 助词篇</span>
+      </div>
+      <div class="nav-actions">
+        <a href="index.html" class="icon-btn" title="查看全部章节练习">
+          📑 全部章节
+        </a>
+        <a href="../index.html" class="icon-btn" title="返回语法手册">
+          📖 语法手册
+        </a>
+        <button class="icon-btn" onclick="toggleTheme()" id="themeBtn" title="切换暗黑/白天模式">
+          🌙 暗黑
+        </button>
+        <button class="icon-btn" onclick="openMistakesModal()" id="mistakesBtn" title="查看错题本">
+          📝 错题集 (<span id="mistakeCount">0</span>)
+        </button>
+      </div>
+    </header>
+
+    <nav class="mode-bar">
+      <button class="mode-pill active" onclick="selectMode('all20')">🌟 综合实战 (精选20题)</button>
+      <button class="mode-pill" onclick="selectMode('allFull')">🔥 终极试炼 (全量题库)</button>
+      <button class="mode-pill" onclick="selectMode('wa_ga')">⚔️ は 与 が 巅峰对决 (主格/排他/好恶能力)</button>
+      <button class="mode-pill" onclick="selectMode('ni_de')">📍 に 与 で 终极辨析 (存在/发生地/工具手段)</button>
+      <button class="mode-pill" onclick="selectMode('wo_he')">🎯 を・へ・と・から・まで 核心考点</button>
+      <button class="mode-pill" onclick="selectMode('ending')">💬 终助词与语气 (よ・ね・よね・ぜ・ぞ)</button>
+      
+    </nav>
+
+    <section class="stats-card">
+      <div class="stat-item">
+        <div class="stat-label">当前进度</div>
+        <div class="stat-value"><span id="currIdx">1</span> / <span id="totalIdx">20</span></div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-label">准确率</div>
+        <div class="stat-value" id="accuracyVal">100%</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-label">连击 Streak</div>
+        <div class="stat-value combo" id="comboVal">🔥 0</div>
+      </div>
+    </section>
+
+    <div class="progress-container">
+      <div class="progress-bar" id="progressBar"></div>
+    </div>
+
+    <main class="quiz-card" id="quizCard">
+      <div class="quiz-meta">
+        <div class="quiz-tags">
+          <span class="meta-tag tag-category" id="qCategory">专场分类</span>
+          <span class="meta-tag tag-verbtype" id="qVerbType">考点属性</span>
+          <span class="meta-tag tag-target" id="qTargetForm">【目标形态】</span>
+        </div>
+        <div class="shortcut-tip">
+          <span>键盘快捷键:</span>
+          <kbd>1</kbd> <kbd>2</kbd> <kbd>3</kbd> <kbd>4</kbd> / <kbd>Enter</kbd>
+        </div>
+      </div>
+
+      <div class="word-hero">
+        <div class="target-prompt" id="promptText">
+          请选择正确的变形或填空选项：
+        </div>
+        <div class="word-kanji" id="wordKanji">
+          题目载入中...
+        </div>
+        <div class="word-meaning" id="wordMeaning">
+          含义与解析提示
+        </div>
+      </div>
+
+      <div class="options-grid" id="optionsGrid"></div>
+
+      <div class="explanation-box" id="explanationBox">
+        <div class="exp-title">
+          <span id="expResultBadge">💡</span>
+          <span id="expTitle">语法原理解析</span>
+        </div>
+        <div class="exp-content" id="expFormula">
+          【变形法则/语法点】：解析内容
+        </div>
+        <div class="exp-trap" id="expTrap">
+          ⚠️ 避坑提醒：易错陷阱说明
+        </div>
+      </div>
+
+      <div class="quiz-footer">
+        <div style="font-size:0.85rem; color:var(--text-muted);" id="statusHint">
+          点击选项或按键盘数字键 1 / 2 / 3 / 4 作答
+        </div>
+        <button class="next-btn" id="nextBtn" onclick="nextQuestion()" style="display:none;">
+          下一题 <kbd style="background:rgba(255,255,255,0.2); border:none; color:#fff;">Enter ↵</kbd>
+        </button>
+      </div>
+    </main>
+
+    <div class="quiz-card result-screen" id="resultScreen">
+      <div class="result-badge" id="resBadge">🏆</div>
+      <div class="result-title" id="resTitle">通关完成！达人出炉！</div>
+      <div style="color:var(--text-muted); font-size:1.05rem;" id="resSubtitle">
+        你已经掌握了本章节的所有核心考点！
+      </div>
+
+      <div class="result-score-box">
+        <div class="res-box-item">
+          <div class="res-box-num" id="resFinalScore">100%</div>
+          <div class="res-box-lbl">最终正确率</div>
+        </div>
+        <div class="res-box-item">
+          <div class="res-box-num" id="resMaxCombo">20</div>
+          <div class="res-box-lbl">最高连击数</div>
+        </div>
+        <div class="res-box-item">
+          <div class="res-box-num" id="resWrongCount" style="color:var(--danger);">0</div>
+          <div class="res-box-lbl">本次错题</div>
+        </div>
+      </div>
+
+      <div class="result-actions">
+        <button class="next-btn" onclick="restartCurrentMode()">
+          🔄 再练一次
+        </button>
+        <button class="icon-btn" onclick="reviewWrongFromEnd()" id="resReviewBtn" style="padding:14px 22px; font-size:1rem;">
+          📝 仅重练错题 (<span id="resWrongPill">0</span>)
+        </button>
+        <a href="index.html" class="icon-btn" style="padding:14px 22px; font-size:1rem; text-decoration:none;">
+          📑 选择其他章节
+        </a>
+      </div>
+
+      <div class="mistakes-list" id="resMistakesList"></div>
+    </div>
+  </div>
+
+  <script>
+    const ALL_QUESTIONS = [
+  {
+    "id": "par_1",
+    "category": "は与が对决",
+    "verbType": "大主语与小主语辨析",
+    "kanjiHtml": "象____鼻が長い。",
+    "meaning": "大象鼻子长",
+    "targetForm": "主格助词填空",
+    "options": [
+      "は",
+      "が",
+      "を",
+      "に"
+    ],
+    "answerIdx": 0,
+    "formula": "【大主语は，小主语が】：整句话的话题主体（大主语）用<strong>「は」</strong>，局部特征/从属主语（小主语）用<strong>「が」</strong> ➔ 「象<strong>は</strong>鼻<strong>が</strong>長い」。",
+    "trap": "⚠️ 避坑提醒：如果写成「象が鼻は長い」本末倒置！大范围/全貌用は，小属性用が。"
+  },
+  {
+    "id": "par_2",
+    "category": "は与が对决",
+    "verbType": "情感好恶对象",
+    "kanjiHtml": "私____猫が好きです。",
+    "meaning": "我喜欢猫",
+    "targetForm": "助词填空 (好恶对象)",
+    "options": [
+      "は (我) / が (猫)",
+      "が (我) / を (猫)",
+      "を (我) / は (猫)",
+      "に (我) / で (猫)"
+    ],
+    "answerIdx": 0,
+    "formula": "【好恶对象必用が】：日语中「好き / 嫌い」是形容词，好恶的对象必须用 <strong>「が」</strong> 标注 ➔ 「私は猫<strong>が</strong>好きです」。",
+    "trap": "⚠️ 避坑提醒：不要受中文“我喜欢猫”影响误用宾格「猫を好き」！好恶对象必须是「が」！"
+  },
+  {
+    "id": "par_3",
+    "category": "は与が对决",
+    "verbType": "潜在能力对象",
+    "kanjiHtml": "田中さん____日本語ができます。",
+    "meaning": "田中先生会日语",
+    "targetForm": "能力对象助词",
+    "options": [
+      "は",
+      "を",
+      "で",
+      "に"
+    ],
+    "answerIdx": 0,
+    "formula": "【能力对象用が】：表示“会、能、懂”（できる / 分かる / 上手）的对象必须用 <strong>「が」</strong> ➔ 「日本語<strong>が</strong>できる」。",
+    "trap": "⚠️ 避坑提醒：在普通及物动词（如 勉強する）才用「を」；能力动词状态词（できる、分かる）永远用「が」！"
+  },
+  {
+    "id": "par_4",
+    "category": "は与が对决",
+    "verbType": "自然客观现象",
+    "kanjiHtml": "あ！雨____降ってきました。",
+    "meaning": "啊！下起雨来了",
+    "targetForm": "自然现象主语",
+    "options": [
+      "が",
+      "は",
+      "を",
+      "で"
+    ],
+    "answerIdx": 0,
+    "formula": "【眼前自然现象客观测览】：描述眼前突发的、自然的客观现象，不带主观评价，主语必用 <strong>「が」</strong> ➔ 「雨<strong>が</strong>降る」、「花<strong>が</strong>咲く」。",
+    "trap": "⚠️ 避坑提醒：不用「は」，因为这不是一个预先设立的讨论话题，而是眼前的突发景象。"
+  },
+  {
+    "id": "par_5",
+    "category": "は与が对决",
+    "verbType": "疑问词为主语",
+    "kanjiHtml": "誰____来ましたか？",
+    "meaning": "谁来了？",
+    "targetForm": "疑问主语助词",
+    "options": [
+      "が",
+      "は",
+      "を",
+      "の"
+    ],
+    "answerIdx": 0,
+    "formula": "【疑问词作主语必用が】：当疑问词（誰、何、どれ、どこ）作主语时，<strong>绝对只能用「が」</strong>，永远不能用「は」！➔ 「誰<strong>が</strong>来ましたか？」！",
+    "trap": "⚠️ 避坑提醒：全日语语法死律：「誰は」是彻底的语法错误！回答时也用が（田中さんが来ました）。"
+  },
+  {
+    "id": "par_6",
+    "category": "は与が对决",
+    "verbType": "排他唯一性",
+    "kanjiHtml": "（谁去买咖啡？）私____行きます！",
+    "meaning": "我来去！(排他：正是我就由我去)",
+    "targetForm": "排他主语助词",
+    "options": [
+      "が",
+      "は",
+      "も",
+      "に"
+    ],
+    "answerIdx": 0,
+    "formula": "【が的排他聚焦作用】：当强调“正是某人，而不是别人”时，主语用 <strong>「が」</strong> ➔ 「私<strong>が</strong>行きます（由我来去！）」。",
+    "trap": "⚠️ 避坑提醒：「私は行きます」只是淡淡阐述“我去”，而「私が行きます」则有强烈的“我来搞定/非我莫属”的主动排他感。"
+  },
+  {
+    "id": "par_7",
+    "category": "は与が对决",
+    "verbType": "对比句式",
+    "kanjiHtml": "肉は食べますが、魚____食べません。",
+    "meaning": "肉我是吃的，但是鱼不吃",
+    "targetForm": "对比助词",
+    "options": [
+      "は",
+      "が",
+      "を",
+      "も"
+    ],
+    "answerIdx": 0,
+    "formula": "【は的对比对立功能】：当两件事物形成对照时，后半句也必须用 <strong>「は」</strong> 来强调对比 ➔ 「肉<strong>は</strong>食べますが、魚<strong>は</strong>食べません」。",
+    "trap": "⚠️ 避坑提醒：虽然是鱼被吃，但在对比语境下，「は」会直接取代宾格助词「を」。"
+  },
+  {
+    "id": "par_8",
+    "category": "は与が对决",
+    "verbType": "定语从句内部主语",
+    "kanjiHtml": "父____作った料理はとても美味しい。",
+    "meaning": "爸爸做的菜非常好吃",
+    "targetForm": "从句内小主语",
+    "options": [
+      "が (或の)",
+      "は",
+      "を",
+      "に"
+    ],
+    "answerIdx": 0,
+    "formula": "【从句降格法则】：在修饰名词的定语从句（父が作った ➔ 料理）内部，主语不能抢全句的风头，必须降格用 <strong>「が」</strong>（或口语「の」）！",
+    "trap": "⚠️ 避坑提醒：从句内部绝不用「は」！「父は作った料理」会严重割裂句子结构。"
+  },
+  {
+    "id": "par_9",
+    "category": "に与で辨析",
+    "verbType": "静态存在场所",
+    "kanjiHtml": "部屋____猫がいます。",
+    "meaning": "房间里有猫",
+    "targetForm": "存在场所助词",
+    "options": [
+      "に",
+      "で",
+      "を",
+      "へ"
+    ],
+    "answerIdx": 0,
+    "formula": "【静态存在必用に】：表示事物“静止存在”的场所（いる / ある），场所后必用 <strong>「に」</strong> ➔ 「部屋<strong>に</strong>猫がいます」。",
+    "trap": "⚠️ 避坑提醒：动作发生地才用「で」，静态存在场所永远用「に」！"
+  },
+  {
+    "id": "par_10",
+    "category": "に与で辨析",
+    "verbType": "动作发生场所",
+    "kanjiHtml": "図書館____本を読みます。",
+    "meaning": "在图书馆看书",
+    "targetForm": "动作发生地助词",
+    "options": [
+      "で",
+      "に",
+      "を",
+      "へ"
+    ],
+    "answerIdx": 0,
+    "formula": "【动态动作发生地必用で】：只要在某个地点进行有动态过程的动作（勉強する、食べる、走る），场所后必用 <strong>「で」</strong>！",
+    "trap": "⚠️ 避坑提醒：看书是动态行为，必须用「図書館<strong>で</strong>」，不能写「に」。"
+  },
+  {
+    "id": "par_11",
+    "category": "に与で辨析",
+    "verbType": "手段与交通工具",
+    "kanjiHtml": "バス____会社へ行きます。",
+    "meaning": "乘公交车去公司",
+    "targetForm": "手段工具助词",
+    "options": [
+      "で",
+      "に",
+      "を",
+      "から"
+    ],
+    "answerIdx": 0,
+    "formula": "【工具手段交通工具用で】：交通工具（バス、電車）、进食工具（箸）、通信工具（電話）都作为手段，用 <strong>「で」</strong> ➔ 「バス<strong>で</strong>行く」。",
+    "trap": "⚠️ 避坑提醒：注意与乘坐动词区分：「バスで行く（乘公交去）」vs「バスに乗る（登上公交）」。"
+  },
+  {
+    "id": "par_12",
+    "category": "に与で辨析",
+    "verbType": "动作附着点/目的地",
+    "kanjiHtml": "電車____乗ります。",
+    "meaning": "上电车 / 乘上电车",
+    "targetForm": "附着点助词",
+    "options": [
+      "に",
+      "で",
+      "を",
+      "へ"
+    ],
+    "answerIdx": 0,
+    "formula": "【附着到达点用に】：动词「乗る」表示人附着到交通工具上去，目标附着物用 <strong>「に」</strong> ➔ 「電車<strong>に</strong>乗る」。",
+    "trap": "⚠️ 避坑提醒：中文虽然说“坐电车”，但日语「乗る」是自动词，绝不可用「電車を乗る」或「電車で乗る」！"
+  },
+  {
+    "id": "par_13",
+    "category": "に与で辨析",
+    "verbType": "具体时间点",
+    "kanjiHtml": "毎朝7時____起きます。",
+    "meaning": "每天早上7点起床",
+    "targetForm": "时间点助词",
+    "options": [
+      "に",
+      "で",
+      "を",
+      "へ"
+    ],
+    "answerIdx": 0,
+    "formula": "【带有明确数字钟点用に】：具体的钟点、星期、几月几号后面，必须加 <strong>「に」</strong> ➔ 「7時<strong>に</strong>起きる」、「日曜日に会う」。",
+    "trap": "⚠️ 避坑提醒：没有具体数字的相对时间（如 今日、明日、毎朝、毎日）后面<strong>绝不加に</strong>！"
+  },
+  {
+    "id": "par_14",
+    "category": "に与で辨析",
+    "verbType": "无数字相对时间陷阱",
+    "kanjiHtml": "明日____友達と遊びます。",
+    "meaning": "明天和朋友去玩",
+    "targetForm": "助词填空 (时间)",
+    "options": [
+      "（不加任何助词）",
+      "に",
+      "で",
+      "を"
+    ],
+    "answerIdx": 0,
+    "formula": "【相对时间不加に原则】：「今日」「明日」「昨日」「毎日」「来週」这类自身没有数字的相对时间名词，后面<strong>直接跟句子，不加「に」</strong>！",
+    "trap": "⚠️ 避坑提醒：千万不要顺手写成「明日に」！这是典型的画蛇添足。"
+  },
+  {
+    "id": "par_15",
+    "category": "に与で辨析",
+    "verbType": "动作附着点",
+    "kanjiHtml": "黒板____文字を書きます。",
+    "meaning": "在黑板上写字",
+    "targetForm": "附着表面助词",
+    "options": [
+      "に",
+      "で",
+      "を",
+      "から"
+    ],
+    "answerIdx": 0,
+    "formula": "【字迹/物体附着点用に】：字迹印在黑板上，黑板是字迹的最终附着点，用 <strong>「に」</strong> ➔ 「黒板<strong>に</strong>書く」、「壁<strong>に</strong>貼る」。",
+    "trap": "⚠️ 避坑提醒：如果用「教室で書く」，教室是动作发生的范围（用で）；而黒板是笔迹附着的目标（用に）。"
+  },
+  {
+    "id": "par_16",
+    "category": "に与で辨析",
+    "verbType": "对象相互交互点",
+    "kanjiHtml": "駅の前で友達____会いました。",
+    "meaning": "在车站前遇到了朋友",
+    "targetForm": "交互对象助词",
+    "options": [
+      "に",
+      "を",
+      "で",
+      "へ"
+    ],
+    "answerIdx": 0,
+    "formula": "【会う对象必用に】：动词「会う」是双方目光交汇，交互的对象用 <strong>「に」</strong> ➔ 「友達<strong>に</strong>会う」！",
+    "trap": "⚠️ 避坑提醒：中文说“见朋友”像及物动词，但日语不能说「友達を会う」，必须是「に」！"
+  },
+  {
+    "id": "par_17",
+    "category": "移动起点终点",
+    "verbType": "移动经过空间",
+    "kanjiHtml": "朝、公園____散歩します。",
+    "meaning": "早上在公园里散步",
+    "targetForm": "移动穿行助词",
+    "options": [
+      "を",
+      "で",
+      "に",
+      "へ"
+    ],
+    "answerIdx": 0,
+    "formula": "【移动穿过/经过空间用を】：鸟在空中飞（空<strong>を</strong>飛ぶ）、在公园里散步（公園<strong>を</strong>散歩する）、过马路（道<strong>を</strong>渡る），经过的空间用 <strong>「を」</strong>！",
+    "trap": "⚠️ 避坑提醒：虽然中文常翻译为“在公园散步”，但散步带有移动穿行动线，地道日语用「公園<strong>を</strong>散歩する」。"
+  },
+  {
+    "id": "par_18",
+    "category": "移动起点终点",
+    "verbType": "脱离离开空间",
+    "kanjiHtml": "毎朝8時に家____出ます。",
+    "meaning": "每天早上8点离开家出门",
+    "targetForm": "离开地点助词",
+    "options": [
+      "を",
+      "から",
+      "で",
+      "に"
+    ],
+    "answerIdx": 0,
+    "formula": "【脱离空间必用を】：离开一个原本待着的封闭空间（家を出る、大学を出る/毕业、電車を降りる），出发脱离点用 <strong>「を」</strong>！",
+    "trap": "⚠️ 避坑提醒：离开某个空间用「を」，进入某个空间用「に」（部屋に入る）。"
+  },
+  {
+    "id": "par_19",
+    "category": "移动起点终点",
+    "verbType": "移动方向感",
+    "kanjiHtml": "来週、日本____行きます。",
+    "meaning": "下周去日本",
+    "targetForm": "方向移动助词",
+    "options": [
+      "へ (或 に)",
+      "を",
+      "で",
+      "と"
+    ],
+    "answerIdx": 0,
+    "formula": "【方向感用へ（读作e）】：表示朝着某个地理目标进发，用 <strong>「へ」</strong>（读「え」）或到达点「に」 ➔ 「日本<strong>へ</strong>行く」。",
+    "trap": "⚠️ 避坑提醒：假名写成「へ」，但读音必须读作「え」！"
+  },
+  {
+    "id": "par_20",
+    "category": "移动起点终点",
+    "verbType": "时间起点与终点",
+    "kanjiHtml": "会議は9時____11時____です。",
+    "meaning": "会议从9点到11点",
+    "targetForm": "起止助词组合",
+    "options": [
+      "から / まで",
+      "まで / から",
+      "に / へ",
+      "で / に"
+    ],
+    "answerIdx": 0,
+    "formula": "【从...到...】：起点用 <strong>「から」</strong>，终点用 <strong>「まで」</strong> ➔ 「9時<strong>から</strong>11時<strong>まで</strong>」。",
+    "trap": "⚠️ 避坑提醒：不仅能用于时间，也能用于空间（東京から大阪まで）。"
+  },
+  {
+    "id": "par_21",
+    "category": "终助词与语气",
+    "verbType": "告知新信息/提醒",
+    "kanjiHtml": "あ、財布を落としました____！",
+    "meaning": "啊，你的钱包掉了哦！",
+    "targetForm": "告知提醒终助词",
+    "options": [
+      "よ",
+      "ね",
+      "わ",
+      "か"
+    ],
+    "answerIdx": 0,
+    "formula": "【告知对方未知信息用よ】：说话人掌握对方不知道的信息，提醒或告知对方时，句末用 <strong>「よ」</strong>！",
+    "trap": "⚠️ 避坑提醒：不能用「ね」，「ね」是自己知道且以为对方也知道寻求共鸣；对方不知道时必须用「よ」。"
+  },
+  {
+    "id": "par_22",
+    "category": "终助词与语气",
+    "verbType": "寻求共鸣/赞同",
+    "kanjiHtml": "今日は本当にいい天気です____。",
+    "meaning": "今天天气真好呢。",
+    "targetForm": "寻求共鸣终助词",
+    "options": [
+      "ね",
+      "よ",
+      "ぞ",
+      "ぜ"
+    ],
+    "answerIdx": 0,
+    "formula": "【寻求对方共情共识用ね】：双方都能看到感知到的事实，寻求对方回应赞同，句末用 <strong>「ね」</strong>！",
+    "trap": "⚠️ 避坑提醒：日本社交破冰神句：天天见面第一句「いい天気ですね（天气真好呢）」。"
+  },
+  {
+    "id": "par_23",
+    "category": "终助词与语气",
+    "verbType": "男性热血号召",
+    "kanjiHtml": "さあ、みんな、行く____！",
+    "meaning": "来吧大家，上啦！",
+    "targetForm": "男性热血终助词",
+    "options": [
+      "ぜ",
+      "わ",
+      "かしら",
+      "の"
+    ],
+    "answerIdx": 0,
+    "formula": "【热血男性号召用ぜ】：动漫主角热血催动、拉拢伙伴时最具代表性的语气助词就是 <strong>「ぜ」</strong> ➔ 「行くぜ！」！",
+    "trap": "⚠️ 避坑提醒：带有强烈的男子气概和口语感，正式场合不使用。"
+  },
+  {
+    "id": "par_24",
+    "category": "终助词与语气",
+    "verbType": "强硬自言警示",
+    "kanjiHtml": "絶対に負けない____！",
+    "meaning": "我绝对不会认输的！",
+    "targetForm": "强硬警示终助词",
+    "options": [
+      "ぞ",
+      "わ",
+      "ね",
+      "かしら"
+    ],
+    "answerIdx": 0,
+    "formula": "【强硬叮嘱/自我立誓用ぞ】：表达坚决的意志、或者严肃叮嘱对方，男性口语用 <strong>「ぞ」</strong> ➔ 「負けないぞ！」、「油断するなよ（别大意啊）」。",
+    "trap": "⚠️ 避坑提醒：「ぞ」和「ぜ」同属男性粗犷/热血语气，但「ぞ」更偏向自我告诫或强硬警告。"
+  }
+];
+    const CATEGORIES = [{"id": "all20", "label": "🌟 综合实战 (精选20题)", "filterType": "all_limit", "limit": 20}, {"id": "allFull", "label": "🔥 终极试炼 (全量题库)", "filterType": "all"}, {"id": "wa_ga", "label": "⚔️ は 与 が 巅峰对决 (主格/排他/好恶能力)", "filterType": "category", "matchVal": "は与が对决"}, {"id": "ni_de", "label": "📍 に 与 で 终极辨析 (存在/发生地/工具手段)", "filterType": "category", "matchVal": "に与で辨析"}, {"id": "wo_he", "label": "🎯 を・へ・と・から・まで 核心考点", "filterType": "category", "matchVal": "移动起点终点"}, {"id": "ending", "label": "💬 终助词与语气 (よ・ね・よね・ぜ・ぞ)", "filterType": "category", "matchVal": "终助词与语气"}];
+    const STORAGE_KEY = "nihongo_particle_mistakes";
+
+    let currentMode = CATEGORIES[0].id;
+    let questionPool = [];
+    let currentQIdx = 0;
+    let scoreCount = 0;
+    let comboCount = 0;
+    let maxCombo = 0;
+    let sessionWrongList = [];
+    let hasAnswered = false;
+
+    function getStoredMistakes() {
+      try {
+        const d = localStorage.getItem(STORAGE_KEY);
+        return d ? JSON.parse(d) : [];
+      } catch (e) {
+        return [];
+      }
+    }
+
+    function saveMistakes(list) {
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(list));
+      } catch (e) {}
+    }
+
+    function updateMistakePill() {
+      const list = getStoredMistakes();
+      document.getElementById('mistakeCount').innerText = list.length;
+    }
+
+    function shuffle(arr) {
+      const a = [...arr];
+      for (let i = a.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [a[i], a[j]] = [a[j], a[i]];
+      }
+      return a;
+    }
+
+    function selectMode(mode) {
+      currentMode = mode;
+      document.querySelectorAll('.mode-pill').forEach(btn => btn.classList.remove('active'));
+      const activeBtn = Array.from(document.querySelectorAll('.mode-pill')).find(b => b.getAttribute('onclick')?.includes(mode));
+      if (activeBtn) activeBtn.classList.add('active');
+
+      buildQuestionPool();
+      startQuiz();
+    }
+
+    function buildQuestionPool() {
+      const catObj = CATEGORIES.find(c => c.id === currentMode);
+      if (!catObj) {
+        questionPool = shuffle(ALL_QUESTIONS).slice(0, 20);
+        return;
+      }
+
+      if (catObj.filterType === 'all_limit') {
+        questionPool = shuffle(ALL_QUESTIONS).slice(0, catObj.limit || 20);
+      } else if (catObj.filterType === 'all') {
+        questionPool = shuffle(ALL_QUESTIONS);
+      } else if (catObj.filterType === 'category') {
+        questionPool = shuffle(ALL_QUESTIONS.filter(q => q.category === catObj.matchVal));
+      } else {
+        questionPool = shuffle(ALL_QUESTIONS);
+      }
+    }
+
+    function startQuiz() {
+      currentQIdx = 0;
+      scoreCount = 0;
+      comboCount = 0;
+      maxCombo = 0;
+      sessionWrongList = [];
+      hasAnswered = false;
+
+      document.getElementById('quizCard').style.display = 'flex';
+      document.getElementById('resultScreen').style.display = 'none';
+
+      renderCurrentQuestion();
+      updateStats();
+      updateMistakePill();
+    }
+
+    function restartCurrentMode() {
+      buildQuestionPool();
+      startQuiz();
+    }
+
+    function renderCurrentQuestion() {
+      hasAnswered = false;
+      const q = questionPool[currentQIdx];
+      if (!q) {
+        showResults();
+        return;
+      }
+
+      document.getElementById('qCategory').innerText = q.category;
+      document.getElementById('qVerbType').innerText = q.verbType || '核心考点';
+      document.getElementById('qTargetForm').innerText = '【' + q.targetForm + '】';
+      document.getElementById('promptText').innerHTML = q.prompt || '请选择正确的表达或变形：';
+
+      document.getElementById('wordKanji').innerHTML = q.kanjiHtml;
+      document.getElementById('wordMeaning').innerText = q.meaning ? '含义：' + q.meaning : '';
+
+      const optionsWithMeta = q.options.map((optText, origIdx) => ({
+        text: optText,
+        isCorrect: origIdx === q.answerIdx
+      }));
+      const shuffledOptions = shuffle(optionsWithMeta);
+
+      const grid = document.getElementById('optionsGrid');
+      grid.innerHTML = '';
+
+      shuffledOptions.forEach((opt, idx) => {
+        const btn = document.createElement('button');
+        btn.className = 'option-btn';
+        btn.dataset.correct = opt.isCorrect;
+        btn.dataset.idx = idx;
+        btn.onclick = () => selectOption(btn, opt.isCorrect, q);
+
+        const keyLetter = ['1', '2', '3', '4'][idx];
+        btn.innerHTML = `
+          <div class="opt-left">
+            <span class="opt-key">${keyLetter}</span>
+            <span>${opt.text}</span>
+          </div>
+          <span class="opt-status-icon">${opt.isCorrect ? '✅' : '❌'}</span>
+        `;
+        grid.appendChild(btn);
+      });
+
+      document.getElementById('explanationBox').style.display = 'none';
+      document.getElementById('nextBtn').style.display = 'none';
+      document.getElementById('statusHint').innerText = '点击选项或按键盘数字键 1 / 2 / 3 / 4 作答';
+
+      updateStats();
+    }
+
+    function selectOption(chosenBtn, isCorrect, q) {
+      if (hasAnswered) return;
+      hasAnswered = true;
+
+      const allBtns = document.querySelectorAll('.option-btn');
+      allBtns.forEach(b => b.disabled = true);
+
+      if (isCorrect) {
+        chosenBtn.classList.add('correct');
+        scoreCount++;
+        comboCount++;
+        if (comboCount > maxCombo) maxCombo = comboCount;
+        document.getElementById('expResultBadge').innerText = '🎉 回答完全正确！';
+        document.getElementById('statusHint').innerText = '太棒了！按 Enter 键进入下一题';
+      } else {
+        chosenBtn.classList.add('wrong');
+        comboCount = 0;
+        allBtns.forEach(b => {
+          if (b.dataset.correct === 'true') {
+            b.classList.add('correct');
+          }
+        });
+        document.getElementById('expResultBadge').innerText = '💡 踩坑啦，请看解析！';
+        document.getElementById('statusHint').innerText = '已记录至错题集，按 Enter 键进入下一题';
+
+        sessionWrongList.push({
+          q: q,
+          chosen: chosenBtn.querySelector('span:last-child').innerText
+        });
+
+        const stored = getStoredMistakes();
+        if (!stored.some(item => item.id === q.id)) {
+          stored.push(q);
+          saveMistakes(stored);
+          updateMistakePill();
+        }
+      }
+
+      const expBox = document.getElementById('explanationBox');
+      document.getElementById('expTitle').innerText = (q.targetForm || '考点') + ' 语法解析';
+      document.getElementById('expFormula').innerHTML = q.formula;
+      document.getElementById('expTrap').innerHTML = q.trap;
+      expBox.style.display = 'block';
+
+      document.getElementById('nextBtn').style.display = 'inline-flex';
+      updateStats();
+    }
+
+    function nextQuestion() {
+      if (!hasAnswered) return;
+      currentQIdx++;
+      if (currentQIdx >= questionPool.length) {
+        showResults();
+      } else {
+        renderCurrentQuestion();
+      }
+    }
+
+    function updateStats() {
+      document.getElementById('currIdx').innerText = Math.min(currentQIdx + 1, questionPool.length);
+      document.getElementById('totalIdx').innerText = questionPool.length;
+
+      const answeredTotal = hasAnswered ? currentQIdx + 1 : currentQIdx;
+      const acc = answeredTotal === 0 ? 100 : Math.round((scoreCount / answeredTotal) * 100);
+      document.getElementById('accuracyVal').innerText = acc + '%';
+      document.getElementById('comboVal').innerText = comboCount > 1 ? `🔥 ${comboCount} 连击` : `🔥 ${comboCount}`;
+
+      const progress = ((currentQIdx) / questionPool.length) * 100;
+      document.getElementById('progressBar').style.width = progress + '%';
+    }
+
+    function showResults() {
+      document.getElementById('quizCard').style.display = 'none';
+      const screen = document.getElementById('resultScreen');
+      screen.style.display = 'flex';
+
+      const total = questionPool.length;
+      const acc = Math.round((scoreCount / total) * 100);
+
+      document.getElementById('resFinalScore').innerText = acc + '%';
+      document.getElementById('resMaxCombo').innerText = maxCombo;
+      document.getElementById('resWrongCount').innerText = sessionWrongList.length;
+      document.getElementById('resWrongPill').innerText = sessionWrongList.length;
+
+      if (acc === 100) {
+        document.getElementById('resBadge').innerText = '👑';
+        document.getElementById('resTitle').innerText = '不可思议！满分通关！';
+        document.getElementById('resSubtitle').innerText = '所有考点与避坑细节你都已融会贯通！';
+      } else if (acc >= 85) {
+        document.getElementById('resBadge').innerText = '⚔️';
+        document.getElementById('resTitle').innerText = '战绩优异！高分达人！';
+        document.getElementById('resSubtitle').innerText = '基础与常见变化极其扎实，个别陷阱稍加留心即可满分！';
+      } else if (acc >= 60) {
+        document.getElementById('resBadge').innerText = '🌱';
+        document.getElementById('resTitle').innerText = '初见成效！再接再厉！';
+        document.getElementById('resSubtitle').innerText = '建议重点复习本次错题，加深语法规则的记忆。';
+      } else {
+        document.getElementById('resBadge').innerText = '🛡️';
+        document.getElementById('resTitle').innerText = '继续加油！多练出奇迹！';
+        document.getElementById('resSubtitle').innerText = '对照随身宝手册对应的章节再看一遍，再来挑战！';
+      }
+
+      const mList = document.getElementById('resMistakesList');
+      mList.innerHTML = '';
+      if (sessionWrongList.length > 0) {
+        mList.innerHTML = '<h3 style="margin-bottom:8px; font-size:1.1rem; color:var(--text-main);">本次错题深度回放：</h3>';
+        sessionWrongList.forEach((item, idx) => {
+          const div = document.createElement('div');
+          div.className = 'mistake-item';
+          div.innerHTML = `
+            <div style="font-weight:800; font-size:1.05rem; margin-bottom:4px;">
+              ${idx + 1}. 题目：${item.q.kanjiHtml} ➔ 【${item.q.targetForm}】
+            </div>
+            <div style="font-size:0.92rem; color:var(--success); font-weight:700;">
+              正确答案：${item.q.options[item.q.answerIdx]}
+            </div>
+            <div style="font-size:0.88rem; color:var(--text-muted); margin-top:4px;">
+              ${item.q.formula}
+            </div>
+          `;
+          mList.appendChild(div);
+        });
+      }
+    }
+
+    function reviewWrongFromEnd() {
+      if (sessionWrongList.length === 0) {
+        alert('本次测试没有错题，太棒了！');
+        return;
+      }
+      questionPool = sessionWrongList.map(item => item.q);
+      startQuiz();
+    }
+
+    function openMistakesModal() {
+      const stored = getStoredMistakes();
+      if (stored.length === 0) {
+        alert('当前错题本为空！你在刷题过程中答错的题目会自动收藏在这里。');
+        return;
+      }
+      if (confirm(`错题本当前共累计 ${stored.length} 道错题，是否立即开启【错题专项特训】？`)) {
+        questionPool = shuffle(stored);
+        startQuiz();
+      }
+    }
+
+    function toggleTheme() {
+      const body = document.body;
+      const current = body.getAttribute('data-theme');
+      const next = current === 'dark' ? 'light' : 'dark';
+      body.setAttribute('data-theme', next);
+      const btn = document.getElementById('themeBtn');
+      btn.innerText = next === 'dark' ? '🌙 暗黑' : '☀️ 白天';
+    }
+
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        if (hasAnswered) {
+          e.preventDefault();
+          nextQuestion();
+        }
+      } else if (['1', '2', '3', '4'].includes(e.key)) {
+        if (!hasAnswered) {
+          const idx = parseInt(e.key) - 1;
+          const btns = document.querySelectorAll('.option-btn');
+          if (btns[idx]) btns[idx].click();
+        }
+      }
+    });
+
+    window.addEventListener('DOMContentLoaded', () => {
+      selectMode(CATEGORIES[0].id);
+      updateMistakePill();
+    });
+  </script>
+</body>
+</html>
