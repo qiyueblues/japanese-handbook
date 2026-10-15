@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>日语核心语法闯关特训中心 · 练习题库</title>
+  <title>日语核心语法全能实战特训系统 · 230+真题题库</title>
   <style>
     :root {
-      --bg: #0f172a;
+      --bg: #0b1120;
       --card-bg: #1e293b;
       --card-border: #334155;
       --text-main: #f8fafc;
@@ -15,11 +15,18 @@
       --primary-hover: #2563eb;
       --primary-light: rgba(59, 130, 246, 0.15);
       --success: #10b981;
+      --success-light: rgba(16, 185, 129, 0.16);
+      --danger: #ef4444;
+      --danger-light: rgba(239, 68, 68, 0.16);
+      --warning: #f59e0b;
       --accent: #8b5cf6;
-      --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.4), 0 8px 10px -6px rgba(0, 0, 0, 0.3);
+      --kbd-bg: #334155;
+      --kbd-text: #e2e8f0;
+      --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.45);
     }
+
     [data-theme="light"] {
-      --bg: #f8fafc;
+      --bg: #f1f5f9;
       --card-bg: #ffffff;
       --card-border: #e2e8f0;
       --text-main: #0f172a;
@@ -28,265 +35,1054 @@
       --primary-hover: #1d4ed8;
       --primary-light: #eff6ff;
       --success: #059669;
+      --success-light: #ecfdf5;
+      --danger: #dc2626;
+      --danger-light: #fef2f2;
+      --warning: #d97706;
       --accent: #7c3aed;
-      --shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.08), 0 8px 10px -6px rgba(15, 23, 42, 0.04);
+      --kbd-bg: #e2e8f0;
+      --kbd-text: #334155;
+      --shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.08);
     }
+
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
       background-color: var(--bg);
       color: var(--text-main);
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Hiragino Sans", "Meiryo", sans-serif;
       min-height: 100vh;
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding: 32px 16px 64px;
-      transition: background-color 0.25s ease, color 0.25s ease;
+      padding: 16px 12px 48px;
+      transition: background-color 0.2s, color 0.2s;
     }
-    .hub-container {
+
+    .main-app {
       width: 100%;
-      max-width: 900px;
+      max-width: 960px;
       display: flex;
       flex-direction: column;
-      gap: 28px;
+      gap: 16px;
     }
-    .hub-header {
+
+    /* Top Nav Bar */
+    .top-header {
       background: var(--card-bg);
       border: 1px solid var(--card-border);
-      border-radius: 20px;
-      padding: 28px 32px;
-      box-shadow: var(--shadow);
+      border-radius: 16px;
+      padding: 12px 20px;
       display: flex;
       justify-content: space-between;
       align-items: center;
       flex-wrap: wrap;
-      gap: 16px;
+      gap: 12px;
+      box-shadow: var(--shadow);
     }
-    .header-info h1 {
-      font-size: 1.8rem;
-      font-weight: 900;
-      letter-spacing: -0.02em;
-      margin-bottom: 6px;
+    .brand-group {
       display: flex;
       align-items: center;
       gap: 10px;
+      font-size: 1.15rem;
+      font-weight: 800;
     }
-    .header-info p {
-      color: var(--text-muted);
-      font-size: 0.95rem;
+    .badge-tag {
+      background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+      color: #fff;
+      font-size: 0.72rem;
+      font-weight: 800;
+      padding: 3px 8px;
+      border-radius: 6px;
+      text-transform: uppercase;
     }
-    .header-actions {
+    .top-actions {
       display: flex;
-      gap: 10px;
+      align-items: center;
+      gap: 8px;
     }
-    .btn {
+    .btn-action {
       background: var(--primary-light);
       border: 1px solid var(--card-border);
       color: var(--text-main);
+      padding: 8px 12px;
+      border-radius: 10px;
+      font-size: 0.84rem;
+      font-weight: 700;
+      text-decoration: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.18s;
+    }
+    .btn-action:hover {
+      background: var(--primary);
+      color: #fff;
+      transform: translateY(-1px);
+    }
+
+    /* Chapter Tabs Bar */
+    .chapter-tabs-bar {
+      display: flex;
+      gap: 6px;
+      overflow-x: auto;
+      padding-bottom: 4px;
+      scrollbar-width: none;
+    }
+    .chapter-tabs-bar::-webkit-scrollbar { display: none; }
+    .chap-tab {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      color: var(--text-muted);
       padding: 10px 16px;
       border-radius: 12px;
       font-size: 0.88rem;
       font-weight: 700;
-      text-decoration: none;
-      display: inline-flex;
+      cursor: pointer;
+      white-space: nowrap;
+      display: flex;
       align-items: center;
       gap: 6px;
-      cursor: pointer;
-      transition: all 0.2s;
+      transition: all 0.18s;
     }
-    .btn:hover {
+    .chap-tab:hover {
+      color: var(--text-main);
+      border-color: var(--primary);
+    }
+    .chap-tab.active {
       background: var(--primary);
       color: #fff;
-      transform: translateY(-2px);
-    }
-    .btn.primary {
-      background: linear-gradient(135deg, #3b82f6, #8b5cf6);
-      color: #fff;
-      border: none;
+      border-color: var(--primary);
       box-shadow: 0 4px 14px rgba(59, 130, 246, 0.4);
     }
-    .chapters-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 18px;
+
+    /* Sub Filters Bar */
+    .filter-bar {
+      display: flex;
+      gap: 6px;
+      overflow-x: auto;
+      padding: 2px 0;
+      scrollbar-width: none;
     }
-    .chapter-card {
+    .filter-bar::-webkit-scrollbar { display: none; }
+    .filter-chip {
+      background: transparent;
+      border: 1px solid var(--card-border);
+      color: var(--text-muted);
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.15s;
+    }
+    .filter-chip:hover {
+      color: var(--text-main);
+      border-color: var(--text-muted);
+    }
+    .filter-chip.active {
+      background: var(--card-border);
+      color: var(--text-main);
+      border-color: var(--primary);
+    }
+
+    /* Stats & Progress HUD */
+    .hud-bar {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 14px;
+      padding: 12px 18px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: var(--shadow);
+    }
+    .hud-stat {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .hud-lbl {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+    .hud-val {
+      font-size: 1.25rem;
+      font-weight: 900;
+      color: var(--text-main);
+      display: flex;
+      align-items: baseline;
+      gap: 3px;
+    }
+    .hud-val.combo {
+      color: #f59e0b;
+    }
+
+    /* Progress Indicator */
+    .progress-track {
+      width: 100%;
+      height: 6px;
+      background: var(--card-border);
+      border-radius: 3px;
+      overflow: hidden;
+    }
+    .progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, #3b82f6, #10b981);
+      width: 0%;
+      transition: width 0.25s ease;
+    }
+
+    /* Core Question Card */
+    .question-card {
       background: var(--card-bg);
       border: 1px solid var(--card-border);
       border-radius: 18px;
-      padding: 24px;
+      padding: 24px 22px;
       box-shadow: var(--shadow);
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
-      gap: 16px;
-      transition: all 0.22s cubic-bezier(0.4, 0, 0.2, 1);
+      gap: 18px;
       position: relative;
-      overflow: hidden;
     }
-    .chapter-card:hover {
-      transform: translateY(-4px);
-      border-color: var(--primary);
-      box-shadow: 0 14px 30px -8px rgba(59, 130, 246, 0.25);
+
+    .q-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
     }
-    .card-top {
+    .q-tags {
+      display: flex;
+      gap: 6px;
+      align-items: center;
+    }
+    .q-tag {
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 6px;
+    }
+    .tag-blue { background: rgba(59,130,246,0.15); color: var(--primary); }
+    .tag-purple { background: rgba(139,92,246,0.15); color: var(--accent); }
+    .tag-amber { background: rgba(245,158,11,0.15); color: var(--warning); }
+
+    .q-keyboard-tips {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    kbd {
+      background: var(--kbd-bg);
+      color: var(--kbd-text);
+      font-family: inherit;
+      padding: 2px 5px;
+      border-radius: 4px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      border: 1px solid var(--card-border);
+    }
+
+    /* Question Body & Sentence Context */
+    .q-sentence-box {
+      background: rgba(0,0,0,0.12);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 18px 20px;
       display: flex;
       flex-direction: column;
+      gap: 8px;
+    }
+    [data-theme="light"] .q-sentence-box {
+      background: #f8fafc;
+    }
+    .q-sentence-ja {
+      font-size: 1.45rem;
+      font-weight: 800;
+      line-height: 1.6;
+      letter-spacing: 0.02em;
+    }
+    ruby rt {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+    .blank-pill {
+      display: inline-block;
+      padding: 0 14px;
+      margin: 0 4px;
+      border-bottom: 3px solid var(--primary);
+      color: var(--primary);
+      font-weight: 900;
+      min-width: 60px;
+      text-align: center;
+      background: var(--primary-light);
+      border-radius: 4px;
+    }
+    .q-sentence-zh {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      line-height: 1.4;
+    }
+    .q-tested-point {
+      font-size: 0.8rem;
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    /* 2x2 Options Grid */
+    .options-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+    @media (max-width: 640px) {
+      .options-grid { grid-template-columns: 1fr; }
+      .q-sentence-ja { font-size: 1.25rem; }
+    }
+
+    .option-card {
+      background: var(--card-bg);
+      border: 2px solid var(--card-border);
+      border-radius: 12px;
+      padding: 14px 16px;
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--text-main);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      text-align: left;
+    }
+    .option-card:hover:not(.locked) {
+      border-color: var(--primary);
+      background: var(--primary-light);
+      transform: translateY(-2px);
+    }
+    .opt-key-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 26px;
+      height: 26px;
+      border-radius: 6px;
+      background: var(--kbd-bg);
+      color: var(--kbd-text);
+      font-size: 0.8rem;
+      font-weight: 800;
+      margin-right: 10px;
+      flex-shrink: 0;
+    }
+    .option-card.correct {
+      border-color: var(--success) !important;
+      background: var(--success-light) !important;
+      color: var(--success) !important;
+    }
+    .option-card.wrong {
+      border-color: var(--danger) !important;
+      background: var(--danger-light) !important;
+      color: var(--danger) !important;
+    }
+
+    /* Explanation Area (Pre-reserved min height to prevent jumps) */
+    .explanation-area {
+      min-height: 120px;
+      background: var(--primary-light);
+      border-left: 4px solid var(--primary);
+      border-radius: 10px;
+      padding: 14px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.2s, visibility 0.2s;
+    }
+    .explanation-area.visible {
+      opacity: 1;
+      visibility: visible;
+    }
+    .exp-row-title {
+      font-weight: 800;
+      font-size: 0.95rem;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .exp-text-formula {
+      font-size: 0.9rem;
+      line-height: 1.5;
+    }
+    .exp-text-trap {
+      font-size: 0.85rem;
+      color: var(--warning);
+      font-weight: 600;
+      border-top: 1px dashed rgba(148, 163, 184, 0.25);
+      padding-top: 6px;
+    }
+
+    /* Navigation Action Bar */
+    .q-nav-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
       gap: 10px;
     }
-    .chapter-badge {
+    .q-nav-btn {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      color: var(--text-main);
+      padding: 10px 18px;
+      border-radius: 10px;
+      font-size: 0.88rem;
+      font-weight: 700;
+      cursor: pointer;
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      font-size: 0.76rem;
-      font-weight: 800;
-      padding: 4px 10px;
-      border-radius: 8px;
-      width: fit-content;
+      transition: all 0.15s;
     }
-    .card-title {
-      font-size: 1.3rem;
-      font-weight: 800;
-      display: flex;
-      align-items: center;
-      gap: 8px;
+    .q-nav-btn:hover {
+      background: var(--card-border);
     }
-    .card-desc {
-      font-size: 0.88rem;
-      color: var(--text-muted);
-      line-height: 1.6;
-    }
-    .card-tags {
-      display: flex;
-      gap: 6px;
-      flex-wrap: wrap;
-      margin-top: 4px;
-    }
-    .tag {
-      font-size: 0.72rem;
-      padding: 2px 8px;
-      border-radius: 6px;
-      background: rgba(148, 163, 184, 0.12);
-      color: var(--text-muted);
-      font-weight: 600;
-    }
-    .start-btn {
+    .q-nav-btn.primary {
       background: var(--primary);
       color: #fff;
-      padding: 12px 18px;
-      border-radius: 12px;
+      border: none;
+      box-shadow: 0 4px 12px rgba(59, 130, 246, 0.35);
+    }
+    .q-nav-btn.primary:hover {
+      background: var(--primary-hover);
+    }
+
+    /* Question Navigator Grid (答题卡) */
+    .nav-grid-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      padding: 16px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      box-shadow: var(--shadow);
+    }
+    .grid-title-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.85rem;
       font-weight: 700;
-      text-decoration: none;
+    }
+    .grid-legend {
+      display: flex;
+      gap: 12px;
+      font-size: 0.72rem;
+      color: var(--text-muted);
+    }
+    .dot {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      margin-right: 4px;
+    }
+    .grid-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      max-height: 130px;
+      overflow-y: auto;
+      padding-right: 4px;
+    }
+    .q-chip {
+      width: 32px;
+      height: 32px;
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 8px;
-      box-shadow: 0 4px 12px rgba(59, 130, 246, 0.35);
-      transition: all 0.2s;
+      border-radius: 8px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      cursor: pointer;
+      border: 1px solid var(--card-border);
+      background: transparent;
+      color: var(--text-muted);
+      transition: all 0.15s;
     }
-    .start-btn:hover {
-      background: var(--primary-hover);
-      transform: translateY(-1px);
+    .q-chip:hover {
+      border-color: var(--primary);
+      color: var(--text-main);
+    }
+    .q-chip.active {
+      box-shadow: 0 0 0 2px var(--primary);
+      color: var(--text-main);
+      font-weight: 900;
+    }
+    .q-chip.correct {
+      background: var(--success) !important;
+      color: #fff !important;
+      border-color: var(--success) !important;
+    }
+    .q-chip.wrong {
+      background: var(--danger) !important;
+      color: #fff !important;
+      border-color: var(--danger) !important;
+    }
+
+    /* Modal for Mistakes and Results */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.65);
+      backdrop-filter: blur(4px);
+      z-index: 999;
+      justify-content: center;
+      align-items: center;
+      padding: 16px;
+    }
+    .modal-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 20px;
+      width: 100%;
+      max-width: 650px;
+      max-height: 85vh;
+      overflow-y: auto;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      box-shadow: var(--shadow);
+    }
+    .modal-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .modal-head h2 { font-size: 1.25rem; font-weight: 800; }
+    .close-btn {
+      background: transparent;
+      border: none;
+      font-size: 1.4rem;
+      color: var(--text-muted);
+      cursor: pointer;
     }
   </style>
 </head>
 <body data-theme="dark">
-  <div class="hub-container">
-    <div class="hub-header">
-      <div class="header-info">
-        <h1><span>🎮</span> 日语核心语法闯关特训中心</h1>
-        <p>纯本地单文件题库 · 支持 1/2/3/4 与 Enter 快捷键盲打 · 错题自动收集</p>
+
+  <div class="main-app">
+    <!-- Top Nav Header -->
+    <header class="top-header">
+      <div class="brand-group">
+        <span>🇯🇵 日语语法实战特训系统</span>
+        <span class="badge-tag">230+全真题库</span>
       </div>
-      <div class="header-actions">
-        <a href="../index.html" class="btn primary">📖 返回随身宝手册</a>
-        <button class="btn" onclick="toggleTheme()" id="themeBtn">🌙 暗黑</button>
+      <div class="top-actions">
+        <button class="btn-action" onclick="openExamModal()" title="进入50题综合全真模考">
+          🏆 模拟大考
+        </button>
+        <button class="btn-action" onclick="openMistakesModal()" title="错题强化复习">
+          📝 错题集 (<span id="totalMistakesCount">0</span>)
+        </button>
+        <button class="btn-action" onclick="toggleTheme()" id="themeBtn">
+          🌙 暗黑
+        </button>
+        <a href="../index.html" class="btn-action" title="返回语法手册速查">
+          📖 语法手册
+        </a>
       </div>
+    </header>
+
+    <!-- Chapter Tabs -->
+    <nav class="chapter-tabs-bar" id="chapterTabs">
+      <button class="chap-tab active" onclick="switchChapter('verb')">🏃 动词变形 (50题)</button>
+      <button class="chap-tab" onclick="switchChapter('adj')">🌸 形容词篇 (50题)</button>
+      <button class="chap-tab" onclick="switchChapter('particle')">📍 助词辨析 (45题)</button>
+      <button class="chap-tab" onclick="switchChapter('sentence')">🏗️ 句型造句 (40题)</button>
+      <button class="chap-tab" onclick="switchChapter('spoken')">💬 地道口语 (45题)</button>
+    </nav>
+
+    <!-- Sub Filters for Selected Chapter -->
+    <div class="filter-bar" id="filterBar">
+      <!-- Injected by JS -->
     </div>
 
-    <div class="chapters-grid">
-      <!-- 01 动词篇 -->
-      <div class="chapter-card" style="border-top: 4px solid #3b82f6;">
-        <div class="card-top">
-          <span class="chapter-badge" style="background:rgba(59,130,246,0.15); color:#3b82f6;">第一章 · 核心动力</span>
-          <div class="card-title">🏃 动词变形特训器</div>
-          <div class="card-desc">针对三类动词、一段动词、五段各音便（促/拨/イ音便）、外观一段实五段致命陷阱词、假定/可能/意志/命令全套变形！</div>
-          <div class="card-tags">
-            <span class="tag">58+ 题库</span>
-            <span class="tag">音便专场</span>
-            <span class="tag">陷阱词突击</span>
-            <span class="tag">键盘盲打</span>
-          </div>
+    <!-- HUD Bar (Progress & Stats) -->
+    <section class="hud-bar">
+      <div class="hud-stat">
+        <span class="hud-lbl">当前题号</span>
+        <div class="hud-val"><span id="hudCurIdx">1</span> / <span id="hudTotal">50</span></div>
+      </div>
+      <div class="hud-stat">
+        <span class="hud-lbl">正确率</span>
+        <div class="hud-val" id="hudAccuracy">100%</div>
+      </div>
+      <div class="hud-stat">
+        <span class="hud-lbl">连击 Streak</span>
+        <div class="hud-val combo" id="hudCombo">🔥 0</div>
+      </div>
+      <div class="hud-stat">
+        <span class="hud-lbl">练习模式</span>
+        <div style="font-size:0.85rem; font-weight:700; color:var(--primary);" id="modeLabel">实时即答</div>
+      </div>
+    </section>
+
+    <!-- Progress Track -->
+    <div class="progress-track">
+      <div class="progress-fill" id="progressFill"></div>
+    </div>
+
+    <!-- Main Question Card -->
+    <main class="question-card" id="qCard">
+      <div class="q-header">
+        <div class="q-tags">
+          <span class="q-tag tag-blue" id="tagChapter">动词篇</span>
+          <span class="q-tag tag-purple" id="tagCategory">五段促音便</span>
+          <span class="q-tag tag-amber" id="tagTarget">【过去式た形】</span>
         </div>
-        <a href="01_动词变形特训.html" class="start-btn">🚀 进入动词闯关</a>
+        <div class="q-keyboard-tips">
+          <span>快捷键:</span>
+          <kbd>1</kbd> <kbd>2</kbd> <kbd>3</kbd> <kbd>4</kbd> / <kbd>Enter</kbd> / <kbd>←</kbd> <kbd>→</kbd>
+        </div>
       </div>
 
-      <!-- 02 形容词篇 -->
-      <div class="chapter-card" style="border-top: 4px solid #ec4899;">
-        <div class="card-top">
-          <span class="chapter-badge" style="background:rgba(236,72,153,0.15); color:#ec4899;">第二章 · 状态色彩</span>
-          <div class="card-title">🌸 形容词变形特训器</div>
-          <div class="card-desc">い形容词四态（否定/过去/中顿/副词化）、な形容词修饰、神级特例「いい ➔ よ」、以及口语男系变音（うめえ/すげえ/やべえ）！</div>
-          <div class="card-tags">
-            <span class="tag">40+ 题库</span>
-            <span class="tag">いい特例</span>
-            <span class="tag">綺麗/嫌い陷阱</span>
-            <span class="tag">口语约音</span>
-          </div>
+      <!-- Real Context Sentence Box -->
+      <div class="q-sentence-box">
+        <div class="q-tested-point" id="qTestedPoint">
+          考点：行く（促音便特例）➔ 过去式
         </div>
-        <a href="02_形容词变形特训.html" class="start-btn" style="background:#ec4899;">🚀 进入形容词闯关</a>
+        <div class="q-sentence-ja" id="qSentenceJa">
+          昨日友達と一緒に秋葉原へ<span class="blank-pill" id="blankPill">？</span>。
+        </div>
+        <div class="q-sentence-zh" id="qSentenceZh">
+          中文释义：昨天我和朋友一起去了秋叶原。
+        </div>
       </div>
 
-      <!-- 03 助词篇 -->
-      <div class="chapter-card" style="border-top: 4px solid #10b981;">
-        <div class="card-top">
-          <span class="chapter-badge" style="background:rgba(16,185,129,0.15); color:#10b981;">第三章 · 逻辑骨骼</span>
-          <div class="card-title">📍 助词辨析特训器</div>
-          <div class="card-desc">「は」与「が」大主语小主语排他巅峰对决、「に」与「で」存在与发生终极辨析、を/へ/と/から/まで以及句末终助词！</div>
-          <div class="card-tags">
-            <span class="tag">40+ 题库</span>
-            <span class="tag">は vs が</span>
-            <span class="tag">に vs で</span>
-            <span class="tag">终助词语气</span>
-          </div>
-        </div>
-        <a href="03_助词辨析特训.html" class="start-btn" style="background:#10b981;">🚀 进入助词闯关</a>
+      <!-- Options 2x2 Grid -->
+      <div class="options-grid" id="optionsGrid">
+        <!-- Rendered by JS -->
       </div>
 
-      <!-- 04 句型篇 -->
-      <div class="chapter-card" style="border-top: 4px solid #f59e0b;">
-        <div class="card-top">
-          <span class="chapter-badge" style="background:rgba(245,158,11,0.15); color:#f59e0b;">第四章 · 表达构建</span>
-          <div class="card-title">🏗️ 句型造句特训器</div>
-          <div class="card-desc">授受关系名场面（あげる/くれる/もらう）、假定四天王（と/ば/たら/なら）、许可禁止义务、以及动作时态（ている/てある/ておく/てしまう）！</div>
-          <div class="card-tags">
-            <span class="tag">40+ 题库</span>
-            <span class="tag">授受视角</span>
-            <span class="tag">假定四天王</span>
-            <span class="tag">存续状态</span>
-          </div>
+      <!-- Reserved Fixed-Height Explanation Box -->
+      <div class="explanation-area" id="expArea">
+        <div class="exp-row-title">
+          <span id="expResultIcon">💡</span>
+          <span id="expTitle">语法法则深度解析</span>
         </div>
-        <a href="04_句型造句特训.html" class="start-btn" style="background:#d97706;">🚀 进入句型闯关</a>
+        <div class="exp-text-formula" id="expFormula">
+          【变形法则】：五段动词「く」结尾通常发生「イ音便」变「いた」，但「行く」是<strong>全日语唯一促音便特例</strong>，必须变成「行った」！
+        </div>
+        <div class="exp-text-trap" id="expTrap">
+          ⚠️ 避坑提醒：绝不能写成「行いた」！这是日常最常见的扣分陷阱。
+        </div>
       </div>
 
-      <!-- 05 口语篇 -->
-      <div class="chapter-card" style="border-top: 4px solid #8b5cf6;">
-        <div class="card-top">
-          <span class="chapter-badge" style="background:rgba(139,92,246,0.15); color:#8b5cf6;">第五章 · 地道实战</span>
-          <div class="card-title">💬 常用口语特训器</div>
-          <div class="card-desc">口语神级约音（てる/とく/ちゃう/なきゃ）、日常社交寒暄套话（出入门、用餐、职场辛苦了）、动漫高频名台词与年轻人口语！</div>
-          <div class="card-tags">
-            <span class="tag">40+ 题库</span>
-            <span class="tag">神级约音</span>
-            <span class="tag">社交寒暄</span>
-            <span class="tag">动漫名台词</span>
-          </div>
+      <!-- Navigation & Action Buttons -->
+      <div class="q-nav-bar">
+        <div style="display:flex; gap:8px;">
+          <button class="q-nav-btn" onclick="prevQuestion()" id="btnPrev">
+            ◀ 上一题 <kbd>←</kbd>
+          </button>
+          <button class="q-nav-btn" onclick="toggleExplanationManual()" id="btnToggleExp">
+            💡 解析
+          </button>
         </div>
-        <a href="05_常用口语特训.html" class="start-btn" style="background:#8b5cf6;">🚀 进入口语闯关</a>
+        <div style="display:flex; gap:8px;">
+          <button class="q-nav-btn" onclick="toggleMistakeFlag()" id="btnFlag" title="加入重点错题本">
+            ⭐ 收藏错题
+          </button>
+          <button class="q-nav-btn primary" onclick="nextQuestion()" id="btnNext">
+            下一题 ▶ <kbd style="background:rgba(255,255,255,0.25); border:none; color:#fff;">Enter</kbd>
+          </button>
+        </div>
+      </div>
+    </main>
+
+    <!-- Question Navigator Grid (答题卡) -->
+    <aside class="nav-grid-card">
+      <div class="grid-title-row">
+        <span>📋 题目导航答题卡 (点击任意题号秒切)</span>
+        <div class="grid-legend">
+          <span><span class="dot" style="background:var(--success);"></span>正确</span>
+          <span><span class="dot" style="background:var(--danger);"></span>错题</span>
+          <span><span class="dot" style="background:var(--primary);"></span>当前</span>
+          <span><span class="dot" style="background:var(--card-border);"></span>未答</span>
+        </div>
+      </div>
+      <div class="grid-chips" id="navGridChips">
+        <!-- 1..N chips rendered by JS -->
+      </div>
+    </aside>
+  </div>
+
+  <!-- Mistakes Modal -->
+  <div class="modal-overlay" id="mistakesModal" onclick="if(event.target===this)closeMistakesModal()">
+    <div class="modal-card">
+      <div class="modal-head">
+        <h2>📝 个人高频错题集</h2>
+        <button class="close-btn" onclick="closeMistakesModal()">×</button>
+      </div>
+      <div style="font-size:0.88rem; color:var(--text-muted);">
+        在刷题过程中答错或手动收藏的题目会自动沉淀于此，可一键开启专门针对错题的强化复习！
+      </div>
+      <div style="display:flex; gap:8px; margin:4px 0;">
+        <button class="btn-action" onclick="startMistakesDrill()">🔥 立即开启错题特训</button>
+        <button class="btn-action" onclick="clearMistakes()" style="color:var(--danger);">🗑️ 清空错题本</button>
+      </div>
+      <div id="mistakesListContainer" style="display:flex; flex-direction:column; gap:10px; margin-top:8px;"></div>
+    </div>
+  </div>
+
+  <!-- Exam Result Modal -->
+  <div class="modal-overlay" id="examModal" onclick="if(event.target===this)closeExamModal()">
+    <div class="modal-card" style="text-align:center;">
+      <div class="modal-head">
+        <h2>🏆 全真综合联考报告</h2>
+        <button class="close-btn" onclick="closeExamModal()">×</button>
+      </div>
+      <div style="font-size:3rem; margin:10px 0;" id="examBadge">🎖️</div>
+      <h3 style="font-size:1.5rem; font-weight:900;" id="examTitle">日语达人！</h3>
+      <p style="color:var(--text-muted); font-size:0.92rem;" id="examSubtitle">完成全科综合测验</p>
+
+      <div style="display:flex; justify-content:center; gap:20px; margin:16px 0;">
+        <div>
+          <div style="font-size:2.2rem; font-weight:900; color:var(--primary);" id="examFinalAcc">100%</div>
+          <div style="font-size:0.75rem; color:var(--text-muted);">综合准确率</div>
+        </div>
+        <div>
+          <div style="font-size:2.2rem; font-weight:900; color:var(--success);" id="examCorrectCount">50</div>
+          <div style="font-size:0.75rem; color:var(--text-muted);">答对题数</div>
+        </div>
+        <div>
+          <div style="font-size:2.2rem; font-weight:900; color:var(--danger);" id="examWrongCount">0</div>
+          <div style="font-size:0.75rem; color:var(--text-muted);">失误错题</div>
+        </div>
+      </div>
+
+      <div style="display:flex; justify-content:center; gap:10px; margin-top:10px;">
+        <button class="btn-action" onclick="closeExamModal()">返回常规练习</button>
+        <button class="btn-action" onclick="startExam(50)" style="background:var(--primary); color:#fff;">再战一次 (50题)</button>
       </div>
     </div>
   </div>
 
   <script>
+    // Injected JSON Database
+    const DB = {"verb": {"name": "动词篇", "categories": ["五段促音便", "五段拨音便", "五段イ音便", "五段す行无音便", "致命陷阱词", "二类一段", "三类不规则", "进阶可能意志命令"], "questions": [{"id": "v_1", "category": "五段促音便", "targetForm": "过去式た形", "sentence": "昨日友達と一緒に秋葉原へ__。", "zh": "昨天我和朋友一起去了秋叶原。", "point": "行く（促音便特例）➔ 过去式", "options": ["行った", "行いた", "行いだ", "行た"], "answerIdx": 0, "formula": "【行く唯一促音便特例】：五段「く」通常变イ音便（書いた），但<strong>「行く」是全日语唯一的促音便特例</strong>，必须变成「行った」！", "trap": "千万不能写成「行いた」！这是初学日语最典型的易错雷区。"}, {"id": "v_2", "category": "五段促音便", "targetForm": "过去式た形", "sentence": "スーパーで新鮮な果物とお肉をたくさん__。", "zh": "在超市买了很多新鲜的水果和肉。", "point": "買う（う尾促音便）➔ 过去式", "options": ["買った", "買いた", "買いだ", "買た"], "answerIdx": 0, "formula": "【う/つ/る行促音便】：词尾为「う・つ・る」的五段动词，て形与た形发生促音便（变促音小「っ」）➔ 買った。", "trap": "不要把词干的い和连用形混淆写成「買いた」。"}, {"id": "v_3", "category": "五段促音便", "targetForm": "连接て形", "sentence": "駅の改札口で友達を30分も__いました。", "zh": "在车站检票口等了朋友整整30分钟。", "point": "待つ（つ尾促音便）➔ て形", "options": ["待って", "待いて", "待ちて", "待んで"], "answerIdx": 0, "formula": "【つ尾促音便】：待つ ➔ 待って。「待ってください（请稍等）」中的待って正是此促音便。", "trap": "切勿受敬体「待ちます」影响写出「待ちて」。"}, {"id": "v_4", "category": "五段促音便", "targetForm": "过去式た形", "sentence": "2時間にわたる長い会議がようやく__。", "zh": "长达两个小时的冗长会议终于结束了。", "point": "終わる（る尾促音便）➔ 过去式", "options": ["終わった", "終いた", "終わりた", "終わんだ"], "answerIdx": 0, "formula": "【五段る尾促音便】：終わる是五段动词，る变促音小「っ」+ た ➔ 終わった。", "trap": "不要和一段动词去る搞混，五段る尾必须促音化！"}, {"id": "v_5", "category": "五段促音便", "targetForm": "过去式た形", "sentence": "レジでお札を出して代金を__。", "zh": "在收银台拿出纸币付了款。", "point": "払う（う尾促音便）➔ 过去式", "options": ["払った", "払いいた", "払いた", "払んだ"], "answerIdx": 0, "formula": "【う尾促音便】：払う ➔ 払った。日常付账极高频使用。", "trap": "う结尾在否定跳わ（払わない），但て/た形走促音便（払った）。"}, {"id": "v_6", "category": "五段促音便", "targetForm": "连接て形", "sentence": "先生が__いる言葉をしっかりノートにメモした。", "zh": "把老师说的话认真记在了笔记本上。", "point": "言う（う尾促音便）➔ て形", "options": ["言って", "言いて", "言いて", "言んで"], "answerIdx": 0, "formula": "【言う促音便】：言う ➔ 言って。「言っている（正在说/所说的）」。", "trap": "言いて是古语或方言残留，标准普通话绝对是促音「言って」。"}, {"id": "v_7", "category": "五段促音便", "targetForm": "连接て形", "sentence": "毎朝決まって8時の電車に__通勤している。", "zh": "每天早晨固定乘坐8点的电车通勤。", "point": "乗る（る尾促音便）➔ て形", "options": ["乗って", "乗りて", "乗いて", "乗んで"], "answerIdx": 0, "formula": "【乗る促音便】：乗る是五段动词 ➔ 乗って。「電車に乗る」用促音乗って。", "trap": "不要把乗る误判成一段动词直接去る。"}, {"id": "v_8", "category": "五段促音便", "targetForm": "过去式た形", "sentence": "名前を呼ばれた選手が勢いよく席から__。", "zh": "被叫到名字的选手劲头十足地从座位上站了起来。", "point": "立つ（つ尾促音便）➔ 过去式", "options": ["立った", "立ちた", "立いた", "立んだ"], "answerIdx": 0, "formula": "【立つ促音便】：立つ ➔ 立った。", "trap": "注意清脆的促音停顿「たった」，不是立ちた。"}, {"id": "v_9", "category": "五段拨音便", "targetForm": "连接て形", "sentence": "風邪を引いたので、薬を__早く寝ます。", "zh": "因为感冒了，喝完药就早早睡觉。", "point": "飲む（む尾拨音便浊化）➔ て形", "options": ["飲んで", "飲みて", "飲って", "飲いて"], "answerIdx": 0, "formula": "【ぬ/ぶ/む尾拨音便浊化】：词尾变拨音「ん」，后面的て/た必须<strong>带浊音两点（で/だ）</strong> ➔ 飲んで！", "trap": "必须浊化带两点，写成「飲んて」扣分！"}, {"id": "v_10", "category": "五段拨音便", "targetForm": "过去式た形", "sentence": "週末は近所の公園で子供たちと楽しく__。", "zh": "周末在附近的公园和孩子们玩得很开心。", "point": "遊ぶ（ぶ尾拨音便浊化）➔ 过去式", "options": ["遊んだ", "遊びた", "遊った", "遊いた"], "answerIdx": 0, "formula": "【ぶ尾拨音便】：遊ぶ ➔ 遊んだ（浊音だ）。", "trap": "注意和促音区分，ぶ尾绝对不促音，必变拨音「んだ」。"}, {"id": "v_11", "category": "五段拨音便", "targetForm": "过去式た形", "sentence": "道端で倒れていた小鳥が残念ながら__しまった。", "zh": "倒在路边的小鸟遗憾地死去了。", "point": "死ぬ（唯一ぬ尾动词）➔ 过去式", "options": ["死んだ", "死った", "死いた", "死した"], "answerIdx": 0, "formula": "【全日语唯一ぬ尾动词】：死ぬ ➔ 死んだ / 死んで。", "trap": "死ぬ是日语中极其罕见的ぬ结尾五段动词，规律与む/ぶ一致。"}, {"id": "v_12", "category": "五段拨音便", "targetForm": "连接て形", "sentence": "大声でタクシーを__も、夜中はなかなか止まらない。", "zh": "就算大声呼叫出租车，半夜也很难停下来。", "point": "呼ぶ（ぶ尾拨音便）➔ て形", "options": ["呼んで", "呼びて", "呼って", "呼いて"], "answerIdx": 0, "formula": "【呼ぶ拨音便】：呼ぶ ➔ 呼んで。「タクシーを呼んでください」。", "trap": "牢记「呼ぶ」是ぶ结尾，变拨音「んで」。"}, {"id": "v_13", "category": "五段拨音便", "targetForm": "过去式た形", "sentence": "カタログの中から一番気に入った商品を__。", "zh": "从产品目录中挑选了最合心意的一款商品。", "point": "選ぶ（ぶ尾拨音便）➔ 过去式", "options": ["選んだ", "選びた", "選った", "選いだ"], "answerIdx": 0, "formula": "【選ぶ拨音便】：選ぶ ➔ 選んだ。", "trap": "日常生活挑选东西（選ぶ）极高频使用。"}, {"id": "v_14", "category": "五段拨音便", "targetForm": "过去式た形", "sentence": "レストランで店員に一番人気のステーキを__。", "zh": "在餐厅向店员点了一份最受欢迎的牛排。", "point": "頼む（む尾拨音便）➔ 过去式", "options": ["頼んだ", "頼みた", "頼った", "頼いだ"], "answerIdx": 0, "formula": "【頼む拨音便】：頼む ➔ 頼んだ。「頼みます（拜托了）」➔「頼んだ（点了/拜托了）」。", "trap": "む结尾必是拨音「んだ」。"}, {"id": "v_15", "category": "五段イ音便", "targetForm": "过去式た形", "sentence": "お世話になった先生に感謝の手紙を丁寧に__。", "zh": "给关照过自己的老师工整地写了感谢信。", "point": "書く（く尾イ音便）➔ 过去式", "options": ["書いた", "書った", "書いだ", "書きた"], "answerIdx": 0, "formula": "【く尾イ音便】：く 变「い」+ た ➔ 書いた。", "trap": "除了「行く」变促音「行った」以外，其他く结尾动词全部变「いた」！"}, {"id": "v_16", "category": "五段イ音便", "targetForm": "连接て形", "sentence": "夏休みに友達と沖縄の綺麗な海でたくさん__。", "zh": "暑假和朋友在冲绳美丽的大海里畅快地游了泳。", "point": "泳ぐ（ぐ尾イ音便浊化）➔ て形", "options": ["泳いで", "泳いて", "泳って", "泳んで"], "answerIdx": 0, "formula": "【ぐ尾イ音便浊化】：ぐ 变「い」，后面必带两点浊音「で」 ➔ 泳いで！", "trap": "不可漏掉浊音写成「泳いて」，词尾有浊音，音便必须带浊音！"}, {"id": "v_17", "category": "五段イ音便", "targetForm": "连接て形", "sentence": "新幹線の時間に遅れそうだったので、タクシーで__駅に向かった。", "zh": "眼看要赶不上新干线的时间，坐出租车急忙赶往车站。", "point": "急ぐ（ぐ尾イ音便浊化）➔ て形", "options": ["急いで", "急いて", "急って", "急んで"], "answerIdx": 0, "formula": "【急ぐイ音便浊化】：急ぐ ➔ 急いで。「急いでください（请快点）」。", "trap": "日常催促必备句型，必须带浊音「で」。"}, {"id": "v_18", "category": "五段イ音便", "targetForm": "过去式た形", "sentence": "彼は若い頃からずっと日本の自動車工場で__。", "zh": "他从年轻时候起就一直在日本的汽车工厂工作。", "point": "働く（く尾イ音便）➔ 过去式", "options": ["働いた", "働った", "働きいた", "働いだ"], "answerIdx": 0, "formula": "【働くイ音便】：働く ➔ 働いた。「働いている（正在工作）」。", "trap": "く变い，是清音「いた」，不要画蛇添足加浊点。"}, {"id": "v_19", "category": "五段す行无音便", "targetForm": "连接て形", "sentence": "昨日久しぶりに実家の母と電話で楽しく__。", "zh": "昨天久违地和老家的母亲在电话里愉快地聊了天。", "point": "話す（す行绝不音便）➔ て形", "options": ["話して", "話って", "話いて", "話んで"], "answerIdx": 0, "formula": "【す行不发生音便】：词尾为「す」的动词，老老实实变「し」+ て ➔ 話して！", "trap": "牢记口诀：'す行无音便，老实变して'！绝对没有「話って」或「話いて」。"}, {"id": "v_20", "category": "五段す行无音便", "targetForm": "过去式た形", "sentence": "困っていた留学生に日本語の辞書を親切に__。", "zh": "好心地把日语字典借给了遇到困难的留学生。", "point": "貸す（す行无音便）➔ 过去式", "options": ["貸した", "貸った", "貸いた", "貸んだ"], "answerIdx": 0, "formula": "【貸す无音便】：す ➔ し + た ➔ 貸した。", "trap": "不要把す错当成促音便。"}, {"id": "v_21", "category": "五段す行无音便", "targetForm": "连接て形", "sentence": "作文の間違いを先生が赤ペンで丁寧に__くれた。", "zh": "作文里的错误，老师用红笔耐心地替我改正了。", "point": "直す（す行无音便）➔ て形", "options": ["直して", "直って", "直いて", "直んで"], "answerIdx": 0, "formula": "【直す无音便】：直す ➔ 直して。", "trap": "す行老老实实加して即可。"}, {"id": "v_22", "category": "五段す行无音便", "targetForm": "连接て形", "sentence": "ポケットから鍵を道端に__しまった。", "zh": "不小心把钥匙从口袋里掉在路上了。", "point": "落とす（す行无音便）➔ て形", "options": ["落として", "落とって", "落といて", "落とんで"], "answerIdx": 0, "formula": "【落とす无音便】：落とす ➔ 落として。", "trap": "落とす是他动词（弄掉了），与自动词「落ちる 一段」区分。"}, {"id": "v_23", "category": "致命陷阱词", "targetForm": "否定式ない形", "sentence": "残業が終わらなくて、今夜は家に__ない。", "zh": "加班没完没了，今晚没法回家了。", "point": "帰る（伪一段实五段）➔ 否定式", "options": ["帰ら", "帰", "帰れ", "帰さ"], "answerIdx": 0, "formula": "【帰る五段属性】：虽然前是え段，但「帰る」是纯正五段动词！词尾る跳あ段「ら」+ ない ➔ <strong>帰らない</strong>！", "trap": "绝不能当一段去る写成「帰ない」！扣分重灾区！"}, {"id": "v_24", "category": "致命陷阱词", "targetForm": "连接て形", "sentence": "もう遅いから、気をつけて家に__ね。", "zh": "时间不早了，路上小心回家哦。", "point": "帰る（五段促音便）➔ て形", "options": ["帰って", "帰て", "帰りて", "帰いて"], "answerIdx": 0, "formula": "【帰る促音便】：既然是五段动词，其て形必须遵循る尾促音便 ➔ <strong>帰って</strong>！", "trap": "不能直接去る写「帰て」，一段动词才去る。"}, {"id": "v_25", "category": "致命陷阱词", "targetForm": "否定式ない形", "sentence": "そんな難しい専門知識、私は何も__ないよ。", "zh": "那么难的专业知识，我可一点都不知道哦。", "point": "知る（伪一段实五段）➔ 否定式", "options": ["知ら", "知", "知れ", "知さ"], "answerIdx": 0, "formula": "【知る五段否定】：知る跳あ段 ➔ <strong>知らない（しらない 不知道）</strong>！", "trap": "动漫口头禅「知らない！」，如果当一段写成「知ない」就大错特错。"}, {"id": "v_26", "category": "致命陷阱词", "targetForm": "过去式た形", "sentence": "遅刻しそうだったので、駅まで全力で__。", "zh": "眼看要迟到了，用尽全力跑到了车站。", "point": "走る（伪一段实五段）➔ 过去式", "options": ["走った", "走た", "走いた", "走いだ"], "answerIdx": 0, "formula": "【走る五段促音便】：走る是五段动词，过去式发生促音便 ➔ <strong>走った</strong>！", "trap": "不要看到「し」在い段就当成一段去る写成「走た」。"}, {"id": "v_27", "category": "致命陷阱词", "targetForm": "敬体ます形", "sentence": "お風呂が沸いたので、どうぞ温かい湯に__てください。", "zh": "洗澡水烧好了，请快进浴缸泡个热水澡吧。", "point": "入る（伪一段实五段）➔ ます形", "options": ["入り", "入", "入れ", "入し"], "answerIdx": 0, "formula": "【入る五段活用】：入る词尾る跳い段加ます ➔ <strong>入ります</strong>；入ってください。", "trap": "「入れます」是动词「入れる 一段 放进」的活用，意思完全不同！"}, {"id": "v_28", "category": "致命陷阱词", "targetForm": "连接て形", "sentence": "ハサミを使って、紙を点線に沿って真っ直ぐ__ください。", "zh": "请用剪刀沿着虚线把纸笔直剪开。", "point": "切る（伪一段实五段）➔ て形", "options": ["切って", "切て", "切りて", "切いて"], "answerIdx": 0, "formula": "【切る促音便】：切る（剪/切）是五段动词 ➔ <strong>切って（きって）</strong>。", "trap": "穿衣服的「着る（きる）」是一段（着て）；剪纸切菜的「切る」是五段（切って）！"}, {"id": "v_29", "category": "致命陷阱词", "targetForm": "敬体ます形", "sentence": "旅行の準備にもうこれ以上のお金は__ません。", "zh": "旅行的准备已经不需要再花更多的钱了。", "point": "要る（需要，五段）➔ ます形", "options": ["要り", "要", "要れ", "要し"], "answerIdx": 0, "formula": "【要る五段属性】：表示“需要”的「要る」是五段动词 ➔ <strong>要ります / 要りません</strong>。", "trap": "表示在的「居る（いる）」才是一段（居ます）。要る必走五段！"}, {"id": "v_30", "category": "致命陷阱词", "targetForm": "过去式た形", "sentence": "最近毎日運動したおかげで、体重が3キロ__。", "zh": "多亏最近每天运动，体重减轻了3公斤。", "point": "減る（减少，五段）➔ 过去式", "options": ["減った", "減た", "減いた", "減いだ"], "answerIdx": 0, "formula": "【減る五段促音便】：減る是五段动词 ➔ <strong>減った</strong>（お腹が減った 肚子饿了）。", "trap": "口语名句「腹減った（はらへった）」，正是促音便的五段！"}, {"id": "v_31", "category": "致命陷阱词", "targetForm": "否定式ない形", "sentence": "値段が高いものが、必ずしも品質が良いとは__ない。", "zh": "价格昂贵的东西，并不一定意味着品质就好。", "point": "限る（五段）➔ 否定式", "options": ["限ら", "限", "限れ", "限さ"], "answerIdx": 0, "formula": "【限る五段否定】：限る是五段动词 ➔ <strong>限らない（〜とは限らない 不一定）</strong>。", "trap": "N3~N2核心必背语法「とは限らない」，牢记其五段否定属性。"}, {"id": "v_32", "category": "二类一段", "targetForm": "否定式ない形", "sentence": "健康のために、夜9時以降は何も__ないことにしている。", "zh": "为了健康，晚上9点之后我决定什么都不吃。", "point": "食べる（一段动词去る）➔ 否定式", "options": ["食べ", "食べら", "食べわ", "食べさ"], "answerIdx": 0, "formula": "【一段动词去る神则】：一段动词无论接ない/ます/て/た，直接去掉词尾「る」即可 ➔ <strong>食べない</strong>！", "trap": "绝不能加「ら」写成「食べらない」，一段动词绝不跳行！"}, {"id": "v_33", "category": "二类一段", "targetForm": "过去式た形", "sentence": "母が心を込めて作ってくれたカレーを全部美味しく__。", "zh": "把母亲用心烹饪的咖喱全部美味地吃光了。", "point": "食べる（一段动词）➔ 过去式", "options": ["食べた", "食べった", "食べいだ", "食べいた"], "answerIdx": 0, "formula": "【一段动词去る加た】：直接去る加た ➔ <strong>食べた</strong>。", "trap": "一段动词完全不发生促音便，写「食べった」是荒谬的错词。"}, {"id": "v_34", "category": "二类一段", "targetForm": "连接て形", "sentence": "ほら、空を__てごらん！満天の星が綺麗だよ！", "zh": "瞧，抬头看天空看看！满天的繁星真美呀！", "point": "見る（一段动词）➔ て形", "options": ["見", "見っ", "見い", "見ん"], "answerIdx": 0, "formula": "【見る一段属性】：直接去る加て ➔ <strong>見て</strong>。", "trap": "不可写成促音「見って」。"}, {"id": "v_35", "category": "二类一段", "targetForm": "敬体ます形", "sentence": "明日朝一番のフライトに乗るので、朝5時に__ます。", "zh": "明天要赶清晨第一班航班，早晨5点起床。", "point": "起きる（一段动词）➔ ます形", "options": ["起き", "起きり", "起い", "起け"], "answerIdx": 0, "formula": "【起きる一段活用】：起きる去る加ます ➔ <strong>起きます</strong>。", "trap": "不要把词干的き当成五段去跳行。"}, {"id": "v_36", "category": "二类一段", "targetForm": "连接て形", "sentence": "電車の中に大切なパスポートを__てしまい、青ざめた。", "zh": "把重要的护照落在了电车里，吓得脸色苍白。", "point": "忘れる（一段动词）➔ て形", "options": ["忘れ", "忘れっ", "忘れり", "忘れん"], "answerIdx": 0, "formula": "【忘れる一段活用】：去る直接加て ➔ <strong>忘れて（忘れてしまう）</strong>。", "trap": "一段动词变形极其清脆爽快，去る即得。"}, {"id": "v_37", "category": "二类一段", "targetForm": "否定式ない形", "sentence": "どんなに困難な状況でも、私は夢を絶対に__ない。", "zh": "不论多么困难的局面，我也绝不会放弃梦想。", "point": "諦める（一段动词）➔ 否定式", "options": ["諦め", "諦めら", "諦ま", "諦めわ"], "answerIdx": 0, "formula": "【諦める否定】：去る加ない ➔ <strong>諦めない（あきらめない）</strong>。", "trap": "热血经典名句「最後まで諦めない！」。"}, {"id": "v_38", "category": "二类一段", "targetForm": "连接て形", "sentence": "冷たい北風が吹き込んできたので、厚いコートを__出かけた。", "zh": "因为冰冷的北风吹了进来，穿上厚外套出门了。", "point": "着る（穿衣服，一段动词）➔ て形", "options": ["着", "着っ", "着い", "着り"], "answerIdx": 0, "formula": "【着る一段属性】：穿衣服的着る（きる）是一段动词，去る加て ➔ <strong>着て（きて）</strong>。", "trap": "切断的切る（きる）是五段促音「切って」；穿衣的着る是一段「着て」，绝对不要混淆！"}, {"id": "v_39", "category": "三类不规则", "targetForm": "否定式ない形", "sentence": "体調が優れないときは、無理に残業を__ないほうがいい。", "zh": "身体不舒服的时候，最好不要勉强加班。", "point": "する（三类サ变）➔ 否定式", "options": ["し", "すら", "さ", "す"], "answerIdx": 0, "formula": "【する否定死记】：する的否定形固定为 <strong>「しない」</strong>！", "trap": "不要脑补「すらない」或「さない」。"}, {"id": "v_40", "category": "三类不规则", "targetForm": "可能形", "sentence": "毎日地道に努力すれば、誰でも日本語が上手に話せるように__。", "zh": "只要每天脚踏实地努力，任何人都能变得流利地说日语。", "point": "する（三类サ变）➔ 可能形", "options": ["できる", "すれる", "される", "しられる"], "answerIdx": 0, "formula": "【する可能形唯一词】：する的可能形完全替换为 <strong>「できる（出来る）」</strong>！", "trap": "没有「すれる」这种词，可能形必须换词为「できる」。"}, {"id": "v_41", "category": "三类不规则", "targetForm": "假定形ば形", "sentence": "この複雑な機械、一体どう__ば動くようになりますか。", "zh": "这个复杂的机器，到底怎么做才能运转起来呢？", "point": "する（三类サ变）➔ 假定形", "options": ["すれ", "しれ", "さら", "せ"], "answerIdx": 0, "formula": "【する假定形】：する ➔ <strong>すれば</strong>（どうすればいい？ 怎么办才好？）。", "trap": "假定形唯一标准是「すれば」。"}, {"id": "v_42", "category": "三类不规则", "targetForm": "意志形", "sentence": "よし、今年こそは絶対にJLPT N1に合格__よう！", "zh": "好，今年无论如何一定要考过JLPT N1！", "point": "する（三类サ变）➔ 意志形", "options": ["し", "す", "さ", "せ"], "answerIdx": 0, "formula": "【する意志形】：する ➔ <strong>しよう</strong>（勉強しよう！ そうしよう！）。", "trap": "不可写「すよう」或「すろう」。"}, {"id": "v_43", "category": "三类不规则", "targetForm": "否定式ない形", "sentence": "雨がひどいので、田中さんは今日の飲み会には__ないそうです。", "zh": "因为雨下得很大，听说田中今天不来聚会了。", "point": "来る（三类カ变）➔ 否定式", "options": ["こ", "き", "く", "こら"], "answerIdx": 0, "formula": "【来る否定发音突变】：原形读「くる」，否定未然读音突变为<strong>「こ」</strong> ➔ <strong>来ない（こない）</strong>！", "trap": "全日语最独特的音变神坑，绝不读「きない」或「くない」，死记「こない」！"}, {"id": "v_44", "category": "三类不规则", "targetForm": "敬体ます形", "sentence": "先生がまもなくこちらの第3会議室に__ます。", "zh": "老师马上就到这边的第三会议室来。", "point": "来る（三类カ变）➔ ます形", "options": ["き", "く", "こ", "きり"], "answerIdx": 0, "formula": "【来る敬体发音】：连用形发音变成<strong>「き」</strong> ➔ <strong>来ます（きます）</strong>。", "trap": "总结くる三音：原形「く」、否定「こ」、敬体「き」！"}, {"id": "v_45", "category": "三类不规则", "targetForm": "命令形", "sentence": "（动漫热血名场面）敵のボスが「さあ、かかって__い！」と叫んだ。", "zh": "敌方首领大喊道：“来吧，放马过来吧！”", "point": "来る（三类カ变）➔ 命令形", "options": ["こ", "き", "く", "こよ"], "answerIdx": 0, "formula": "【来る命令形】：发音为 <strong>「こい（来い）」</strong>！", "trap": "放马过来吧「かかって来い！」，命令形唯一为「こい」。"}, {"id": "v_46", "category": "进阶可能意志命令", "targetForm": "否定式ない形", "sentence": "高価なブランド品は、私にはまだ__ない。", "zh": "昂贵的名牌商品，我目前还买不起（不买）。", "point": "買う（う尾变わ）➔ 否定式", "options": ["買わ", "買あ", "買", "買え"], "answerIdx": 0, "formula": "【う尾跳あ段变わ神则】：以「う」结尾的五段动词，跳あ段时不变成「あ」，而是必须变成<strong>「わ」</strong> ➔ <strong>買わない</strong>！", "trap": "绝对不能写成「買あない」！所有う尾动词否定都是「わない」（言わない、使わない等）。"}, {"id": "v_47", "category": "进阶可能意志命令", "targetForm": "五段可能形", "sentence": "練習を重ねたおかげで、難しい漢字もスラスラ__るようになった。", "zh": "多亏反复练习，难写的汉字也能顺畅地写出来了。", "point": "書く（五段可能形）➔ 可能形", "options": ["書け", "書かられ", "書かれ", "書きれ"], "answerIdx": 0, "formula": "【五段可能形跳え段加る】：く ➔ け + る ➔ <strong>書ける（能写/会写）</strong>！", "trap": "只有一段动词才加「られる」；五段动词自己跳え段即可变成可能动词！"}, {"id": "v_48", "category": "进阶可能意志命令", "targetForm": "一段可能形", "sentence": "私は子供の頃から辛いキムチが全然__ない。", "zh": "我从小就完全吃不了辣泡菜。", "point": "食べる（一段可能形规范）➔ 可能形", "options": ["食べられ", "食べれ", "食べれら", "食べさ"], "answerIdx": 0, "formula": "【一段可能形规范】：去る加「られる」 ➔ <strong>食べられる</strong>。", "trap": "口语中虽有约音「食べれる」（ら抜き言葉），但标准考试与正规语法严格认准「食べられる」！"}, {"id": "v_49", "category": "进阶可能意志命令", "targetForm": "五段意志形", "sentence": "明日の朝は早いから、今夜はもうテレビを消して__う。", "zh": "明天早晨起得早，今晚就关了电视睡觉吧。", "point": "寝る（一段意志）/ 休む（五段意志）➔ 意志形", "options": ["休も", "休もう", "休まう", "休しょう"], "answerIdx": 0, "formula": "【五段意志形跳お段拉长音】：む ➔ も + う ➔ <strong>休もう（休息吧）</strong>。", "trap": "五段意志必跳お段，不要加よう。"}, {"id": "v_50", "category": "进阶可能意志命令", "targetForm": "五段命令形", "sentence": "（警察追捕犯人）「おい、そこの犯人、動くな！__！」", "zh": "“喂，前面的犯人，别动！站住！”", "point": "待つ（五段命令形）➔ 命令形", "options": ["待て", "待ちろ", "待ろ", "待つれ"], "answerIdx": 0, "formula": "【五段命令形跳え段】：つ ➔ て ➔ <strong>待て！（等等！站住！）</strong>", "trap": "动漫警匪片标配台词「待て！」，短促有力地落在え段。"}]}, "adj": {"name": "形容词篇", "categories": ["い形基础四态", "い形副词与派生", "神级特例いい", "な形基础活用", "な形与两派辨析", "口语变音与热词"], "questions": [{"id": "a_1", "category": "い形基础四态", "targetForm": "否定式（不贵）", "sentence": "このレストランの料理は美味しいですが、値段はそれほど__。", "zh": "这家餐厅的料理挺美味的，但价格并没有那么贵。", "point": "高い（い形否定）➔ 去い加くない", "options": ["高くない", "高いじゃない", "高かない", "高くないです"], "answerIdx": 0, "formula": "【い形否定去い加くない】：い形容词否定式去掉词尾「い」，加上<strong>「くない」</strong> ➔ 高くない！", "trap": "绝对不能加「じゃない」！「高いじゃない」是严重中式语法错误。"}, {"id": "a_2", "category": "い形基础四态", "targetForm": "过去式（曾经很贵）", "sentence": "去年引っ越す前のアパートは、駅前で家賃がかなり__。", "zh": "去年搬家前住的那套公寓，在车站跟前，房租相当贵。", "point": "高い（い形过去式）➔ 去い加かった", "options": ["高かった", "高いだった", "高いた", "高くでした"], "answerIdx": 0, "formula": "【い形过去去い加かった】：去掉词尾「い」，加上<strong>「かった」</strong> ➔ 高かった！", "trap": "不能加「だった」！「高いだった」是混合错词。"}, {"id": "a_3", "category": "い形基础四态", "targetForm": "过去否定（当时不好吃）", "sentence": "ネットで評判だった新店舗へ行ったが、ラーメンのスープはあまり__。", "zh": "去了网上评价很高的那家新店，但拉面的汤底并不是很好喝。", "point": "美味しい（い形过去否定）➔ くなかった", "options": ["美味しくなかった", "美味しいじゃなかった", "美味しいくなかった", "美味しくないだった"], "answerIdx": 0, "formula": "【い形过去否定组合】：否定「くない」也是い形容词，去掉其「い」加かった ➔ <strong>美味しくなかった</strong>！", "trap": "注意只去词尾最后的「い」，不要把词干的い重复保留写成「美味しいくなかった」。"}, {"id": "a_4", "category": "い形基础四态", "targetForm": "中顿连接（又温柔又...）", "sentence": "日本語の先生はいつも__て、質問にも笑顔で答えてくれる。", "zh": "日语老师总是既温柔亲切，面对提问也总是微笑着回答。", "point": "優しい（い形中顿）➔ 去い加くて", "options": ["優しく", "優しいで", "優しいに", "優しくてから"], "answerIdx": 0, "formula": "【い形中顿去い加くて】：い形容词表并列中顿去「い」加<strong>「くて」</strong> ➔ 優しくて！", "trap": "な形容词中顿才是「で」，い形容词绝对不能用「で」！"}, {"id": "a_5", "category": "い形基础四态", "targetForm": "过去式（当时玩得很开心）", "sentence": "先週の学園祭、みんなで準備して本当に__ですね！", "zh": "上周的校园文化节，大家一起筹备，真的玩得好开心呀！", "point": "楽しい（い形过去式）➔ 去い加かった", "options": ["楽しかった", "楽しいだった", "楽した", "楽しくした"], "answerIdx": 0, "formula": "【楽しい过去】：去「い」加「かった」 ➔ <strong>楽しかった</strong>！", "trap": "聚会散场动漫最常听到：「今日は本当に楽しかった！」。"}, {"id": "a_6", "category": "い形基础四态", "targetForm": "否定式（不忙）", "sentence": "プロジェクトが一段落したので、今週はそれほど__ない。", "zh": "项目告一段落了，所以这周并没有那么忙碌。", "point": "忙しい（い形否定）➔ くない", "options": ["忙しく", "忙しいじゃ", "忙し", "忙しか"], "answerIdx": 0, "formula": "【忙しい否定】：忙しい 去「い」加「くない」 ➔ <strong>忙しくない</strong>。", "trap": "不可加「じゃない」。"}, {"id": "a_7", "category": "い形基础四态", "targetForm": "过去否定（当时没觉得疼）", "sentence": "転んで膝を擦りむいたが、その時は夢中で全然__。", "zh": "摔倒擦破了膝盖，但当时太全神贯注了，一点都没觉得疼。", "point": "痛い（い形过去否定）➔ くなかった", "options": ["痛くなかった", "痛いじゃなかった", "痛いかった", "痛くないでした"], "answerIdx": 0, "formula": "【痛い过去否定】：痛い ➔ <strong>痛くなかった</strong>（当时不痛）。", "trap": "痛くない是现在不痛，过去不痛必加「くなかった」。"}, {"id": "a_8", "category": "い形基础四态", "targetForm": "过去式（当时天气凉爽）", "sentence": "昨夜は秋の涼しい風が吹いていて、エアコンがなくてもとても__。", "zh": "昨晚吹着秋天凉爽的风，即使没开空调也十分凉爽。", "point": "涼しい（い形过去）➔ 涼しかった", "options": ["涼しかった", "涼しいだった", "涼した", "涼しいでしたた"], "answerIdx": 0, "formula": "【涼しい过去】：去い加かった ➔ <strong>涼しかった</strong>。", "trap": "不可加だった。"}, {"id": "a_9", "category": "い形副词与派生", "targetForm": "副词修饰动词（早起）", "sentence": "明日の朝は早い新幹線に乗るため、__起きなければならない。", "zh": "为了赶明天早晨很早的新干线，必须起得很早。", "point": "早い（副词化修饰动词）➔ 去い加く", "options": ["早く", "早いに", "早いで", "早いく"], "answerIdx": 0, "formula": "【い形修饰动词变く】：い形容词修饰动词时，去掉词尾「い」，加上<strong>「く」</strong> ➔ 早く起きる！", "trap": "な形容词修饰动词才加「に」，い形容词绝对不能用「に」！"}, {"id": "a_10", "category": "い形副词与派生", "targetForm": "副词修饰动词（吃得香）", "sentence": "母が作ってくれた特製カレーを、子供たちが__食べている。", "zh": "孩子们正津津有味、香甜地吃着妈妈做的特制咖喱。", "point": "美味しい（副词化）➔ 美味しく", "options": ["美味しく", "美味しいに", "美味しいで", "美味しくに"], "answerIdx": 0, "formula": "【美味しく食べる】：去い加く ➔ <strong>美味しく</strong>食べる。", "trap": "注意副词修饰形式为「く」。"}, {"id": "a_11", "category": "い形副词与派生", "targetForm": "样态推测（看起来很忙）", "sentence": "課長は机の上に山積みの書類を前にして、とても__そうにしている。", "zh": "课长面对桌上堆积如山的文件，看起来似乎非常忙碌。", "point": "忙しい（接样态そう）➔ 去い加そう", "options": ["忙し", "忙しい", "忙しさ", "忙しな"], "answerIdx": 0, "formula": "【い形接样态そう】：去掉词尾「い」，直接加「そう」 ➔ <strong>忙しそう</strong>（看起来很忙）！", "trap": "千万不要保留词尾的「い」，写成「忙しいそう」是错误的。"}, {"id": "a_12", "category": "い形副词与派生", "targetForm": "过度程度（太贵了）", "sentence": "このバッグはデザインは素敵だが、私には値段が__すぎる。", "zh": "这个包包设计虽然很棒，但对我来说价格实在是太贵了。", "point": "高い（接过度すぎる）➔ 去い加すぎる", "options": ["高", "高い", "高さ", "高く"], "answerIdx": 0, "formula": "【い形接すぎる】：去「い」加「すぎる」 ➔ <strong>高すぎる（太贵了）</strong>！", "trap": "接すぎる一律去「い」（高すぎる、早すぎる、難しすぎる）。"}, {"id": "a_13", "category": "神级特例いい", "targetForm": "否定式（不好/不舒服）", "sentence": "昨夜から熱があって、今朝もあまり体の調子が__。", "zh": "从昨晚开始就发烧，今天早晨身体状态也不太好。", "point": "いい（神级特例否定）➔ 从「よ」出发变「よくない」", "options": ["よくない", "いくない", "いいじゃない", "いかない"], "answerIdx": 0, "formula": "【神级特例核心铁律】：原形是「いい」，但<strong>所有变形必须从「よ」底色出发</strong>！否定是 <strong>よくない</strong>！", "trap": "全日语绝对没有「いくない」这个词！考试最高频扣分点！"}, {"id": "a_14", "category": "神级特例いい", "targetForm": "过去式（太好了/幸好）", "sentence": "雨予报だったのに、午後から晴れて本当に__ですね！", "zh": "明明预报有雨，下午却放晴了，真是太好了呢！", "point": "いい（神级特例过去式）➔ よかった", "options": ["よかった", "いかった", "いいだった", "よくた"], "answerIdx": 0, "formula": "【いい过去式】：从「よ」出发去い加かった ➔ <strong>よかった（太好了！）</strong>！", "trap": "动漫台词「ああ、本当によかった！」，绝对不能写「いかった」！"}, {"id": "a_15", "category": "神级特例いい", "targetForm": "过去否定（当时天气不好）", "sentence": "去年の修学旅行はあいにく天気が__ので、山に登れなかった。", "zh": "去年的修学旅行很不巧天气并不好，所以没能去登山。", "point": "いい（神级特例过去否定）➔ よくなかった", "options": ["よくなかった", "いくなかった", "いいじゃなかった", "よくないでした"], "answerIdx": 0, "formula": "【いい过去否定】：依然从「よ」出发 ➔ <strong>よくなかった</strong>！", "trap": "绝对不可写成「いくなかった」。"}, {"id": "a_16", "category": "神级特例いい", "targetForm": "中顿连接（脑子好又帅）", "sentence": "彼は頭が__て親切で、クラスのみんなから信頼されている。", "zh": "他脑子聪明又亲切热心，深受全班同学的信赖。", "point": "いい（神级特例中顿）➔ よくて", "options": ["よく", "いく", "いいで", "いいく"], "answerIdx": 0, "formula": "【いい中顿】：从「よ」出发加くて ➔ <strong>よくて</strong>！", "trap": "牢记口诀：'原形叫いい，变形全是よ'！"}, {"id": "a_17", "category": "神级特例いい", "targetForm": "副词修饰动词（睡得香/睡得好）", "sentence": "昨日は疲れていたので、夜ベッドに入ると朝まで__眠れた。", "zh": "昨天太累了，晚上躺进被窝就一直香甜地睡到了大天亮。", "point": "いい（神级特例副词化）➔ よく", "options": ["よく", "いに", "いく", "いいに"], "answerIdx": 0, "formula": "【よく眠れる】：从「よ」出发加「く」 ➔ <strong>よく（よく寝た / よく頑張った）</strong>！", "trap": "表示“经常”或“好生、充分地”都用「よく」。"}, {"id": "a_18", "category": "神级特例いい", "targetForm": "样态推测（看起来很不错）", "sentence": "君が提案してくれたその新しいアイデア、すごく__ですね！", "zh": "你提出的那个新想法，看起来真的很棒呢！", "point": "いい（样态特例，额外插「さ」）➔ よさそう", "options": ["よさそう", "いいそう", "よそう", "いさそう"], "answerIdx": 0, "formula": "【极品样态双重特例】：いい变成「よ」之后，接样态「そう」<strong>必须额外插入一个小「さ」</strong> ➔ <strong>よさそう</strong>！", "trap": "「よそう」是错的，「いいそう」是错的，只有「よさそう」才正确！"}, {"id": "a_19", "category": "な形与两派辨析", "targetForm": "修饰名词（美丽的花）", "sentence": "公園の真ん中には、色とりどりの__花がたくさん咲いている。", "zh": "公园的正中央，盛开着许多色彩斑斓的美丽花朵。", "point": "綺麗（致命伪い实な）➔ 修饰名词加「な」", "options": ["綺麗な", "綺麗い", "綺麗の", "綺麗で"], "answerIdx": 0, "formula": "【极品伪い形真な形】：「綺麗（きれい）」虽然假名以い结尾，但本质是<strong>な形容词</strong>！修饰名词必加「な」 ➔ <strong>綺麗な花</strong>！", "trap": "绝不能写「綺麗い花」！这是所有初学日语者的头号死穴。"}, {"id": "a_20", "category": "な形与两派辨析", "targetForm": "否定式（不漂亮/不干净）", "sentence": "古い建物なので、トイレは正直あまり__。", "zh": "因为是老建筑，洗手间坦白说并不算很干净。", "point": "綺麗（な形否定）➔ 綺麗じゃない / ではない", "options": ["綺麗じゃない", "綺麗くない", "綺麗かない", "綺麗くありません"], "answerIdx": 0, "formula": "【な形否定】：な形容词否定只能用 <strong>「じゃない / ではない」</strong> ➔ 綺麗じゃない！", "trap": "绝对不存在「綺麗くない」！不要被末尾的い骗了。"}, {"id": "a_21", "category": "な形与两派辨析", "targetForm": "副词修饰动词（打扫干净）", "sentence": "来客の前に、散らかっていたリビングを__掃除しておいた。", "zh": "客人来访之前，把杂乱的客厅打扫得干干净净。", "point": "綺麗（な形副词化修饰动词）➔ 加「に」", "options": ["綺麗に", "綺麗く", "綺麗で", "綺麗な"], "answerIdx": 0, "formula": "【な形副词化加に】：な形容词修饰动词词尾加<strong>「に」</strong> ➔ <strong>綺麗に掃除する</strong>！", "trap": "い形变「く」，な形变「に」，两派界线分明！"}, {"id": "a_22", "category": "な形与两派辨析", "targetForm": "修饰名词（讨厌的食物）", "sentence": "子供の頃は、ピーマンが一番__食べ物でした。", "zh": "小时候，青椒是我最讨厌吃的东西。", "point": "嫌い（伪い实な二号）➔ 嫌いな", "options": ["嫌いな", "嫌いい", "嫌いの", "嫌いで"], "answerIdx": 0, "formula": "【嫌いな形容词属性】：「嫌い（きらい）」也是假名以い结尾，但它是正宗<strong>な形容词</strong>！修饰名词加「な」 ➔ <strong>嫌いな食べ物</strong>！", "trap": "绝无「嫌いい」写法，它是な形容词！"}, {"id": "a_23", "category": "な形与两派辨析", "targetForm": "修饰名词（著名的人）", "sentence": "この街は、世界的に__建築家が設計した美術館があることで知られている。", "zh": "这个小镇因为有一座由世界著名建筑家设计的美术馆而闻名。", "point": "有名（な形容词连体修饰）➔ 有名な", "options": ["有名な", "有名い", "有名の", "有名で"], "answerIdx": 0, "formula": "【有名な形容词】：有名以い段mei结尾，本质是な形容词！修饰名词加「な」 ➔ <strong>有名な建築家</strong>。", "trap": "不能加「の」，修饰名词必须用「な」。"}, {"id": "a_24", "category": "な形与两派辨析", "targetForm": "中顿连接（既安静又漂亮）", "sentence": "このホテルは周りに高いビルがなくて__、夜もぐっすり眠れた。", "zh": "这家酒店周围没有高楼大厦，既安静又舒服，晚上睡得很香。", "point": "静か（な形中顿）➔ 静かで", "options": ["静かで", "静かくて", "静かに", "静かなで"], "answerIdx": 0, "formula": "【な形中顿直接加で】：な形容词中顿加<strong>「で」</strong> ➔ <strong>静かで（綺麗な街）</strong>！", "trap": "い形才是「くて」，な形绝不加「くて」！"}, {"id": "a_25", "category": "な形与两派辨析", "targetForm": "副词修饰动词（安静地走）", "sentence": "赤ちゃんがやっと寝ついたので、足音を立てずに__歩いた。", "zh": "婴儿好不容易睡着了，不发出脚步声静悄悄地走着。", "point": "静か（な形副词化）➔ 静かに", "options": ["静かに", "静かく", "静かで", "静かな"], "answerIdx": 0, "formula": "【静かに歩く】：な形容词修饰动词加「に」 ➔ <strong>静かに</strong>！", "trap": "不可写成「静かく」。"}, {"id": "a_26", "category": "な形与两派辨析", "targetForm": "过去否定（当时不方便）", "sentence": "この町は昔、地下鉄が通っていなくて交通が__。", "zh": "这个小镇过去因为没有通地铁，交通并不方便。", "point": "便利（な形过去否定）➔ じゃなかった / ではなかった", "options": ["便利じゃなかった", "便利くなかった", "便利くないでした", "便利じゃないだった"], "answerIdx": 0, "formula": "【な形过去否定】：否定じゃない变过去 ➔ <strong>便利じゃなかった / 便利ではなかった</strong>！", "trap": "不可写「便利くなかった」。"}, {"id": "a_27", "category": "な形与两派辨析", "targetForm": "过去式（曾经很空闲）", "sentence": "学生の頃は授業が終われば毎日__ものですが、今は忙しい。", "zh": "当学生那会儿下课后每天都很闲，可现在每天忙得团团转。", "point": "暇（な形过去式）➔ 暇だった", "options": ["暇だった", "暇かった", "暇にした", "暇でしたた"], "answerIdx": 0, "formula": "【な形过去直接加だった】：な形容词过去式加<strong>「だった」</strong> ➔ <strong>暇だった</strong>！", "trap": "い形过去是「かった」，な形是「だった」，不可混淆。"}, {"id": "a_28", "category": "口语变音与热词", "targetForm": "男系口语变音（太美味了）", "sentence": "炭火で焼いたばかりの和牛ステーキを口に入れて「う、__！」と叫んだ。", "zh": "把刚用炭火烤好的和牛牛排咬进嘴里，惊呼道：“哇，太好吃了吧！”", "point": "うまい（口语 ai ➔ ee 约音）➔ うめえ", "options": ["うめえ", "うまいぜ", "うまっち", "うまん"], "answerIdx": 0, "formula": "【口语 ai ➔ ee 约音】：うまい ➔ <strong>うめえ！</strong> 男系热血极度美味名台词。", "trap": "动漫中极其高频的粗犷口语赞叹。"}, {"id": "a_29", "category": "口语变音与热词", "targetForm": "男系口语变音（太牛逼了）", "sentence": "友達がプロ級のギターソロを披露して、「お前、マジで__よ！」と称賛した。", "zh": "朋友展示了一段专业级的吉他独奏，我赞叹道：“兄弟，你真牛逼啊！”", "point": "すごい（口语 oi ➔ ee 约音）➔ すげえ", "options": ["すげえ", "すごいぞ", "すごっち", "すげい"], "answerIdx": 0, "formula": "【口语 oi ➔ ee 约音】：すごい ➔ <strong>すげえ！</strong> 惊叹厉害之极。", "trap": "日常男性口语与动漫极度常见。"}, {"id": "a_30", "category": "口语变音与热词", "targetForm": "男系口语变音（糟糕透了/太神了）", "sentence": "財布を家に忘れたまま電車に乗ってしまい、「うわ、__、切符買えない！」", "zh": "把钱包落在家里就上了电车，“哇，糟糕了，买不了票了！”", "point": "やばい（口语 ai ➔ ee 约音）➔ やべえ", "options": ["やべえ", "やばっち", "やばす", "やばん"], "answerIdx": 0, "formula": "【口语 ai ➔ ee 约音】：やばい ➔ <strong>やべえ！</strong> 大祸临头脱口而出。", "trap": "语气急促，表示糟透了。"}]}, "particle": {"name": "助词篇", "categories": ["は与が对决", "に与で辨析", "移动空间与起止", "终助词与语气"], "questions": [{"id": "p_1", "category": "は与が对决", "targetForm": "大主语与小主语辨析", "sentence": "日本で一番高い富士山__、頂上に雪が積もって美しい。", "zh": "日本最高峰的富士山，山顶积着白雪非常壮美。", "point": "大范围话题主题用「は」", "options": ["は", "が", "を", "に"], "answerIdx": 0, "formula": "【大范围话题主题用は】：全句的话题焦点与已知大主语用 <strong>「は」</strong> ➔ 富士山<strong>は</strong>...", "trap": "局部小主语才用が（雪が積もる）。"}, {"id": "p_2", "category": "は与が对决", "targetForm": "情感好恶对象", "sentence": "妹は犬が大好きですが、猫のほう__大嫌いです。", "zh": "妹妹非常喜欢狗，但相反极度讨厌猫。", "point": "好恶对象必用「が」/ 对比用「は」", "options": ["は (对比) / が (好恶)", "を / が", "に / を", "で / は"], "answerIdx": 0, "formula": "【好恶对象必用が】：好き/嫌い 的对象必须用 <strong>「が」</strong>（犬が好き）；形成鲜明对比时用「は」（猫のほうは嫌い）。", "trap": "千万不能把好恶对象当成及物动词误用「を」！"}, {"id": "p_3", "category": "は与が对决", "targetForm": "能力对象助词", "sentence": "留学生の李さんは、日常会話程度なら日本語__スラスラできます。", "zh": "留学生小李如果是日常对话程度的话，日语能够说得非常流畅。", "point": "能力动词（できる）对象用「が」", "options": ["が", "を", "で", "に"], "answerIdx": 0, "formula": "【能力对象用が】：表示“会、能、擅长”（できる、上手）的对象必须用 <strong>「が」</strong> ➔ 日本語<strong>が</strong>できる！", "trap": "即使翻译成“会日语”，日语中できる是自动词，对象永远是「が」，绝不能用「を」！"}, {"id": "p_4", "category": "は与が对决", "targetForm": "眼前自然客观现象", "sentence": "あ、空を見て！桜の花びら__風に乗ってひらひら舞っているよ！", "zh": "啊，看天空！樱花花瓣乘着微风正漫天飞舞呢！", "point": "自然客观现象主语必用「が」", "options": ["が", "は", "を", "で"], "answerIdx": 0, "formula": "【眼前突发客观现象必用が】：描述眼前映入眼帘的自然景象（雨が降る、花が散る），主语必须用 <strong>「が」</strong>！", "trap": "不用「は」，因为这不是预先设立的讨论话题，而是眼前的突发客观景象。"}, {"id": "p_5", "category": "は与が对决", "targetForm": "疑问词作主语必用が", "sentence": "今日の午後のプレゼン、一体誰__担当することになっているのですか？", "zh": "今天下午的成果汇报演示，到底是由谁来负责呢？", "point": "疑问词作主语铁律必用「が」", "options": ["が", "は", "を", "の"], "answerIdx": 0, "formula": "【疑问词作主语绝对只能用が】：当主语是疑问词（誰、何、どれ、どこ）时，<strong>绝对只能用「が」</strong>，永远不能用「は」！➔ 誰<strong>が</strong>担当する？", "trap": "全日语语法死律：「誰は」是彻底的语法错误！回答时也用が（田中さんが担当します）。"}, {"id": "p_6", "category": "は与が对决", "targetForm": "排他唯一性", "sentence": "（经理问：这个大项目谁有信心负责？）私__責任を持ってやり遂げます！", "zh": "“由我来带着责任把它完成到底！”（排他：正是我就由我去）", "point": "主语强调排他性用「が」", "options": ["が", "は", "も", "に"], "answerIdx": 0, "formula": "【が的排他聚焦功能】：当强调“正是某人，而不是别人”时，主语用 <strong>「が」</strong> ➔ 私<strong>が</strong>やります！", "trap": "「私は」只是泛泛说明，而「私が」则有强烈的“非我莫属”的主动排他感。"}, {"id": "p_7", "category": "は与が对决", "targetForm": "修饰从句内部小主语", "sentence": "母__夜遅くまで編んでくれたセーターは、とても温かい。", "zh": "妈妈编织到深夜为我做的那件毛衣，穿起来非常温暖。", "point": "修饰名词从句内部主语必降格为「が」", "options": ["が (或 の)", "は", "を", "に"], "answerIdx": 0, "formula": "【定语从句降格法则】：在修饰名词「セーター」的从句内部，主语不能抢全句风头，必须降格用 <strong>「が」</strong>（口语可用「の」）！", "trap": "从句内部绝不能用「は」！「母は編んでくれたセーター」是结构割裂的错句。"}, {"id": "p_8", "category": "に与で辨析", "targetForm": "静态存在场所", "sentence": "休日の朝、庭の池__色鮮やかな金魚がたくさん泳いでいる。", "zh": "休假的早晨，庭院的水池里有许多条色彩斑斓的金鱼在游弋。", "point": "静态存在物所处场所用「に」", "options": ["に", "で", "を", "へ"], "answerIdx": 0, "formula": "【静态存在必用に】：表示事物存在（いる / ある）的场所，场所后面必用 <strong>「に」</strong> ➔ 池<strong>に</strong>金魚がいる。", "trap": "动态动作发生地才用「で」，静态存在场所永远用「に」！"}, {"id": "p_9", "category": "に与で辨析", "targetForm": "动态动作发生场所", "sentence": "放課後は毎日、高校の体育館__バスケットボールの練習をしています。", "zh": "放学后每天都在高中的体育馆里进行篮球训练。", "point": "动态行为发生场所用「で」", "options": ["で", "に", "を", "へ"], "answerIdx": 0, "formula": "【动作发生地必用で】：只要在某个地点进行具有动作过程的活动（練習する、勉強する、食べる），场所后必用 <strong>「で」</strong>！", "trap": "练习是动态动作，必须是「体育館<strong>で</strong>」。"}, {"id": "p_10", "category": "に与で辨析", "targetForm": "交通工具手段", "sentence": "東京駅から京都のホテルまで、東海道新幹線__移動しました。", "zh": "从东京站到京都的酒店，乘坐东海道新干线移动前往。", "point": "交通工具/手段用「で」", "options": ["で", "に", "を", "から"], "answerIdx": 0, "formula": "【工具手段交通工具用で】：交通工具（新幹線、バス、車）、进食工具（箸、フォーク）都作为手段，用 <strong>「で」</strong> ➔ 新幹線<strong>で</strong>行く！", "trap": "区分：“乘新干线去（新幹線で行く）” vs “登上新干线（新幹線に乗る）”。"}, {"id": "p_11", "category": "に与で辨析", "targetForm": "动作附着点", "sentence": "朝の通勤ラッシュで混み合っている山手線__飛び乗った。", "zh": "在早晨拥挤的通勤早高峰里，纵身登上了山手线电车。", "point": "乗る动作附着到达点用「に」", "options": ["に", "で", "を", "へ"], "answerIdx": 0, "formula": "【登上附着点用に】：动词「乗る」表示身体附着到交通工具上去，目标物必用 <strong>「に」</strong> ➔ 電車<strong>に</strong>乗る！", "trap": "虽然中文说“坐电车”，但日语乗る是自动词，绝不可用「電車を乗る」或「電車で乗る」！"}, {"id": "p_12", "category": "に与で辨析", "targetForm": "具体数字时间点", "sentence": "飛行機の出発が遅れて、結局成田空港に夜10時半__到着した。", "zh": "飞机起飞延误了，结果最终在夜里10点半才抵达了成田机场。", "point": "明确数字时间点用「に」", "options": ["に", "で", "を", "（不加）"], "answerIdx": 0, "formula": "【带有明确数字钟点必须加に】：具体的钟点、星期、几月几号后面，必须加 <strong>「に」</strong> ➔ 10時半<strong>に</strong>到着した。", "trap": "没有具体数字的相对时间（如 今日、明日、来週）后面<strong>绝不加に</strong>！"}, {"id": "p_13", "category": "に与で辨析", "targetForm": "相对时间绝不加に原则", "sentence": "夏休みの宿題は、明日__友達と一緒に図書館で片付ける予定です。", "zh": "暑假作业打算明天和朋友一起在图书馆搞定。", "point": "无数字相对时间（明日）不加任何助词", "options": ["（不加任何助词）", "に", "で", "を"], "answerIdx": 0, "formula": "【相对时间不加に原则】：「今日」「明日」「昨日」「毎日」「来週」这类自身没有明确数字的相对时间词，<strong>直接使用，不加「に」</strong>！", "trap": "千万不要顺手写成「明日に」，这是典型的画蛇添足。"}, {"id": "p_14", "category": "に与で辨析", "targetForm": "双方交互对象", "sentence": "駅の改札前で、高校時代の懐かしい親友__偶然バッタリ会った。", "zh": "在车站检票口前，偶然巧遇了高中时代的怀念好友。", "point": "会う对象必用「に」", "options": ["に", "を", "で", "へ"], "answerIdx": 0, "formula": "【会う对象必用に】：动词「会う」表示双方视线交汇交互，对象必须用 <strong>「に」</strong> ➔ 友達<strong>に</strong>会う！", "trap": "中文说“见朋友”像宾语，但日语绝不能说「友達を会う」，必须是「に」！"}, {"id": "p_15", "category": "移动空间与起止", "targetForm": "移动经过空间", "sentence": "毎朝の健康習慣として、澄んだ空気の川沿い__30分散歩している。", "zh": "作为每天早晨的健康习惯，沿着空气清新的河畔散步30分钟。", "point": "散步穿行移动经过空间用「を」", "options": ["を", "で", "に", "へ"], "answerIdx": 0, "formula": "【移动穿过空间用を】：在公园里散步（公園<strong>を</strong>散歩する）、过马路（道<strong>を</strong>渡る）、鸟在天空飞（空<strong>を</strong>飛ぶ），经过的空间用 <strong>「を」</strong>！", "trap": "中文虽然说“在河边散步”，但日语带有线型动线移动时必须用「を」。"}, {"id": "p_16", "category": "移动空间与起止", "targetForm": "脱离离开空间", "sentence": "朝8時に実家の玄関__出て、最寄りの地下鉄駅へ向かう。", "zh": "早晨8点走出老家的玄关大门，前往最近的地铁站。", "point": "离开出发空间用「を」", "options": ["を", "から", "で", "に"], "answerIdx": 0, "formula": "【离开脱离空间必用を】：离开原本所在的封闭空间（家<strong>を</strong>出る、大学<strong>を</strong>卒業する、電車<strong>を</strong>降りる），脱离点用 <strong>「を」</strong>！", "trap": "离开空间用「を」，进入空间用「に」（部屋に入る）。"}, {"id": "p_17", "category": "移动空间与起止", "targetForm": "时间与空间起止组合", "sentence": "この特別快速列車は、東京駅__京都駅__ノンストップで走ります。", "zh": "这趟特别快速列车，从东京站到京都站全程中途不停靠。", "point": "从...到... ➔ から...まで", "options": ["から / まで", "まで / から", "に / へ", "で / に"], "answerIdx": 0, "formula": "【从...到...组合】：起点用 <strong>「から」</strong>，终点用 <strong>「まで」</strong> ➔ 東京駅<strong>から</strong>京都駅<strong>まで</strong>。", "trap": "时间与空间均通用此核心搭配。"}, {"id": "p_18", "category": "终助词与语气", "targetForm": "告知新信息提醒", "sentence": "（看到朋友掉东西）あ、すみません！足元に鍵を落としました__！", "zh": "啊，不好意思！你的钥匙掉在脚底下了哦！", "point": "告知对方未知信息用「よ」", "options": ["よ", "ね", "わ", "か"], "answerIdx": 0, "formula": "【告知新信息用よ】：说话人掌握对方所不知道的突发信息，提醒对方时句末用 <strong>「よ」</strong>！", "trap": "对方不知道时不能用「ね」，「ね」是双方已知寻求共情。"}, {"id": "p_19", "category": "终助词与语气", "targetForm": "寻求共鸣赞同", "sentence": "（和朋友仰望秋天晴空）今日の青空は澄み渡っていて本当に気持ちがいいです__。", "zh": "今天的蓝天澄澈如洗，真的感觉好舒服呢。", "point": "双方共享情境寻求共鸣用「ね」", "options": ["ね", "よ", "ぜ", "ぞ"], "answerIdx": 0, "formula": "【寻求共情赞同用ね】：双方都能感知到的事实，寻求回应共鸣时用 <strong>「ね」</strong>！", "trap": "破冰搭讪招牌句「いい天気ですね」。"}, {"id": "p_20", "category": "终助词与语气", "targetForm": "热血号召语气", "sentence": "（队长拔剑高呼）さあ、勝利は我らの手にある！全軍突撃する__！", "zh": "来吧，胜利就在我们手中！全军突击啦！", "point": "男性热血伙伴号召用「ぜ」", "options": ["ぜ", "わ", "かしら", "の"], "answerIdx": 0, "formula": "【热血男子号召用ぜ】：动漫主角号召伙伴行动时最具代表性的语气助词就是 <strong>「ぜ」</strong> ➔ 行くぜ！やるぜ！", "trap": "强烈的男性口语色彩，极具燃感。"}]}, "sentence": {"name": "句型造句篇", "categories": ["授受关系名场面", "假定条件四天王", "许可・禁止・义务", "动作与状态时态"], "questions": [{"id": "s_1", "category": "授受关系名场面", "targetForm": "我给别人送出物品", "sentence": "親友の誕生日に、心を込めて選んだ本をプレゼントとして__ました。", "zh": "在好友的生日那天，我把自己用心挑选的一本书作为礼物送给了他。", "point": "我 ➔ 别人 用「あげる」", "options": ["あげ", "くれ", "もらい", "いただき"], "answerIdx": 0, "formula": "【我给别人用あげる】：从我方视角向外部人员送出物品，必须使用 <strong>「あげる」</strong> ➔ 友達に本を<strong>あげました</strong>。", "trap": "「くれる」是别人给我！绝对不能说「私は友達にくれました」，这是主客颠倒。"}, {"id": "s_2", "category": "授受关系名场面", "targetForm": "别人赠予我", "sentence": "日本人のホストファミリーが、別れ際に素敵な浴衣を私に__ました。", "zh": "日本的寄宿家庭在分别时，送给我一件精美的浴衣。", "point": "别人 ➔ 我 用「くれる」", "options": ["くれ", "あげ", "もらい", "やり"], "answerIdx": 0, "formula": "【别人给我用くれる】：动作发起者是别人，最终受益人是“我或我方人员”，必须用 <strong>「くれる」</strong> ➔ ホストファミリーが私に<strong>くれました</strong>。", "trap": "主语是送礼人，接收人是私，不可用あげる。"}, {"id": "s_3", "category": "授受关系名场面", "targetForm": "我从别人处领受", "sentence": "大学院の入試でお世話になった教授に、推薦状を書いて__ました。", "zh": "在研究生入学考试中关照我的教授那里，我请他帮我写了一封推荐信。", "point": "我从别人处得到用「もらう / いただく」", "options": ["いただき (或 もらい)", "あげ", "くれ", "やり"], "answerIdx": 0, "formula": "【我得到恩惠用もらう/いただく】：主语是“我”，表示从尊长或他人处领受恩惠，用 <strong>「いただく / もらう」</strong> ➔ 書いていただきました。", "trap": "主语是收礼人（我），「くれる」的主语则必须是对方。"}, {"id": "s_4", "category": "授受关系名场面", "targetForm": "别人主动协助我", "sentence": "引越しの時、力持ちの隣人が重い冷蔵庫を一緒に運んで__て大助かりだった。", "zh": "搬家的时候，力气很大的邻居帮我一起搬运了沉重的冰箱，真是帮了大忙。", "point": "别人为我做某事 ➔ 「〜てくれる」", "options": ["くれ", "あげ", "もらい", "やり"], "answerIdx": 0, "formula": "【别人为我服务用〜てくれる】：邻居（主语）做动作，让“我”受益 ➔ 運んで<strong>くれました</strong>。", "trap": "如果写成「運んであげました」，意思变成了我帮邻居搬冰箱！"}, {"id": "s_5", "category": "假定条件四天王", "targetForm": "必然因果与自然规律", "sentence": "交差点のこのボタンを押す__、まもなく歩行者信号が青に変わります。", "zh": "只要按下路口的这个按钮，人行道红绿灯很快就会变成绿灯。", "point": "客观机械操作/自然必然规律用「と」", "options": ["と", "なら", "ても", "のに"], "answerIdx": 0, "formula": "【必然因果与机械规律必用と】：只要前项动作一发生，后项百分之百必然发生（机械操作、季节更替、路线指引），必须用 <strong>「と」</strong> ➔ ボタンを押す<strong>と</strong>...！", "trap": "「と」的后项绝对不能带说话人的个人意志、命令或请求！"}, {"id": "s_6", "category": "假定条件四天王", "targetForm": "顺承逻辑假设", "sentence": "今度の週末、もし時間があれ__、一緒に新しい美術館を見に行きませんか。", "zh": "这周末如果你有时间的话，要不要一起去看看新开的美术馆？", "point": "ある假定形 ➔ あれば", "options": ["ば", "たら", "なら", "と"], "answerIdx": 0, "formula": "【动词假定形ば】：ある ➔ 跳え段加ば ➔ <strong>あれば（如果有的话）</strong>。", "trap": "五段动词跳え段加ば，固定句型「時間があれば」。"}, {"id": "s_7", "category": "假定条件四天王", "targetForm": "动作完成后接意愿", "sentence": "大学を卒業し__、一度海外で自分の力を試してみたいと思っています。", "zh": "等大学毕业之后，我想去海外一次尝试挑战自己的能力。", "point": "前项动作完成后做后项意愿 ➔ 「〜たら」", "options": ["たら", "と", "ば", "なら"], "answerIdx": 0, "formula": "【后项有意志首选たら】：当后项包含个人意愿「〜たい / 〜つもり」时，绝对不能用「と」，必须用 <strong>「たら」</strong> ➔ 卒業し<strong>たら</strong>...！", "trap": "口语中最灵活万能的假定形态就是「〜たら」。"}, {"id": "s_8", "category": "假定条件四天王", "targetForm": "承接对方话题给出建议", "sentence": "（同事聊到想学茶道）お茶の作法を学ぶ__、京都の老舗教室が一番いいですよ。", "zh": "要是说想学习茶道规矩的话，京都的那家老字号茶道教室是最棒的选择哦。", "point": "承接对方话题建议用「なら」", "options": ["なら", "と", "ば", "たら"], "answerIdx": 0, "formula": "【承接对方话题建议用なら】：就对方提及的话题提供针对性建议，用 <strong>「なら」</strong> ➔ 学ぶ<strong>なら</strong>...！", "trap": "为对方出谋划策的标志性接续词。"}, {"id": "s_9", "category": "许可・禁止・义务", "targetForm": "礼貌请求许可", "sentence": "あのう、すみません。ここに荷物を置い__もよろしいでしょうか？", "zh": "请问不好意思，我可以把行李放在这里吗？", "point": "许可句型：〜てもいい / よろしい", "options": ["て", "で", "た", "ない"], "answerIdx": 0, "formula": "【许可句型：〜てもいい】：动词て形 + もいい（也可以） ➔ 置い<strong>てもよろしいですか</strong>。", "trap": "置く发生イ音便 ➔ 置いて。"}, {"id": "s_10", "category": "许可・禁止・义务", "targetForm": "严厉禁止不准", "sentence": "試験中は、机の上に置いたスマホを決して触っ__はいけません。", "zh": "考试期间，绝对严禁触碰放在桌上的智能手机。", "point": "禁止句型：〜てはいけない", "options": ["て", "で", "た", "ない"], "answerIdx": 0, "formula": "【严厉禁止：〜てはいけない】：动词て形 + はいけない（不准/不可以） ➔ 触っ<strong>てはいけません</strong>。", "trap": "考场规定、交通法规等强制约束用语。"}, {"id": "s_11", "category": "许可・禁止・义务", "targetForm": "必须不得不做", "sentence": "明日は重要な顧客との商談があるので、絶対に遅刻し__ければなりません。", "zh": "明天有与重要客户的商务洽谈，绝对不能迟到（必须准时）。", "point": "必须义务句型：〜なければならない", "options": ["ては", "な", "なけれ", "なくて"], "answerIdx": 0, "formula": "【禁止迟到：遅刻してはいけない；必须准时：遅刻してはならない / 間に合わなければならない】。", "trap": "注意前后句否定对应关系。"}, {"id": "s_12", "category": "动作与状态时态", "targetForm": "人为目的准备状态存续", "sentence": "ホワイトボードに、今日の会議で話し合う予定のテーマが書いて__。", "zh": "白板上写着今天会议上预定要讨论的议题。（有人事先写好的）", "point": "人为目的结果存续 ➔ 他动词 + てある", "options": ["あります", "います", "おきます", "しまいます"], "answerIdx": 0, "formula": "【人为目的状态存续：〜てある】：他动词て形 + ある，强调有人出于明确目的预先做好了准备 ➔ 書いて<strong>あります</strong>！", "trap": "注意搭配！「〜てある」句子主语通常用「が」（テーマが書いてある）。"}, {"id": "s_13", "category": "动作与状态时态", "targetForm": "事先做好准备动作", "sentence": "外国へ旅行に出発する前に、必ず現地の現金を両替し__おきましょう。", "zh": "出发去国外旅行之前，一定要提前兑换好当地的现金。", "point": "事先做好准备 ➔ 〜ておく", "options": ["て", "で", "た", "る"], "answerIdx": 0, "formula": "【事先准备：〜ておく】：动词て形 + おく，表示为了未来的便利提前采取行动 ➔ 両替し<strong>ておきましょう</strong>。", "trap": "口语中极高频约音为「両替しとく」。"}, {"id": "s_14", "category": "动作与状态时态", "targetForm": "遗憾后悔的彻底完成", "sentence": "うっかり机の上のコーヒーを倒して、大切な書類を汚し__ました。", "zh": "不留神碰倒了桌上的咖啡，把重要的文件给弄脏了！", "point": "遗憾后悔糟糕结果 ➔ 〜てしまう", "options": ["てしまい", "てあり", "ておき", "てい"], "answerIdx": 0, "formula": "【无可挽回的糟糕结果：〜てしまう】：动词て形 + しまう ➔ 汚し<strong>てしまいました</strong>。", "trap": "口语中极高频约音为「汚しちゃった」。"}]}, "spoken": {"name": "地道口语篇", "categories": ["口语神级约音", "社交寒暄名场面", "动漫高频与情绪词"], "questions": [{"id": "sp_1", "category": "口语神级约音", "targetForm": "〜ている ➔ 〜てる 约音", "sentence": "A: 田中先生がどこにいるか、__？ B: あ、さっき職員室にいたよ。", "zh": "A: 你知道田中老师在哪儿吗？ B: 啊，刚才在办公室里呢。", "point": "知っているの口语自然吞音 ➔ 知ってる", "options": ["知ってる (しってる)", "知ている", "知っとる", "知てん"], "answerIdx": 0, "formula": "【〜ている ➔ 〜てる】：日常对话中99%的日本人会吞掉「い」 ➔ 知っている ➔ <strong>知ってる？</strong>，寝ている ➔ <strong>寝てる</strong>。", "trap": "日常口语如果一字一顿说「知っていますか」，听起来极像课本朗读。"}, {"id": "sp_2", "category": "口语神级约音", "targetForm": "〜ておく ➔ 〜とく 约音", "sentence": "大事なアポイントメントだから、カレンダーに予定を__ね。", "zh": "因为是很重要的预约，我先把日程记在日历里备着哈。", "point": "書いておく（事先写好）口语约音 ➔ 書いとく", "options": ["書いとく", "書いてく", "書いといた", "書いちゃった"], "answerIdx": 0, "formula": "【〜ておく ➔ 〜とく】：把「てお」融合成一个音「と」 ➔ 書いておく ➔ <strong>書いとく</strong>！買っておく ➔ <strong>買っとく</strong>！", "trap": "听力考试与动漫中极高频出现的缩略音。"}, {"id": "sp_3", "category": "口语神级约音", "targetForm": "〜てしまう ➔ 〜ちゃう 约音", "sentence": "あ、ごめん！冷蔵庫にあった君のプリン、美味しそうでつい全部__！", "zh": "啊对不起！冰箱里你的布丁看着太好吃了，我不留神全吃掉啦！", "point": "食べてしまった口语约音 ➔ 食べちゃった", "options": ["食べちゃった", "食べじゃった", "食べじまった", "食べたった"], "answerIdx": 0, "formula": "【清音てしまう ➔ ちゃう】：食べてしまう ➔ <strong>食べちゃう</strong>；过去式 ➔ <strong>食べちゃった</strong>！", "trap": "如果是浊音（飲んでしまう），则变成两点的「じゃう」（飲んじゃった）。"}, {"id": "sp_4", "category": "口语神级约音", "targetForm": "〜なければ ➔ 〜なきゃ 约音", "sentence": "あ、もう終電の11時半だ！明日も仕事だし、早く駅へ__！", "zh": "啊，都末班车11点半了！明天还要上班，我得赶快去车站啦！", "point": "行かなければならない口语精简 ➔ 行かなきゃ", "options": ["行かなきゃ (或 行かなくちゃ)", "行きゃない", "行かないと", "行かねば"], "answerIdx": 0, "formula": "【〜なければ ➔ 〜なきゃ / 〜なくちゃ】：口语中省略掉冗长的「ならない」，直接说 <strong>「〜なきゃ」</strong> ➔ 行かなきゃ！急がなきゃ！", "trap": "朋友聚会散场告别口语必备金句。"}, {"id": "sp_5", "category": "口语神级约音", "targetForm": "〜てはいけない ➔ 〜ちゃダメ 约音", "sentence": "（父母叮嘱小孩）道路に飛び出し__よ！危ないからね！", "zh": "绝对不准突然冲到马路上哦！太危险啦！", "point": "飛び出してはいけない口语 ➔ 飛び出ちゃダメ", "options": ["ちゃダメだ", "てダメだ", "ちゃいい", "ないで"], "answerIdx": 0, "formula": "【〜てはいけない ➔ 〜ちゃダメ】：口语中「ては」变「ちゃ」，后加通俗的「ダメ」 ➔ <strong>飛び出ちゃダメ</strong>！言っちゃダメ！", "trap": "日常口头禁止最自然的表达方式。"}, {"id": "sp_6", "category": "社交寒暄名场面", "targetForm": "初次见面必说第一句", "sentence": "（交换名片递出瞬间）田中と申します。どうぞ__。", "zh": "我叫田中，今后请您多多关照。", "point": "初次见面套话组合：初めまして ➔ よろしくお願いします", "options": ["よろしくお願いします", "ごちそうさまでした", "お疲れ様でした", "おかえりなさい"], "answerIdx": 0, "formula": "【社交黄金开场白】：初次见面开场必说「初めまして」，结语双手递名片必说 <strong>「よろしくお願いします」</strong>！", "trap": "日本商务社交绝对的第一铁律。"}, {"id": "sp_7", "category": "社交寒暄名场面", "targetForm": "用餐结束致谢款待", "sentence": "（在寿司店吃完结账时，对店长由衷致意）大将、今日も本当に__！", "zh": "店长，今天这顿饭真的太谢谢您的款待啦！", "point": "饭后感谢款待 ➔ ごちそうさまでした", "options": ["ごちそうさまでした", "いただきます", "いってらっしゃい", "お疲れ様でした"], "answerIdx": 0, "formula": "【饭后致谢ごちそうさまでした】：意为“承蒙款待，感谢您劳碌操持”，吃完离开餐厅或饭后必说 ➔ <strong>ごちそうさまでした</strong>！", "trap": "饭前才是「いただきます」，饭后切勿颠倒。"}, {"id": "sp_8", "category": "社交寒暄名场面", "targetForm": "出门者与送行者口令", "sentence": "A: （收拾背包出门）じゃあ、__！ B: （送到玄关）うん、気をつけていってらっしゃい！", "zh": "A: 那我出门啦！ B: 好的，路上小心慢走呀！", "point": "出门离开者必说「行ってきます」", "options": ["いってきます", "いってらっしゃい", "ただいま", "おかえり"], "answerIdx": 0, "formula": "【出门者说いってきます】：离开家的人说 <strong>「いってきます（我走啦）」</strong>；留守送行的人回答「いってらっしゃい（慢走/路上小心）」。", "trap": "走的人与留的人台词严格对应，不可张冠李戴。"}, {"id": "sp_9", "category": "社交寒暄名场面", "targetForm": "归家进门第一句", "sentence": "A: （推开家门大喊）__！今日も疲れたー！ B: （从客厅迎出）おかえりなさい！すぐご飯にする？", "zh": "A: 我回来啦！今天累坏了！ B: 欢迎回家！马上开饭吗？", "point": "归家进门者必说「ただいま」", "options": ["ただいま", "おかえり", "いってきます", "こんにちは"], "answerIdx": 0, "formula": "【进门归家者说ただいま】：意为“我现在回到了家里” ➔ <strong>ただいま！</strong> 家人回应「おかえり（なさい）」。", "trap": "动漫温馨生活场景的永恒标配。"}, {"id": "sp_10", "category": "社交寒暄名场面", "targetForm": "职场慰劳下班告别", "sentence": "（同事收拾东西起身打卡）お先に失礼します。皆さん、今日もお疲れ様__！", "zh": "我先告辞下班了，大家今天也辛苦啦！", "point": "下班/职场慰问 ➔ お疲れ様でした", "options": ["でした", "様でしたご苦労", "でありました", "にございました"], "answerIdx": 0, "formula": "【职场万能辛苦了お疲れ様でした】：同事平级、对上级领导下班告别必说 <strong>「お疲れ様でした」</strong>！", "trap": "绝对不能对上级说「ご苦労様」！「ご苦労様」是上司对部下的居高临下慰劳。"}, {"id": "sp_11", "category": "动漫高频与情绪词", "targetForm": "不敢置信震撼反问", "sentence": "A: え、本当に来週からハリウッド映画に出演するの？！ B: うん！ A: ええっ？！__？！冗談でしょ？！", "zh": "A: 诶，你真的从下周起要出演好莱坞电影了吗？！ B: 是啊！ A: 诶诶？！真的假的？！开玩笑的吧？！", "point": "年轻人脱口而出“真的假的” ➔ マジで？！", "options": ["マジで (まじで)", "嘘つき", "困る", "ありえない"], "answerIdx": 0, "formula": "【マジで（まじで）】：源自「真面目（认真）」，表示震惊反问“认真的吗？！真的假的？！” ➔ <strong>マジで？！</strong>", "trap": "年轻人口语使用频率极高的情绪发泄词。"}, {"id": "sp_12", "category": "动漫高频与情绪词", "targetForm": "钦佩赞赏名台词", "sentence": "A: 一晩でこんな見事な企画書を仕上げてきたの？！ B: さあ、どうぞ。 A: わあ、__先輩！頼りになる！", "zh": "A: 你居然用一个晚上就赶出了这么出色的策划书？！ B: 请过目。 A: 哇，真不愧是前辈！太靠得住了！", "point": "钦佩名台词“真不愧是你” ➔ さすが", "options": ["さすが", "やっぱり", "なんで", "どうして"], "answerIdx": 0, "formula": "【真不愧是你：さすが】：表示早就在预料之中，对方的表现依然令人叹为观止 ➔ <strong>さすが！</strong>", "trap": "夸人三神器：「すごい！」「さすが！」「知らなかった！」。"}, {"id": "sp_13", "category": "动漫高频与情绪词", "targetForm": "怀疑惊呼怎么可能", "sentence": "（名侦探揭露凶手）「ええっ、あの温厚な執事さんが犯人だったなんて...そんなの__！」", "zh": "“诶，那位性格温和的老管家居然是真凶...这种事怎么可能，骗人的吧！”", "point": "惊呼怎么可能 ➔ 嘘でしょ！", "options": ["嘘でしょ (うそでしょ)", "冗談です", "だめです", "違います"], "answerIdx": 0, "formula": "【嘘でしょ（うそでしょ）】：嘘（谎言）+ でしょ（推测） ➔ “这绝对是骗人的吧！不可能！” ➔ <strong>嘘でしょ！</strong>", "trap": "动漫侦探推理或逆转剧情名场面核心台词。"}, {"id": "sp_14", "category": "动漫高频与情绪词", "targetForm": "委婉客气拒绝", "sentence": "A: 今夜、居酒屋で軽く一杯どう？ B: あ、すみません、今夜は__予定があって...", "zh": "A: 今晚去居酒屋小酌一杯如何？ B: 啊不好意思，今晚有点事情要办...", "point": "委婉推脱万能垫话 ➔ ちょっと...", "options": ["ちょっと", "すぐ", "たくさん", "ぜひ"], "answerIdx": 0, "formula": "【日本人委婉拒绝核心技：ちょっと...】：不直接说「行かない」，而是用 <strong>「ちょっと（有点不便...）」</strong> 拖长音尾，对方心领神会。", "trap": "体现日式社交“不直接伤害对方”的高情商委婉表达。"}]}};
+
+    // App State
+    let curChapter = 'verb';
+    let curFilter = 'all';
+    let questionList = [];
+    let curIdx = 0;
+    let userAnswers = {}; // { qId: { chosenIdx, isCorrect } }
+    let combo = 0;
+    let maxCombo = 0;
+    let isExamMode = false;
+
+    // Mistakes Storage
+    function getStoredMistakes() {
+      try {
+        const d = localStorage.getItem('nihongo_master_mistakes');
+        return d ? JSON.parse(d) : [];
+      } catch(e) { return []; }
+    }
+    function saveStoredMistakes(list) {
+      try { localStorage.setItem('nihongo_master_mistakes', JSON.stringify(list)); } catch(e){}
+      updateMistakesCount();
+    }
+    function updateMistakesCount() {
+      const list = getStoredMistakes();
+      document.getElementById('totalMistakesCount').innerText = list.length;
+    }
+
+    // Switch Chapter Tab
+    function switchChapter(chapKey) {
+      isExamMode = false;
+      document.getElementById('modeLabel').innerText = '实时即答';
+      curChapter = chapKey;
+      curFilter = 'all';
+
+      // Update Tab UI
+      document.querySelectorAll('.chap-tab').forEach(b => b.classList.remove('active'));
+      const activeBtn = Array.from(document.querySelectorAll('.chap-tab')).find(b => b.getAttribute('onclick')?.includes(chapKey));
+      if (activeBtn) activeBtn.classList.add('active');
+
+      renderFilterChips();
+      loadQuestions();
+    }
+
+    // Render Filters for Current Chapter
+    function renderFilterChips() {
+      const bar = document.getElementById('filterBar');
+      const chapData = DB[curChapter];
+      if (!chapData || !chapData.categories) {
+        bar.innerHTML = '';
+        return;
+      }
+      let html = `<button class="filter-chip ${curFilter==='all'?'active':''}" onclick="setFilter('all')">🌟 全部题目 (${chapData.questions.length})</button>`;
+      chapData.categories.forEach(cat => {
+        const count = chapData.questions.filter(q => q.category === cat).length;
+        html += `<button class="filter-chip ${curFilter===cat?'active':''}" onclick="setFilter('${cat}')">${cat} (${count})</button>`;
+      });
+      bar.innerHTML = html;
+    }
+
+    function setFilter(filterVal) {
+      curFilter = filterVal;
+      renderFilterChips();
+      loadQuestions();
+    }
+
+    // Load Questions for current chapter + filter
+    function loadQuestions() {
+      const chapData = DB[curChapter];
+      let pool = chapData ? [...chapData.questions] : [];
+      if (curFilter !== 'all') {
+        pool = pool.filter(q => q.category === curFilter);
+      }
+      questionList = pool;
+      curIdx = 0;
+      userAnswers = {};
+      combo = 0;
+      renderQuestion();
+      renderNavGrid();
+      updateHUD();
+    }
+
+    // Render Question at curIdx
+    function renderQuestion() {
+      const q = questionList[curIdx];
+      if (!q) return;
+
+      // Meta Tags
+      document.getElementById('tagChapter').innerText = DB[curChapter]?.name || '语法专场';
+      document.getElementById('tagCategory').innerText = q.category || '核心考点';
+      document.getElementById('tagTarget').innerText = '【' + (q.targetForm || '目标变形') + '】';
+      document.getElementById('qTestedPoint').innerText = '考点提示：' + (q.point || q.meaning || '');
+
+      // Sentence Ja & Zh
+      const sentenceJa = q.sentence.replace('__', `<span class="blank-pill" id="blankPill">？</span>`);
+      document.getElementById('qSentenceJa').innerHTML = sentenceJa;
+      document.getElementById('qSentenceZh').innerText = '中文释义：' + q.zh;
+
+      // Render Options
+      const grid = document.getElementById('optionsGrid');
+      grid.innerHTML = '';
+      const ansInfo = userAnswers[q.id];
+
+      q.options.forEach((optText, idx) => {
+        const btn = document.createElement('button');
+        btn.className = 'option-card';
+        btn.onclick = () => chooseOption(idx);
+
+        const keyBadge = ['1', '2', '3', '4'][idx];
+        btn.innerHTML = `
+          <div style="display:flex; align-items:center;">
+            <span class="opt-key-badge">${keyBadge}</span>
+            <span>${optText}</span>
+          </div>
+          <span class="opt-mark" id="mark-${idx}"></span>
+        `;
+
+        // If already answered
+        if (ansInfo) {
+          btn.classList.add('locked');
+          if (idx === q.answerIdx) {
+            btn.classList.add('correct');
+            btn.querySelector('.opt-mark').innerText = '✅';
+          } else if (idx === ansInfo.chosenIdx) {
+            btn.classList.add('wrong');
+            btn.querySelector('.opt-mark').innerText = '❌';
+          }
+        }
+        grid.appendChild(btn);
+      });
+
+      // Explanation Box
+      const expArea = document.getElementById('expArea');
+      if (ansInfo && !isExamMode) {
+        showExplanation(ansInfo.isCorrect);
+      } else {
+        expArea.classList.remove('visible');
+      }
+
+      // Update Blank Pill if answered
+      const blankPill = document.getElementById('blankPill');
+      if (blankPill) {
+        if (ansInfo) {
+          blankPill.innerText = q.options[q.answerIdx];
+          blankPill.style.color = ansInfo.isCorrect ? 'var(--success)' : 'var(--danger)';
+        } else {
+          blankPill.innerText = '？';
+          blankPill.style.color = 'var(--primary)';
+        }
+      }
+
+      // Update Flag Star
+      const stored = getStoredMistakes();
+      const isFlagged = stored.some(m => m.id === q.id);
+      document.getElementById('btnFlag').innerText = isFlagged ? '⭐ 已收藏' : '☆ 收藏';
+
+      renderNavGrid();
+      updateHUD();
+    }
+
+    // Option Selected
+    function chooseOption(idx) {
+      const q = questionList[curIdx];
+      if (!q || userAnswers[q.id]) return; // locked once answered
+
+      const isCorrect = idx === q.answerIdx;
+      userAnswers[q.id] = { chosenIdx: idx, isCorrect: isCorrect };
+
+      if (isCorrect) {
+        combo++;
+        if (combo > maxCombo) maxCombo = combo;
+      } else {
+        combo = 0;
+        // Save to persistent mistakes
+        const stored = getStoredMistakes();
+        if (!stored.some(m => m.id === q.id)) {
+          stored.push(q);
+          saveStoredMistakes(stored);
+        }
+      }
+
+      renderQuestion();
+
+      // In speedrun mode, auto advance if correct and not exam?
+      // Better to let user press Enter or see immediate visual feedback
+    }
+
+    function showExplanation(isCorrect) {
+      const q = questionList[curIdx];
+      const expArea = document.getElementById('expArea');
+      document.getElementById('expResultIcon').innerText = isCorrect ? '🎉 正确！' : '💡 避坑点：';
+      document.getElementById('expTitle').innerText = (q.targetForm || '考点') + ' 变形法则';
+      document.getElementById('expFormula').innerHTML = q.formula || '【法则】：' + q.point;
+      document.getElementById('expTrap').innerHTML = q.trap ? ('⚠️ ' + q.trap) : '';
+      expArea.classList.add('visible');
+    }
+
+    function toggleExplanationManual() {
+      const expArea = document.getElementById('expArea');
+      if (expArea.classList.contains('visible')) {
+        expArea.classList.remove('visible');
+      } else {
+        showExplanation(true);
+      }
+    }
+
+    // Prev / Next
+    function prevQuestion() {
+      if (curIdx > 0) {
+        curIdx--;
+        renderQuestion();
+      }
+    }
+    function nextQuestion() {
+      if (curIdx < questionList.length - 1) {
+        curIdx++;
+        renderQuestion();
+      } else {
+        if (isExamMode) {
+          finishExam();
+        } else {
+          // All done in this section!
+          alert('🎉 恭喜！当前章节所有题目已浏览作答完毕！可继续查阅答题卡或切换其他章节！');
+        }
+      }
+    }
+
+    // Toggle Mistake Flag
+    function toggleMistakeFlag() {
+      const q = questionList[curIdx];
+      if (!q) return;
+      let stored = getStoredMistakes();
+      const idx = stored.findIndex(m => m.id === q.id);
+      if (idx >= 0) {
+        stored.splice(idx, 1);
+      } else {
+        stored.push(q);
+      }
+      saveStoredMistakes(stored);
+      renderQuestion();
+    }
+
+    // Render Navigator Chips (答题卡)
+    function renderNavGrid() {
+      const container = document.getElementById('navGridChips');
+      container.innerHTML = '';
+      questionList.forEach((q, idx) => {
+        const chip = document.createElement('button');
+        chip.className = 'q-chip';
+        chip.innerText = idx + 1;
+        chip.onclick = () => { curIdx = idx; renderQuestion(); };
+
+        if (idx === curIdx) chip.classList.add('active');
+        const ans = userAnswers[q.id];
+        if (ans) {
+          if (ans.isCorrect) chip.classList.add('correct');
+          else chip.classList.add('wrong');
+        }
+        container.appendChild(chip);
+      });
+    }
+
+    // Update HUD Stats
+    function updateHUD() {
+      document.getElementById('hudCurIdx').innerText = Math.min(curIdx + 1, questionList.length);
+      document.getElementById('hudTotal').innerText = questionList.length;
+
+      const answeredKeys = Object.keys(userAnswers);
+      const totalAns = answeredKeys.length;
+      let correctAns = 0;
+      answeredKeys.forEach(k => { if (userAnswers[k].isCorrect) correctAns++; });
+
+      const acc = totalAns === 0 ? 100 : Math.round((correctAns / totalAns) * 100);
+      document.getElementById('hudAccuracy').innerText = acc + '%';
+      document.getElementById('hudCombo').innerText = combo > 1 ? `🔥 ${combo}` : `🔥 ${combo}`;
+
+      const progress = questionList.length === 0 ? 0 : ((curIdx + 1) / questionList.length) * 100;
+      document.getElementById('progressFill').style.width = progress + '%';
+    }
+
+    // Keyboard Shortcuts
+    window.addEventListener('keydown', (e) => {
+      if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+
+      if (['1', '2', '3', '4'].includes(e.key)) {
+        chooseOption(parseInt(e.key) - 1);
+      } else if (['a', 'b', 'c', 'd'].includes(e.key.toLowerCase())) {
+        const map = { a: 0, b: 1, c: 2, d: 3 };
+        chooseOption(map[e.key.toLowerCase()]);
+      } else if (e.key === 'ArrowRight' || e.key === 'Enter' || e.key.toLowerCase() === 'k') {
+        e.preventDefault();
+        nextQuestion();
+      } else if (e.key === 'ArrowLeft' || e.key.toLowerCase() === 'j') {
+        e.preventDefault();
+        prevQuestion();
+      } else if (e.key === ' ') {
+        e.preventDefault();
+        toggleExplanationManual();
+      }
+    });
+
+    // Theme Toggle
     function toggleTheme() {
       const body = document.body;
       const current = body.getAttribute('data-theme');
@@ -294,6 +1090,125 @@
       body.setAttribute('data-theme', next);
       document.getElementById('themeBtn').innerText = next === 'dark' ? '🌙 暗黑' : '☀️ 白天';
     }
+
+    // Mistakes Modal Handlers
+    function openMistakesModal() {
+      const modal = document.getElementById('mistakesModal');
+      const list = getStoredMistakes();
+      const container = document.getElementById('mistakesListContainer');
+      container.innerHTML = '';
+
+      if (list.length === 0) {
+        container.innerHTML = '<div style="color:var(--text-muted); padding:20px; text-align:center;">暂无错题！你在刷题中答错的题会自动收集在此处。</div>';
+      } else {
+        list.forEach((q, idx) => {
+          const div = document.createElement('div');
+          div.style.cssText = 'background:var(--card-border); padding:10px 14px; border-radius:10px; font-size:0.88rem;';
+          div.innerHTML = `
+            <div style="font-weight:800; margin-bottom:4px;">${idx+1}. ${q.sentence.replace('__', '【' + q.options[q.answerIdx] + '】')}</div>
+            <div style="color:var(--text-muted); font-size:0.8rem;">释义：${q.zh}</div>
+            <div style="color:var(--primary); font-size:0.8rem; margin-top:2px;">法则：${q.formula||q.point}</div>
+          `;
+          container.appendChild(div);
+        });
+      }
+      modal.style.display = 'flex';
+    }
+    function closeMistakesModal() {
+      document.getElementById('mistakesModal').style.display = 'none';
+    }
+    function clearMistakes() {
+      if (confirm('确定要清空错题本吗？')) {
+        saveStoredMistakes([]);
+        openMistakesModal();
+      }
+    }
+    function startMistakesDrill() {
+      const list = getStoredMistakes();
+      if (list.length === 0) {
+        alert('当前没有错题！');
+        return;
+      }
+      closeMistakesModal();
+      questionList = [...list];
+      curIdx = 0;
+      userAnswers = {};
+      combo = 0;
+      document.getElementById('modeLabel').innerText = '错题强化';
+      renderQuestion();
+      renderNavGrid();
+      updateHUD();
+    }
+
+    // Exam Mode Handlers
+    function openExamModal() {
+      if (confirm('是否开启 50 题【全真综合大模拟考】？（从5大章节各精选10道题，真实检验全科综合能力）')) {
+        startExam(50);
+      }
+    }
+    function startExam(count) {
+      isExamMode = true;
+      document.getElementById('modeLabel').innerText = '全真模拟考 (50题)';
+      let allQ = [];
+      Object.keys(DB).forEach(k => {
+        const qArr = DB[k].questions || [];
+        allQ = allQ.concat(qArr);
+      });
+      // Shuffle and pick count
+      for (let i = allQ.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [allQ[i], allQ[j]] = [allQ[j], allQ[i]];
+      }
+      questionList = allQ.slice(0, count);
+      curIdx = 0;
+      userAnswers = {};
+      combo = 0;
+      renderQuestion();
+      renderNavGrid();
+      updateHUD();
+    }
+    function finishExam() {
+      const total = questionList.length;
+      let correct = 0;
+      Object.keys(userAnswers).forEach(k => {
+        if (userAnswers[k].isCorrect) correct++;
+      });
+      const acc = Math.round((correct / total) * 100);
+
+      document.getElementById('examFinalAcc').innerText = acc + '%';
+      document.getElementById('examCorrectCount').innerText = correct;
+      document.getElementById('examWrongCount').innerText = total - correct;
+
+      if (acc === 100) {
+        document.getElementById('examBadge').innerText = '👑';
+        document.getElementById('examTitle').innerText = '天秀！满分宗师！';
+        document.getElementById('examSubtitle').innerText = '全日语核心动词、形容词、助词、句型、口语已全部通透！';
+      } else if (acc >= 85) {
+        document.getElementById('examBadge').innerText = '⚔️';
+        document.getElementById('examTitle').innerText = '实力超群！高分通关！';
+        document.getElementById('examSubtitle').innerText = '基础与常见变化极其扎实，错题已存入错题集！';
+      } else {
+        document.getElementById('examBadge').innerText = '🌱';
+        document.getElementById('examTitle').innerText = '初显成效！继续加油！';
+        document.getElementById('examSubtitle').innerText = '建议针对错题强化复习，对照随身宝手册复读记忆！';
+      }
+
+      document.getElementById('examModal').style.display = 'flex';
+    }
+    function closeExamModal() {
+      document.getElementById('examModal').style.display = 'none';
+    }
+
+    // Startup
+    window.addEventListener('DOMContentLoaded', () => {
+      updateMistakesCount();
+      const hash = window.location.hash.replace('#', '');
+      if (['verb', 'adj', 'particle', 'sentence', 'spoken'].includes(hash)) {
+        switchChapter(hash);
+      } else {
+        switchChapter('verb');
+      }
+    });
   </script>
 </body>
 </html>
